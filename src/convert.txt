@@ -1,1 +1,0 @@
-C:\Users\BanhMiBietBay\Documents\Code\Python\src\Main.ui -o C:\Users\BanhMiBietBay\Documents\Code\Python\src\Main.py
