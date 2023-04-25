@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="D">
+    <file>0_NCBwYFewFf602uvF.png</file>
+  </qresource>
+  <qresource prefix="Icon">
+    <file>cil-smile.png</file>
+    <file>cil-mood-good.png</file>
+  </qresource>
+</RCC>

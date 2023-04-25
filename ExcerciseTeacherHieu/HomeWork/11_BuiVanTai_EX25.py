@@ -8,7 +8,8 @@ print("Total candidates nationwide: ", total_candidates)
 foreign_lang_candidates = len(df[df["ngoai_ngu"].notnull()])
 print("Total candidates taking the foreign language exam: ", foreign_lang_candidates)
 quang_ninh_candidates = len(df[df["sbd"].astype(str).str[:2] == "17"])
-print("Total candidates taking the exam at the Quang Ninh Department of Education and Training: ", quang_ninh_candidates)
+print("Total candidates taking the exam at the Quang Ninh Department of Education and Training: ",
+      quang_ninh_candidates)
 quang_ninh_df = df[df["sbd"].astype(str).str[:2] == "17"]
 quang_ninh_df = quang_ninh_df[["ngu_van", "ngoai_ngu", "vat_li", "dia_li"]].notnull().astype(int).sum()
 quang_ninh_df.plot(kind="bar")
