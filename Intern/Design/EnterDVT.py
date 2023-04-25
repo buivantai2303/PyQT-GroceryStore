@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-
-# Form implementation generated from reading ui file 'C:\Users\BanhMiBietBay\Documents\Code\Python\Intern\Design\EnterDVT.ui'
+import pyodbc
+# Form implementation generated from reading ui file 'C:\Users\BanhMiBietBay\Documents\Code\Python\Intern\User_Interface\EnterDVT.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -9,103 +9,173 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 
-class Ui_Dialog(object):
+# from Intern.Database.Connect_Database import connect_db
+
+
+class EnterDVTClass(object):
+    def __init__(self):
+        self.Dialog = None
+
     def setupUi(self, Dialog):
+        self.Dialog = Dialog
         Dialog.setObjectName("Dialog")
-        Dialog.resize(498, 171)
-        Dialog.setStyleSheet("background-color: rgb(45, 45, 45);\n"
-"font: 87 8pt \"Shopee Display Black\";")
+        Dialog.resize(797, 219)
+        Dialog.setStyleSheet("font: 87 8pt \"Shopee Display Black\";\n"
+                             "background-color: rgb(98, 188, 157);")
         self.horizontalLayout = QtWidgets.QHBoxLayout(Dialog)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.Add_DVT = QtWidgets.QWidget(Dialog)
-        self.Add_DVT.setStyleSheet("background-color: rgb(35, 35, 35);")
+        self.Add_DVT.setStyleSheet("    color: rgb(170, 0, 0);\n"
+                                   "    font: 87 11pt \"Shopee Display Black\";\n"
+                                   "    background-color: rgb(255, 175, 135);\n"
+                                   "border-radius: 10px;\n"
+                                   "background-color: rgb(255, 202, 166);")
         self.Add_DVT.setObjectName("Add_DVT")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.Add_DVT)
+        self.horizontalLayout_3.setContentsMargins(9, 0, 0, 0)
+        self.horizontalLayout_3.setSpacing(0)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.widget = QtWidgets.QWidget(self.Add_DVT)
+        self.widget.setObjectName("widget")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.widget)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2.setSpacing(0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.verticalWidget_4 = QtWidgets.QWidget(self.Add_DVT)
-        self.verticalWidget_4.setMinimumSize(QtCore.QSize(150, 0))
-        self.verticalWidget_4.setObjectName("verticalWidget_4")
-        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.verticalWidget_4)
+        self.verticalFrame_4 = QtWidgets.QFrame(self.widget)
+        self.verticalFrame_4.setMinimumSize(QtCore.QSize(150, 0))
+        self.verticalFrame_4.setObjectName("verticalFrame_4")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.verticalFrame_4)
+        self.verticalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.label_4 = QtWidgets.QLabel(self.verticalWidget_4)
-        self.label_4.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_4 = QtWidgets.QLabel(self.verticalFrame_4)
+        self.label_4.setStyleSheet("    color: rgb(170, 0, 0);\n"
+                                   "    font: 87 11pt \"Shopee Display Black\";")
         self.label_4.setObjectName("label_4")
         self.verticalLayout_4.addWidget(self.label_4)
-        self.label_3 = QtWidgets.QLabel(self.verticalWidget_4)
-        self.label_3.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_3 = QtWidgets.QLabel(self.verticalFrame_4)
+        self.label_3.setStyleSheet("    color: rgb(170, 0, 0);\n"
+                                   "    font: 87 11pt \"Shopee Display Black\";")
         self.label_3.setObjectName("label_3")
         self.verticalLayout_4.addWidget(self.label_3)
-        self.label_2 = QtWidgets.QLabel(self.verticalWidget_4)
-        self.label_2.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_2 = QtWidgets.QLabel(self.verticalFrame_4)
+        self.label_2.setStyleSheet("    color: rgb(170, 0, 0);\n"
+                                   "    font: 87 11pt \"Shopee Display Black\";")
         self.label_2.setObjectName("label_2")
         self.verticalLayout_4.addWidget(self.label_2)
-        self.label = QtWidgets.QLabel(self.verticalWidget_4)
-        self.label.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label = QtWidgets.QLabel(self.verticalFrame_4)
+        self.label.setStyleSheet("    color: rgb(170, 0, 0);\n"
+                                 "    font: 87 11pt \"Shopee Display Black\";")
         self.label.setObjectName("label")
         self.verticalLayout_4.addWidget(self.label)
-        self.horizontalLayout_2.addWidget(self.verticalWidget_4)
-        self.verticalLayout_3 = QtWidgets.QVBoxLayout()
+        self.horizontalLayout_2.addWidget(self.verticalFrame_4)
+        self.widget1 = QtWidgets.QWidget(self.widget)
+        self.widget1.setStyleSheet("border-radius: 10px;\n"
+                                   "background-color: rgb(255, 202, 166);")
+        self.widget1.setObjectName("widget1")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.widget1)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
-        self.lineEdit_11 = QtWidgets.QLineEdit(self.Add_DVT)
-        self.lineEdit_11.setMinimumSize(QtCore.QSize(0, 30))
-        self.lineEdit_11.setStyleSheet("background-color: rgb(33, 37, 43);\n"
-"color: rgb(255, 255, 255);")
-        self.lineEdit_11.setText("")
-        self.lineEdit_11.setObjectName("lineEdit_11")
-        self.verticalLayout_3.addWidget(self.lineEdit_11)
-        self.lineEdit_12 = QtWidgets.QLineEdit(self.Add_DVT)
-        self.lineEdit_12.setMinimumSize(QtCore.QSize(0, 30))
-        self.lineEdit_12.setStyleSheet("background-color: rgb(33, 37, 43);\n"
-"color: rgb(255, 255, 255);")
-        self.lineEdit_12.setText("")
-        self.lineEdit_12.setObjectName("lineEdit_12")
-        self.verticalLayout_3.addWidget(self.lineEdit_12)
-        self.lineEdit_9 = QtWidgets.QLineEdit(self.Add_DVT)
-        self.lineEdit_9.setMinimumSize(QtCore.QSize(0, 30))
-        self.lineEdit_9.setStyleSheet("background-color: rgb(33, 37, 43);\n"
-"color: rgb(255, 255, 255);")
-        self.lineEdit_9.setText("")
-        self.lineEdit_9.setObjectName("lineEdit_9")
-        self.verticalLayout_3.addWidget(self.lineEdit_9)
-        self.comboBox = QtWidgets.QComboBox(self.Add_DVT)
-        self.comboBox.setStyleSheet("background-color: rgb(255, 255, 255);")
-        self.comboBox.setObjectName("comboBox")
-        self.comboBox.addItem("")
-        self.comboBox.addItem("")
-        self.verticalLayout_3.addWidget(self.comboBox)
-        self.horizontalLayout_2.addLayout(self.verticalLayout_3)
-        self.horizontalLayout_3.addLayout(self.horizontalLayout_2)
+        self.EnterDVT_MaDVT = QtWidgets.QLineEdit(self.widget1)
+        self.EnterDVT_MaDVT.setMinimumSize(QtCore.QSize(0, 30))
+        self.EnterDVT_MaDVT.setStyleSheet("\n"
+                                          "background-color: rgb(255, 222, 215);\n"
+                                          "color: rgb(170, 0, 0);\n"
+                                          "border: 1px solid #000000;\n"
+                                          "border-radius: 10px;\n"
+                                          "")
+        self.EnterDVT_MaDVT.setText("")
+        self.EnterDVT_MaDVT.setObjectName("EnterDVT_MaDVT")
+        self.verticalLayout_3.addWidget(self.EnterDVT_MaDVT)
+        self.EnterDVT_TenDVT = QtWidgets.QLineEdit(self.widget1)
+        self.EnterDVT_TenDVT.setMinimumSize(QtCore.QSize(0, 30))
+        self.EnterDVT_TenDVT.setStyleSheet("\n"
+                                           "background-color: rgb(255, 222, 215);\n"
+                                           "color: rgb(170, 0, 0);\n"
+                                           "border: 1px solid #000000;\n"
+                                           "border-radius: 10px;\n"
+                                           "")
+        self.EnterDVT_TenDVT.setText("")
+        self.EnterDVT_TenDVT.setObjectName("EnterDVT_TenDVT")
+        self.verticalLayout_3.addWidget(self.EnterDVT_TenDVT)
+        self.EnterDVT_GhiChu = QtWidgets.QLineEdit(self.widget1)
+        self.EnterDVT_GhiChu.setMinimumSize(QtCore.QSize(0, 30))
+        self.EnterDVT_GhiChu.setStyleSheet("\n"
+                                           "background-color: rgb(255, 222, 215);\n"
+                                           "color: rgb(170, 0, 0);\n"
+                                           "border: 1px solid #000000;\n"
+                                           "border-radius: 10px;\n"
+                                           "")
+        self.EnterDVT_GhiChu.setText("")
+        self.EnterDVT_GhiChu.setObjectName("EnterDVT_GhiChu")
+        self.verticalLayout_3.addWidget(self.EnterDVT_GhiChu)
+        self.EnterDVT_TrangThai = QtWidgets.QComboBox(self.widget1)
+        self.EnterDVT_TrangThai.setStyleSheet("\n"
+                                              "background-color: rgb(255, 222, 215);\n"
+                                              "color: rgb(170, 0, 0);\n"
+                                              "border: 1px solid #000000;\n"
+                                              "border-radius: 10px;\n"
+                                              "")
+        self.EnterDVT_TrangThai.setObjectName("EnterDVT_TrangThai")
+        self.EnterDVT_TrangThai.addItem("")
+        self.EnterDVT_TrangThai.addItem("")
+        self.verticalLayout_3.addWidget(self.EnterDVT_TrangThai)
+        self.horizontalLayout_2.addWidget(self.widget1)
+        self.horizontalLayout_3.addWidget(self.widget)
         self.verticalLayout.addWidget(self.Add_DVT)
         self.horizontalLayout.addLayout(self.verticalLayout)
         self.horizontalWidget = QtWidgets.QWidget(Dialog)
         self.horizontalWidget.setMinimumSize(QtCore.QSize(100, 0))
-        self.horizontalWidget.setStyleSheet("QPushButton {\n"
-"    background-color: rgb(52, 59, 72);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
-"}")
+        self.horizontalWidget.setStyleSheet("    color: rgb(170, 0, 0);\n"
+                                            "    font: 87 11pt \"Shopee Display Black\";\n"
+                                            "border-radius: 10px;\n"
+                                            "background-color: rgb(255, 202, 166);")
         self.horizontalWidget.setObjectName("horizontalWidget")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.horizontalWidget)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.pushButton = QtWidgets.QPushButton(self.horizontalWidget)
-        self.pushButton.setObjectName("pushButton")
-        self.verticalLayout_2.addWidget(self.pushButton)
-        self.pushButton_2 = QtWidgets.QPushButton(self.horizontalWidget)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.verticalLayout_2.addWidget(self.pushButton_2)
+        self.EnterButtonDSDVT = QtWidgets.QPushButton(self.horizontalWidget)
+        self.EnterButtonDSDVT.setStyleSheet("QPushButton {\n"
+                                            "    font: 81 10pt \"Shopee Display ExtBd\";\n"
+                                            "    border: 1px solid #000000;\n"
+                                            "    border-radius: 10px;\n"
+                                            "}\n"
+                                            "\n"
+                                            "QPushButton {\n"
+                                            "    background-color:  rgb(170, 0, 0);\n"
+                                            "    color: rgb(255, 255, 255);\n"
+                                            "}\n"
+                                            "QPushButton:hover {\n"
+                                            "    background-color: rgb(85, 170, 255);\n"
+                                            "}")
+        self.EnterButtonDSDVT.setObjectName("EnterButtonDSDVT")
+        self.verticalLayout_2.addWidget(self.EnterButtonDSDVT)
+        self.ExitButtonDSDVT = QtWidgets.QPushButton(self.horizontalWidget)
+        self.ExitButtonDSDVT.setStyleSheet("QPushButton {\n"
+                                           "    font: 81 10pt \"Shopee Display ExtBd\";\n"
+                                           "    border: 1px solid #000000;\n"
+                                           "    border-radius: 10px;\n"
+                                           "}\n"
+                                           "\n"
+                                           "QPushButton {\n"
+                                           "    background-color:  rgb(170, 0, 0);\n"
+                                           "    color: rgb(255, 255, 255);\n"
+                                           "}\n"
+                                           "QPushButton:hover {\n"
+                                           "    background-color: rgb(85, 170, 255);\n"
+                                           "}")
+        self.ExitButtonDSDVT.setObjectName("ExitButtonDSDVT")
+        self.verticalLayout_2.addWidget(self.ExitButtonDSDVT)
         self.horizontalLayout.addWidget(self.horizontalWidget)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.EnterButtonDSDVT.clicked.connect(self.add_data_to_db)  # Khi nhấn nút Thêm (EnterButtonDSDVT)
+        self.ExitButtonDSDVT.clicked.connect(self.close)  # Khi nhấn nút Hủy (CancelButtonDSDVT)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
@@ -114,10 +184,41 @@ class Ui_Dialog(object):
         self.label_3.setText(_translate("Dialog", "Nhập tên đơn vị tính"))
         self.label_2.setText(_translate("Dialog", "Ghi chú"))
         self.label.setText(_translate("Dialog", "Trạng thái"))
-        self.lineEdit_11.setPlaceholderText(_translate("Dialog", "Type here"))
-        self.lineEdit_12.setPlaceholderText(_translate("Dialog", "Type here"))
-        self.lineEdit_9.setPlaceholderText(_translate("Dialog", "Type here"))
-        self.comboBox.setItemText(0, _translate("Dialog", "Đang trong trạng thái sử dụng"))
-        self.comboBox.setItemText(1, _translate("Dialog", "Không trong trạng thá"))
-        self.pushButton.setText(_translate("Dialog", "PushButton"))
-        self.pushButton_2.setText(_translate("Dialog", "PushButton"))
+        self.EnterDVT_MaDVT.setPlaceholderText(_translate("Dialog", "Type here"))
+        self.EnterDVT_TenDVT.setPlaceholderText(_translate("Dialog", "Type here"))
+        self.EnterDVT_GhiChu.setPlaceholderText(_translate("Dialog", "Type here"))
+        self.EnterDVT_TrangThai.setItemText(0, _translate("Dialog", "Hoạt động"))
+        self.EnterDVT_TrangThai.setItemText(1, _translate("Dialog", "Không hoạt động"))
+        self.EnterButtonDSDVT.setText(_translate("Dialog", "Hoàn tất"))
+        self.ExitButtonDSDVT.setText(_translate("Dialog", "Hủy"))
+
+    def add_data_to_db(self):
+
+        server = 'BANHMIBIETBAY\\SQLEXPRESS'
+        database = 'Sales_Manager'
+        username = 'sa'
+        password = '180403'
+
+        # Create the database connection
+        conn = pyodbc.connect(
+            f'DRIVER={{SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}')
+        ma_dvt = self.EnterDVT_MaDVT.text()
+        ten_dvt = self.EnterDVT_TenDVT.text()
+        ghi_chu = self.EnterDVT_GhiChu.text()
+        trang_thai = self.EnterDVT_TrangThai.currentText()
+
+        cursor = conn.cursor()
+
+        try:
+            cursor.execute("INSERT INTO Don_Vi_Tinh (MaDVT, TenDVT, GhiChu, DaXoa) VALUES (?, ?, ?, ?)",
+                           (ma_dvt, ten_dvt, ghi_chu, trang_thai))
+            conn.commit()
+        except Exception as e:
+            conn.rollback()
+            # Handle the exception as needed
+        finally:
+            conn.close()
+            self.Dialog.close()
+
+    def close(self):
+        pass

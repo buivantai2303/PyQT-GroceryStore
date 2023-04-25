@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>822</width>
+    <height>412</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>822</width>
+    <height>412</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>822</width>
+    <height>412</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+
+background-color: rgb(98, 188, 157);
+font: 87 10pt &quot;Shopee Display Black&quot;;
+
+
+background-color: rgb(98, 188, 157);</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="QWidget" name="horizontalWidget_2" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">	color: rgb(170, 0, 0);
+	font: 87 11pt &quot;Shopee Display Black&quot;;
+	background-color: rgb(255, 175, 135);
+border-radius: 10px;
+background-color: rgb(255, 202, 166);</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Mã bảng giá</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Mã hàng</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="text">
+           <string>Mã đơn vị tính</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Số lượng</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_6">
+          <property name="text">
+           <string>Giá nhập</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>Giá bán</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Trạng thái</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="horizontalWidget_3" native="true">
+       <property name="styleSheet">
+        <string notr="true">	color: rgb(170, 0, 0);
+	font: 87 11pt &quot;Shopee Display Black&quot;;
+border-radius: 10px;
+background-color: rgb(255, 202, 166);</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QLineEdit" name="EnterBG_MBG">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+background-color: rgb(255, 222, 215);
+color: rgb(170, 0, 0);
+border: 1px solid #000000;
+border-radius: 10px;
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Type here</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="EnterBG_MaHang">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+background-color: rgb(255, 222, 215);
+color: rgb(170, 0, 0);
+border: 1px solid #000000;
+border-radius: 10px;
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Type here</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="EnterBG_MaDVT">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+background-color: rgb(255, 222, 215);
+color: rgb(170, 0, 0);
+border: 1px solid #000000;
+border-radius: 10px;
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Type here</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="EnterBG_SoLuong">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+background-color: rgb(255, 222, 215);
+color: rgb(170, 0, 0);
+border: 1px solid #000000;
+border-radius: 10px;
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Type here</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="EnterBG_GiaMua">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+background-color: rgb(255, 222, 215);
+color: rgb(170, 0, 0);
+border: 1px solid #000000;
+border-radius: 10px;
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Type here</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="EnterBG_GiaBan">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">
+background-color: rgb(255, 222, 215);
+color: rgb(170, 0, 0);
+border: 1px solid #000000;
+border-radius: 10px;
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>Type here</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="EnterBG_TrangThai">
+          <property name="styleSheet">
+           <string notr="true">
+background-color: rgb(255, 222, 215);
+color: rgb(170, 0, 0);
+border: 1px solid #000000;
+border-radius: 10px;
+</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Hoạt động</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>Không hoạt động</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QWidget" name="horizontalWidget_2" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	color: rgb(170, 0, 0);
+	font: 87 11pt &quot;Shopee Display Black&quot;;
+	background-color: rgb(255, 175, 135);
+border-radius: 10px;
+background-color: rgb(255, 202, 166);</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QPushButton" name="EnterButtonBG">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	font: 81 10pt &quot;Shopee Display ExtBd&quot;;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+QPushButton {
+	background-color:  rgb(170, 0, 0);
+	color: rgb(255, 255, 255);
+}
+QPushButton:hover {
+	background-color: rgb(85, 170, 255);
+}</string>
+        </property>
+        <property name="text">
+         <string>Hoàn tất</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ExitButtonBG">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	font: 81 10pt &quot;Shopee Display ExtBd&quot;;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+QPushButton {
+	background-color:  rgb(170, 0, 0);
+	color: rgb(255, 255, 255);
+}
+QPushButton:hover {
+	background-color: rgb(85, 170, 255);
+}</string>
+        </property>
+        <property name="text">
+         <string>Hủy</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

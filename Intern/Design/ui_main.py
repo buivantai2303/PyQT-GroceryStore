@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\Users\BanhMiBietBay\Documents\Code\Python\Intern\Design\ui_main.ui'
+# Form implementation generated from reading ui file 'C:\Users\BanhMiBietBay\Documents\Code\Python\Intern\User_Interface\ui_main.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
 #
@@ -14,10 +14,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1000, 500)
+        MainWindow.resize(1152, 575)
         MainWindow.setMinimumSize(QtCore.QSize(1000, 500))
-        MainWindow.setStyleSheet("background-color: rgb(45, 45, 45);\n"
-                                 "font: 87 8pt \"Shopee Display Black\";")
+        MainWindow.setStyleSheet("font: 87 8pt \"Shopee Display Black\";\n"
+"background-color: rgb(255, 175, 135);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
@@ -26,7 +26,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName("verticalLayout")
         self.Top_Bar = QtWidgets.QFrame(self.centralwidget)
         self.Top_Bar.setMaximumSize(QtCore.QSize(16777215, 40))
-        self.Top_Bar.setStyleSheet("background-color: rgb(35, 35, 35);")
+        self.Top_Bar.setStyleSheet("background-color: rgb(104, 202, 168);")
         self.Top_Bar.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Top_Bar.setFrameShadow(QtWidgets.QFrame.Raised)
         self.Top_Bar.setObjectName("Top_Bar")
@@ -57,82 +57,46 @@ class Ui_MainWindow(object):
         font.setItalic(False)
         font.setWeight(10)
         self.Btn_Toggle.setFont(font)
-        self.Btn_Toggle.setStyleSheet("color: rgb(255, 255, 255);\n"
-                                      "border: 0px solid;")
+        self.Btn_Toggle.setStyleSheet("background-image: url(:/icons/images/icons/cil-home.png);\n"
+"background-repeat: no-repeat;\n"
+"background-position: center;\n"
+"background-size: auto;\n"
+"background-color:  rgb(170, 0, 0);\n"
+"\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"")
+        self.Btn_Toggle.setText("")
         self.Btn_Toggle.setObjectName("Btn_Toggle")
         self.verticalLayout_2.addWidget(self.Btn_Toggle)
         self.horizontalLayout.addWidget(self.frame_toggle)
         self.frame_top = QtWidgets.QFrame(self.Top_Bar)
+        self.frame_top.setStyleSheet("\n"
+"background-color: rgb(255, 202, 166);")
         self.frame_top.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_top.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_top.setObjectName("frame_top")
-        self.rightButtons = QtWidgets.QFrame(self.frame_top)
-        self.rightButtons.setGeometry(QtCore.QRect(800, 0, 127, 50))
-        self.rightButtons.setMinimumSize(QtCore.QSize(0, 28))
-        self.rightButtons.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.rightButtons.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.rightButtons.setObjectName("rightButtons")
-        self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.rightButtons)
-        self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_6.setSpacing(5)
-        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        self.minimizeAppBtn = QtWidgets.QPushButton(self.rightButtons)
-        self.minimizeAppBtn.setMinimumSize(QtCore.QSize(28, 28))
-        self.minimizeAppBtn.setMaximumSize(QtCore.QSize(28, 28))
-        self.minimizeAppBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.minimizeAppBtn.setStyleSheet("background-color: rgb(71, 129, 255);")
-        self.minimizeAppBtn.setText("")
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(":/icons/images/icons/icon_minimize.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.minimizeAppBtn.setIcon(icon)
-        self.minimizeAppBtn.setIconSize(QtCore.QSize(20, 20))
-        self.minimizeAppBtn.setObjectName("minimizeAppBtn")
-        self.horizontalLayout_6.addWidget(self.minimizeAppBtn)
-        self.maximizeRestoreAppBtn = QtWidgets.QPushButton(self.rightButtons)
-        self.maximizeRestoreAppBtn.setMinimumSize(QtCore.QSize(28, 28))
-        self.maximizeRestoreAppBtn.setMaximumSize(QtCore.QSize(28, 28))
-        font = QtGui.QFont()
-        font.setFamily("Shopee Display Black")
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(10)
-        self.maximizeRestoreAppBtn.setFont(font)
-        self.maximizeRestoreAppBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.maximizeRestoreAppBtn.setStyleSheet("background-color: rgb(71, 129, 255);")
-        self.maximizeRestoreAppBtn.setText("")
-        icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap(":/icons/images/icons/icon_maximize.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.maximizeRestoreAppBtn.setIcon(icon1)
-        self.maximizeRestoreAppBtn.setIconSize(QtCore.QSize(20, 20))
-        self.maximizeRestoreAppBtn.setObjectName("maximizeRestoreAppBtn")
-        self.horizontalLayout_6.addWidget(self.maximizeRestoreAppBtn)
-        self.closeAppBtn = QtWidgets.QPushButton(self.rightButtons)
-        self.closeAppBtn.setMinimumSize(QtCore.QSize(28, 28))
-        self.closeAppBtn.setMaximumSize(QtCore.QSize(28, 28))
-        self.closeAppBtn.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.closeAppBtn.setStyleSheet("background-color: rgb(71, 129, 255);")
-        self.closeAppBtn.setText("")
-        icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap(":/icons/images/icons/icon_close.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.closeAppBtn.setIcon(icon2)
-        self.closeAppBtn.setIconSize(QtCore.QSize(20, 20))
-        self.closeAppBtn.setObjectName("closeAppBtn")
-        self.horizontalLayout_6.addWidget(self.closeAppBtn)
         self.label_3 = QtWidgets.QLabel(self.frame_top)
         self.label_3.setGeometry(QtCore.QRect(20, 10, 671, 21))
         font = QtGui.QFont()
         font.setFamily("Shopee Display Black")
-        font.setPointSize(8)
+        font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(10)
         self.label_3.setFont(font)
-        self.label_3.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_3.setStyleSheet("    color: rgb(170, 0, 0);\n"
+"    font: 87 10pt \"Shopee Display Black\";")
         self.label_3.setObjectName("label_3")
         self.horizontalLayout.addWidget(self.frame_top)
         self.verticalLayout.addWidget(self.Top_Bar)
         self.Content = QtWidgets.QFrame(self.centralwidget)
+        self.Content.setStyleSheet("\n"
+"background-color: rgb(98, 188, 157);")
         self.Content.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.Content.setFrameShadow(QtWidgets.QFrame.Raised)
         self.Content.setObjectName("Content")
@@ -143,12 +107,14 @@ class Ui_MainWindow(object):
         self.frame_left_menu = QtWidgets.QFrame(self.Content)
         self.frame_left_menu.setMinimumSize(QtCore.QSize(70, 0))
         self.frame_left_menu.setMaximumSize(QtCore.QSize(70, 16777215))
-        self.frame_left_menu.setStyleSheet("background-color: rgb(35, 35, 35);")
+        self.frame_left_menu.setStyleSheet("\n"
+"background-color: rgb(255, 202, 166);")
         self.frame_left_menu.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_left_menu.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_left_menu.setObjectName("frame_left_menu")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.frame_left_menu)
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_3.setContentsMargins(2, 2, 2, 2)
+        self.verticalLayout_3.setSpacing(2)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.frame_top_menus = QtWidgets.QFrame(self.frame_left_menu)
         self.frame_top_menus.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -162,62 +128,48 @@ class Ui_MainWindow(object):
         self.btn_page_1.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setFamily("Shopee Display Black")
-        font.setPointSize(8)
+        font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(10)
         self.btn_page_1.setFont(font)
         self.btn_page_1.setStyleSheet("QPushButton {\n"
-                                      "    color: rgb(255, 255, 255);\n"
-                                      "    background-color: rgb(35, 35, 35);\n"
-                                      "    border: 0px solid;\n"
-                                      "}\n"
-                                      "QPushButton:hover {\n"
-                                      "    background-color: rgb(85, 170, 255);\n"
-                                      "}")
+"    color: rgb(170, 0, 0);\n"
+"    font: 87 10pt \"Shopee Display Black\";\n"
+"    background-color: rgb(255, 175, 135);\n"
+"    border: 0px solid;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}")
         self.btn_page_1.setObjectName("btn_page_1")
         self.verticalLayout_4.addWidget(self.btn_page_1)
         self.btn_page_2 = QtWidgets.QPushButton(self.frame_top_menus)
         self.btn_page_2.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
         font.setFamily("Shopee Display Black")
-        font.setPointSize(8)
+        font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(10)
         self.btn_page_2.setFont(font)
         self.btn_page_2.setStyleSheet("QPushButton {\n"
-                                      "    color: rgb(255, 255, 255);\n"
-                                      "    background-color: rgb(35, 35, 35);\n"
-                                      "    border: 0px solid;\n"
-                                      "}\n"
-                                      "QPushButton:hover {\n"
-                                      "    background-color: rgb(85, 170, 255);\n"
-                                      "}")
+"    color: rgb(170, 0, 0);\n"
+"    font: 87 10pt \"Shopee Display Black\";\n"
+"    background-color: rgb(255, 175, 135);\n"
+"    border: 0px solid;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}")
         self.btn_page_2.setObjectName("btn_page_2")
         self.verticalLayout_4.addWidget(self.btn_page_2)
-        self.btn_page_3 = QtWidgets.QPushButton(self.frame_top_menus)
-        self.btn_page_3.setMinimumSize(QtCore.QSize(0, 40))
-        font = QtGui.QFont()
-        font.setFamily("Shopee Display Black")
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(10)
-        self.btn_page_3.setFont(font)
-        self.btn_page_3.setStyleSheet("QPushButton {\n"
-                                      "    color: rgb(255, 255, 255);\n"
-                                      "    background-color: rgb(35, 35, 35);\n"
-                                      "    border: 0px solid;\n"
-                                      "}\n"
-                                      "QPushButton:hover {\n"
-                                      "    background-color: rgb(85, 170, 255);\n"
-                                      "}")
-        self.btn_page_3.setObjectName("btn_page_3")
-        self.verticalLayout_4.addWidget(self.btn_page_3)
         self.verticalLayout_3.addWidget(self.frame_top_menus, 0, QtCore.Qt.AlignTop)
         self.horizontalLayout_2.addWidget(self.frame_left_menu)
         self.frame_pages = QtWidgets.QFrame(self.Content)
+        self.frame_pages.setStyleSheet("border-radius: 10px;")
         self.frame_pages.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame_pages.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame_pages.setObjectName("frame_pages")
@@ -235,12 +187,12 @@ class Ui_MainWindow(object):
         self.HomeTab_Table1.setMinimumSize(QtCore.QSize(70, 0))
         self.HomeTab_Table1.setMaximumSize(QtCore.QSize(150, 16777215))
         self.HomeTab_Table1.setSizeIncrement(QtCore.QSize(70, 0))
-        self.HomeTab_Table1.setStyleSheet("background-color: rgb(85, 170, 255);\n"
-                                          "")
+        self.HomeTab_Table1.setStyleSheet("background-color: rgb(255, 208, 202);\n"
+"border-radius: 10px;")
         self.HomeTab_Table1.setObjectName("HomeTab_Table1")
         self.verticalLayout_14 = QtWidgets.QVBoxLayout(self.HomeTab_Table1)
-        self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_14.setSpacing(0)
+        self.verticalLayout_14.setContentsMargins(5, 5, 5, 5)
+        self.verticalLayout_14.setSpacing(5)
         self.verticalLayout_14.setObjectName("verticalLayout_14")
         self.Home_9 = QtWidgets.QPushButton(self.HomeTab_Table1)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
@@ -250,19 +202,24 @@ class Ui_MainWindow(object):
         self.Home_9.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Shopee Display Black")
-        font.setPointSize(8)
+        font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(10)
         self.Home_9.setFont(font)
         self.Home_9.setStyleSheet("QPushButton {\n"
-                                  "    color: rgb(255, 255, 255);\n"
-                                  "    background-color: rgb(35, 35, 35);\n"
-                                  "    border: 0px solid;\n"
-                                  "}\n"
-                                  "QPushButton:hover {\n"
-                                  "    background-color: rgb(85, 170, 255);\n"
-                                  "}")
+"    color: rgb(170, 0, 0);\n"
+"    font: 87 11pt \"Shopee Display Black\";\n"
+"    background-color: rgb(255, 175, 135);\n"
+"    border: 0px solid;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"")
         self.Home_9.setObjectName("Home_9")
         self.verticalLayout_14.addWidget(self.Home_9)
         self.Home_8 = QtWidgets.QPushButton(self.HomeTab_Table1)
@@ -273,19 +230,24 @@ class Ui_MainWindow(object):
         self.Home_8.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Shopee Display Black")
-        font.setPointSize(8)
+        font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(10)
         self.Home_8.setFont(font)
         self.Home_8.setStyleSheet("QPushButton {\n"
-                                  "    color: rgb(255, 255, 255);\n"
-                                  "    background-color: rgb(35, 35, 35);\n"
-                                  "    border: 0px solid;\n"
-                                  "}\n"
-                                  "QPushButton:hover {\n"
-                                  "    background-color: rgb(85, 170, 255);\n"
-                                  "}")
+"    color: rgb(170, 0, 0);\n"
+"    font: 87 11pt \"Shopee Display Black\";\n"
+"    background-color: rgb(255, 175, 135);\n"
+"    border: 0px solid;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"")
         self.Home_8.setObjectName("Home_8")
         self.verticalLayout_14.addWidget(self.Home_8)
         self.Home_7 = QtWidgets.QPushButton(self.HomeTab_Table1)
@@ -296,19 +258,24 @@ class Ui_MainWindow(object):
         self.Home_7.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Shopee Display Black")
-        font.setPointSize(8)
+        font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(10)
         self.Home_7.setFont(font)
         self.Home_7.setStyleSheet("QPushButton {\n"
-                                  "    color: rgb(255, 255, 255);\n"
-                                  "    background-color: rgb(35, 35, 35);\n"
-                                  "    border: 0px solid;\n"
-                                  "}\n"
-                                  "QPushButton:hover {\n"
-                                  "    background-color: rgb(85, 170, 255);\n"
-                                  "}")
+"    color: rgb(170, 0, 0);\n"
+"    font: 87 11pt \"Shopee Display Black\";\n"
+"    background-color: rgb(255, 175, 135);\n"
+"    border: 0px solid;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"")
         self.Home_7.setObjectName("Home_7")
         self.verticalLayout_14.addWidget(self.Home_7)
         self.Home_6 = QtWidgets.QPushButton(self.HomeTab_Table1)
@@ -319,19 +286,24 @@ class Ui_MainWindow(object):
         self.Home_6.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Shopee Display Black")
-        font.setPointSize(8)
+        font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(10)
         self.Home_6.setFont(font)
         self.Home_6.setStyleSheet("QPushButton {\n"
-                                  "    color: rgb(255, 255, 255);\n"
-                                  "    background-color: rgb(35, 35, 35);\n"
-                                  "    border: 0px solid;\n"
-                                  "}\n"
-                                  "QPushButton:hover {\n"
-                                  "    background-color: rgb(85, 170, 255);\n"
-                                  "}")
+"    color: rgb(170, 0, 0);\n"
+"    font: 87 11pt \"Shopee Display Black\";\n"
+"    background-color: rgb(255, 175, 135);\n"
+"    border: 0px solid;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"")
         self.Home_6.setObjectName("Home_6")
         self.verticalLayout_14.addWidget(self.Home_6)
         self.Home_5 = QtWidgets.QPushButton(self.HomeTab_Table1)
@@ -342,44 +314,26 @@ class Ui_MainWindow(object):
         self.Home_5.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Shopee Display Black")
-        font.setPointSize(8)
+        font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(10)
         self.Home_5.setFont(font)
         self.Home_5.setStyleSheet("QPushButton {\n"
-                                  "    color: rgb(255, 255, 255);\n"
-                                  "    background-color: rgb(35, 35, 35);\n"
-                                  "    border: 0px solid;\n"
-                                  "}\n"
-                                  "QPushButton:hover {\n"
-                                  "    background-color: rgb(85, 170, 255);\n"
-                                  "}")
+"    color: rgb(170, 0, 0);\n"
+"    font: 87 11pt \"Shopee Display Black\";\n"
+"    background-color: rgb(255, 175, 135);\n"
+"    border: 0px solid;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"")
         self.Home_5.setObjectName("Home_5")
         self.verticalLayout_14.addWidget(self.Home_5)
-        self.Home_4 = QtWidgets.QPushButton(self.HomeTab_Table1)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.Home_4.sizePolicy().hasHeightForWidth())
-        self.Home_4.setSizePolicy(sizePolicy)
-        font = QtGui.QFont()
-        font.setFamily("Shopee Display Black")
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(10)
-        self.Home_4.setFont(font)
-        self.Home_4.setStyleSheet("QPushButton {\n"
-                                  "    color: rgb(255, 255, 255);\n"
-                                  "    background-color: rgb(35, 35, 35);\n"
-                                  "    border: 0px solid;\n"
-                                  "}\n"
-                                  "QPushButton:hover {\n"
-                                  "    background-color: rgb(85, 170, 255);\n"
-                                  "}")
-        self.Home_4.setObjectName("Home_4")
-        self.verticalLayout_14.addWidget(self.Home_4)
         self.Home_2 = QtWidgets.QPushButton(self.HomeTab_Table1)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
@@ -388,19 +342,24 @@ class Ui_MainWindow(object):
         self.Home_2.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Shopee Display Black")
-        font.setPointSize(8)
+        font.setPointSize(11)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(10)
         self.Home_2.setFont(font)
         self.Home_2.setStyleSheet("QPushButton {\n"
-                                  "    color: rgb(255, 255, 255);\n"
-                                  "    background-color: rgb(35, 35, 35);\n"
-                                  "    border: 0px solid;\n"
-                                  "}\n"
-                                  "QPushButton:hover {\n"
-                                  "    background-color: rgb(85, 170, 255);\n"
-                                  "}")
+"    color: rgb(170, 0, 0);\n"
+"    font: 87 11pt \"Shopee Display Black\";\n"
+"    background-color: rgb(255, 175, 135);\n"
+"    border: 0px solid;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"")
         self.Home_2.setObjectName("Home_2")
         self.verticalLayout_14.addWidget(self.Home_2)
         self.horizontalLayout_5.addWidget(self.HomeTab_Table1)
@@ -415,15 +374,22 @@ class Ui_MainWindow(object):
         self.verticalStackedWidget_2 = QtWidgets.QStackedWidget(self.verticalWidget)
         self.verticalStackedWidget_2.setObjectName("verticalStackedWidget_2")
         self.TT_DVT_Page = QtWidgets.QWidget()
+        self.TT_DVT_Page.setStyleSheet("QPushButton {\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"")
         self.TT_DVT_Page.setObjectName("TT_DVT_Page")
         self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.TT_DVT_Page)
         self.verticalLayout_13.setObjectName("verticalLayout_13")
         self.verticalWidget1 = QtWidgets.QWidget(self.TT_DVT_Page)
-        self.verticalWidget1.setMaximumSize(QtCore.QSize(16777215, 100))
-        self.verticalWidget1.setStyleSheet("background-color: rgb(35, 35, 35);")
+        self.verticalWidget1.setMinimumSize(QtCore.QSize(0, 110))
+        self.verticalWidget1.setMaximumSize(QtCore.QSize(16777215, 110))
+        self.verticalWidget1.setStyleSheet("border-radius: 10px;\n"
+"background-color: rgb(255, 202, 166);")
         self.verticalWidget1.setObjectName("verticalWidget1")
         self.frame_div_content_1 = QtWidgets.QFrame(self.verticalWidget1)
-        self.frame_div_content_1.setGeometry(QtCore.QRect(0, 0, 691, 110))
+        self.frame_div_content_1.setGeometry(QtCore.QRect(0, 0, 681, 110))
         self.frame_div_content_1.setMinimumSize(QtCore.QSize(0, 110))
         self.frame_div_content_1.setMaximumSize(QtCore.QSize(16777215, 110))
         self.frame_div_content_1.setFrameShape(QtWidgets.QFrame.NoFrame)
@@ -443,13 +409,13 @@ class Ui_MainWindow(object):
         self.labelBoxBlenderInstalation_2 = QtWidgets.QLabel(self.frame_title_wid_2)
         font = QtGui.QFont()
         font.setFamily("Shopee Display Black")
-        font.setPointSize(8)
+        font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(10)
         self.labelBoxBlenderInstalation_2.setFont(font)
-        self.labelBoxBlenderInstalation_2.setStyleSheet("\n"
-                                                        "color: rgb(255, 255, 255);")
+        self.labelBoxBlenderInstalation_2.setStyleSheet("    color: rgb(170, 0, 0);\n"
+"    font: 87 10pt \"Shopee Display Black\";")
         self.labelBoxBlenderInstalation_2.setObjectName("labelBoxBlenderInstalation_2")
         self.verticalLayout_20.addWidget(self.labelBoxBlenderInstalation_2)
         self.verticalLayout_19.addWidget(self.frame_title_wid_2)
@@ -462,64 +428,968 @@ class Ui_MainWindow(object):
         self.gridLayout_2 = QtWidgets.QGridLayout()
         self.gridLayout_2.setContentsMargins(-1, -1, -1, 0)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.lineEdit_2 = QtWidgets.QLineEdit(self.frame_content_wid_2)
-        self.lineEdit_2.setMinimumSize(QtCore.QSize(0, 30))
-        self.lineEdit_2.setStyleSheet("background-color: rgb(33, 37, 43);\n"
-                                      "color: rgb(255, 255, 255);")
-        self.lineEdit_2.setText("")
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.gridLayout_2.addWidget(self.lineEdit_2, 0, 0, 1, 1)
-        self.pushButton_9 = QtWidgets.QPushButton(self.frame_content_wid_2)
-        self.pushButton_9.setMinimumSize(QtCore.QSize(150, 30))
+        self.LineSearchDSDVT = QtWidgets.QLineEdit(self.frame_content_wid_2)
+        self.LineSearchDSDVT.setMinimumSize(QtCore.QSize(0, 30))
+        self.LineSearchDSDVT.setStyleSheet("\n"
+"background-color: rgb(255, 222, 215);\n"
+"color: rgb(170, 0, 0);\n"
+"border: 1px solid #000000;\n"
+"border-radius: 10px;\n"
+"")
+        self.LineSearchDSDVT.setText("")
+        self.LineSearchDSDVT.setObjectName("LineSearchDSDVT")
+        self.gridLayout_2.addWidget(self.LineSearchDSDVT, 0, 0, 1, 1)
+        self.SearchButtonDSDVT = QtWidgets.QPushButton(self.frame_content_wid_2)
+        self.SearchButtonDSDVT.setMinimumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily("Shopee Display ExtBd")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(10)
+        self.SearchButtonDSDVT.setFont(font)
+        self.SearchButtonDSDVT.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.SearchButtonDSDVT.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/icons/images/icons/cil-folder-open.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.SearchButtonDSDVT.setIcon(icon)
+        self.SearchButtonDSDVT.setObjectName("SearchButtonDSDVT")
+        self.gridLayout_2.addWidget(self.SearchButtonDSDVT, 0, 1, 1, 1)
+        self.labelVersion_4 = QtWidgets.QLabel(self.frame_content_wid_2)
+        self.labelVersion_4.setStyleSheet("color: rgb(113, 126, 149);")
+        self.labelVersion_4.setLineWidth(1)
+        self.labelVersion_4.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.labelVersion_4.setObjectName("labelVersion_4")
+        self.gridLayout_2.addWidget(self.labelVersion_4, 1, 0, 1, 2)
+        self.horizontalLayout_12.addLayout(self.gridLayout_2)
+        self.verticalLayout_19.addWidget(self.frame_content_wid_2)
+        self.frame_5 = QtWidgets.QFrame(self.verticalWidget1)
+        self.frame_5.setGeometry(QtCore.QRect(145, 0, 311, 41))
+        self.frame_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_5.setObjectName("frame_5")
+        self.horizontalLayout_11 = QtWidgets.QHBoxLayout(self.frame_5)
+        self.horizontalLayout_11.setObjectName("horizontalLayout_11")
+        self.AddButtonDSDVT = QtWidgets.QPushButton(self.frame_5)
+        self.AddButtonDSDVT.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.AddButtonDSDVT.setObjectName("AddButtonDSDVT")
+        self.horizontalLayout_11.addWidget(self.AddButtonDSDVT)
+        self.DeleteButtonDSDVT = QtWidgets.QPushButton(self.frame_5)
+        self.DeleteButtonDSDVT.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.DeleteButtonDSDVT.setObjectName("DeleteButtonDSDVT")
+        self.horizontalLayout_11.addWidget(self.DeleteButtonDSDVT)
+        self.verticalLayout_13.addWidget(self.verticalWidget1)
+        self.verticalWidget_2 = QtWidgets.QWidget(self.TT_DVT_Page)
+        self.verticalWidget_2.setStyleSheet("background-color: rgb(35, 35, 35);")
+        self.verticalWidget_2.setObjectName("verticalWidget_2")
+        self.horizontalLayout_13 = QtWidgets.QHBoxLayout(self.verticalWidget_2)
+        self.horizontalLayout_13.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_13.setObjectName("horizontalLayout_13")
+        self.horizontalFrame = QtWidgets.QFrame(self.verticalWidget_2)
+        self.horizontalFrame.setObjectName("horizontalFrame")
+        self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.horizontalFrame)
+        self.horizontalLayout_7.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_7.setSpacing(0)
+        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
+        self.tableView = QtWidgets.QTableView(self.horizontalFrame)
+        self.tableView.setStyleSheet("background-color: rgb(255, 222, 215);\n"
+"color: rgb(170, 0, 0);\n"
+"font: 57 9pt \"Shopee Display Med\";\n"
+"border-radius: 10px;\n"
+"")
+        self.tableView.setObjectName("tableView")
+        self.horizontalLayout_7.addWidget(self.tableView)
+        self.horizontalLayout_13.addWidget(self.horizontalFrame)
+        self.verticalLayout_13.addWidget(self.verticalWidget_2)
+        self.verticalStackedWidget_2.addWidget(self.TT_DVT_Page)
+        self.TT_NCC_Page = QtWidgets.QWidget()
+        self.TT_NCC_Page.setObjectName("TT_NCC_Page")
+        self.verticalLayout_17 = QtWidgets.QVBoxLayout(self.TT_NCC_Page)
+        self.verticalLayout_17.setObjectName("verticalLayout_17")
+        self.verticalWidget2 = QtWidgets.QWidget(self.TT_NCC_Page)
+        self.verticalWidget2.setMinimumSize(QtCore.QSize(0, 110))
+        self.verticalWidget2.setMaximumSize(QtCore.QSize(16777215, 110))
+        self.verticalWidget2.setStyleSheet("border-radius: 10px;\n"
+"background-color: rgb(255, 202, 166);")
+        self.verticalWidget2.setObjectName("verticalWidget2")
+        self.frame_div_content_2 = QtWidgets.QFrame(self.verticalWidget2)
+        self.frame_div_content_2.setGeometry(QtCore.QRect(0, 0, 681, 110))
+        self.frame_div_content_2.setMinimumSize(QtCore.QSize(0, 110))
+        self.frame_div_content_2.setMaximumSize(QtCore.QSize(16777215, 110))
+        self.frame_div_content_2.setStyleSheet("border-radius: 10px;\n"
+"background-color: rgb(255, 202, 166);")
+        self.frame_div_content_2.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_div_content_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_div_content_2.setObjectName("frame_div_content_2")
+        self.verticalLayout_18 = QtWidgets.QVBoxLayout(self.frame_div_content_2)
+        self.verticalLayout_18.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_18.setSpacing(0)
+        self.verticalLayout_18.setObjectName("verticalLayout_18")
+        self.frame_title_wid_1 = QtWidgets.QFrame(self.frame_div_content_2)
+        self.frame_title_wid_1.setMaximumSize(QtCore.QSize(16777215, 35))
+        self.frame_title_wid_1.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_title_wid_1.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_title_wid_1.setObjectName("frame_title_wid_1")
+        self.verticalLayout_21 = QtWidgets.QVBoxLayout(self.frame_title_wid_1)
+        self.verticalLayout_21.setObjectName("verticalLayout_21")
+        self.labelBoxBlenderInstalation = QtWidgets.QLabel(self.frame_title_wid_1)
+        font = QtGui.QFont()
+        font.setFamily("Shopee Display Black")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(10)
+        self.labelBoxBlenderInstalation.setFont(font)
+        self.labelBoxBlenderInstalation.setStyleSheet("    color: rgb(170, 0, 0);\n"
+"    font: 87 10pt \"Shopee Display Black\";")
+        self.labelBoxBlenderInstalation.setObjectName("labelBoxBlenderInstalation")
+        self.verticalLayout_21.addWidget(self.labelBoxBlenderInstalation)
+        self.verticalLayout_18.addWidget(self.frame_title_wid_1)
+        self.frame_content_wid_1 = QtWidgets.QFrame(self.frame_div_content_2)
+        self.frame_content_wid_1.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_content_wid_1.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_content_wid_1.setObjectName("frame_content_wid_1")
+        self.horizontalLayout_10 = QtWidgets.QHBoxLayout(self.frame_content_wid_1)
+        self.horizontalLayout_10.setObjectName("horizontalLayout_10")
+        self.gridLayout_3 = QtWidgets.QGridLayout()
+        self.gridLayout_3.setContentsMargins(-1, -1, -1, 0)
+        self.gridLayout_3.setObjectName("gridLayout_3")
+        self.LineSearchDSNCC = QtWidgets.QLineEdit(self.frame_content_wid_1)
+        self.LineSearchDSNCC.setMinimumSize(QtCore.QSize(0, 30))
+        self.LineSearchDSNCC.setStyleSheet("\n"
+"background-color: rgb(255, 222, 215);\n"
+"color: rgb(170, 0, 0);\n"
+"border: 1px solid #000000;\n"
+"border-radius: 10px;\n"
+"")
+        self.LineSearchDSNCC.setText("")
+        self.LineSearchDSNCC.setObjectName("LineSearchDSNCC")
+        self.gridLayout_3.addWidget(self.LineSearchDSNCC, 0, 0, 1, 1)
+        self.SearchButtonDSNCC = QtWidgets.QPushButton(self.frame_content_wid_1)
+        self.SearchButtonDSNCC.setMinimumSize(QtCore.QSize(150, 30))
         font = QtGui.QFont()
         font.setFamily("Shopee Display Black")
         font.setPointSize(8)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(10)
-        self.pushButton_9.setFont(font)
-        self.pushButton_9.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.pushButton_9.setStyleSheet("background-color: rgb(52, 59, 72);\n"
-                                        "color: rgb(255, 255, 255);")
-        icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap(":/icons/images/icons/cil-folder-open.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.pushButton_9.setIcon(icon3)
-        self.pushButton_9.setObjectName("pushButton_9")
-        self.gridLayout_2.addWidget(self.pushButton_9, 0, 1, 1, 1)
-        self.labelVersion_4 = QtWidgets.QLabel(self.frame_content_wid_2)
-        self.labelVersion_4.setStyleSheet("color: rgb(113, 126, 149);")
-        self.labelVersion_4.setLineWidth(1)
-        self.labelVersion_4.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignVCenter)
-        self.labelVersion_4.setObjectName("labelVersion_4")
-        self.gridLayout_2.addWidget(self.labelVersion_4, 1, 0, 1, 2)
-        self.horizontalLayout_12.addLayout(self.gridLayout_2)
-        self.verticalLayout_19.addWidget(self.frame_content_wid_2)
-        self.verticalLayout_13.addWidget(self.verticalWidget1)
-        self.verticalWidget_2 = QtWidgets.QWidget(self.TT_DVT_Page)
-        self.verticalWidget_2.setStyleSheet("background-color: rgb(35, 35, 35);")
-        self.verticalWidget_2.setObjectName("verticalWidget_2")
-        self.row_3 = QtWidgets.QFrame(self.verticalWidget_2)
-        self.row_3.setGeometry(QtCore.QRect(0, 0, 681, 271))
-        self.row_3.setMinimumSize(QtCore.QSize(0, 150))
-        self.row_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.row_3.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.row_3.setObjectName("row_3")
-        self.horizontalLayout_13 = QtWidgets.QHBoxLayout(self.row_3)
-        self.horizontalLayout_13.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout_13.setSpacing(0)
-        self.horizontalLayout_13.setObjectName("horizontalLayout_13")
-        self.tableView = QtWidgets.QTableView(self.row_3)
-        self.tableView.setStyleSheet("background-color: rgb(255, 229, 237);\n")
-        self.tableView.setObjectName("tableView")
-        self.horizontalLayout_13.addWidget(self.tableView)
-        self.verticalLayout_13.addWidget(self.verticalWidget_2)
-        self.verticalStackedWidget_2.addWidget(self.TT_DVT_Page)
-        self.TT_NCC_Page = QtWidgets.QWidget()
-        self.TT_NCC_Page.setObjectName("TT_NCC_Page")
+        self.SearchButtonDSNCC.setFont(font)
+        self.SearchButtonDSNCC.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.SearchButtonDSNCC.setStyleSheet("\n"
+"QPushButton {\n"
+"    background-color: rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.SearchButtonDSNCC.setIcon(icon)
+        self.SearchButtonDSNCC.setObjectName("SearchButtonDSNCC")
+        self.gridLayout_3.addWidget(self.SearchButtonDSNCC, 0, 1, 1, 1)
+        self.labelVersion_5 = QtWidgets.QLabel(self.frame_content_wid_1)
+        self.labelVersion_5.setStyleSheet("color: rgb(113, 126, 149);")
+        self.labelVersion_5.setLineWidth(1)
+        self.labelVersion_5.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.labelVersion_5.setObjectName("labelVersion_5")
+        self.gridLayout_3.addWidget(self.labelVersion_5, 1, 0, 1, 2)
+        self.horizontalLayout_10.addLayout(self.gridLayout_3)
+        self.verticalLayout_18.addWidget(self.frame_content_wid_1)
+        self.frame_7 = QtWidgets.QFrame(self.verticalWidget2)
+        self.frame_7.setGeometry(QtCore.QRect(175, 4, 351, 41))
+        self.frame_7.setStyleSheet("border-radius: 10px;\n"
+"background-color: rgb(255, 202, 166);")
+        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_7.setObjectName("frame_7")
+        self.horizontalLayout_19 = QtWidgets.QHBoxLayout(self.frame_7)
+        self.horizontalLayout_19.setObjectName("horizontalLayout_19")
+        self.AddButtonDSNCC = QtWidgets.QPushButton(self.frame_7)
+        self.AddButtonDSNCC.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.AddButtonDSNCC.setObjectName("AddButtonDSNCC")
+        self.horizontalLayout_19.addWidget(self.AddButtonDSNCC)
+        self.DeleteButtonDSNCC = QtWidgets.QPushButton(self.frame_7)
+        self.DeleteButtonDSNCC.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.DeleteButtonDSNCC.setObjectName("DeleteButtonDSNCC")
+        self.horizontalLayout_19.addWidget(self.DeleteButtonDSNCC)
+        self.verticalLayout_17.addWidget(self.verticalWidget2)
+        self.verticalWidget_3 = QtWidgets.QWidget(self.TT_NCC_Page)
+        self.verticalWidget_3.setObjectName("verticalWidget_3")
+        self.verticalLayout_15 = QtWidgets.QVBoxLayout(self.verticalWidget_3)
+        self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_15.setSpacing(0)
+        self.verticalLayout_15.setObjectName("verticalLayout_15")
+        self.horizontalFrame1 = QtWidgets.QFrame(self.verticalWidget_3)
+        self.horizontalFrame1.setObjectName("horizontalFrame1")
+        self.TT_Zone_2 = QtWidgets.QHBoxLayout(self.horizontalFrame1)
+        self.TT_Zone_2.setContentsMargins(0, 0, 0, 0)
+        self.TT_Zone_2.setSpacing(0)
+        self.TT_Zone_2.setObjectName("TT_Zone_2")
+        self.tableView_2 = QtWidgets.QTableView(self.horizontalFrame1)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tableView_2.sizePolicy().hasHeightForWidth())
+        self.tableView_2.setSizePolicy(sizePolicy)
+        self.tableView_2.setStyleSheet("background-color: rgb(255, 222, 215);\n"
+"color: rgb(170, 0, 0);\n"
+"font: 57 9pt \"Shopee Display Med\";\n"
+"border-radius: 10px;\n"
+"")
+        self.tableView_2.setObjectName("tableView_2")
+        self.TT_Zone_2.addWidget(self.tableView_2)
+        self.verticalLayout_15.addWidget(self.horizontalFrame1)
+        self.verticalLayout_17.addWidget(self.verticalWidget_3)
         self.verticalStackedWidget_2.addWidget(self.TT_NCC_Page)
-        self.page_4 = QtWidgets.QWidget()
-        self.page_4.setObjectName("page_4")
-        self.verticalStackedWidget_2.addWidget(self.page_4)
+        self.TT_DSHH_Page = QtWidgets.QWidget()
+        self.TT_DSHH_Page.setObjectName("TT_DSHH_Page")
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout(self.TT_DSHH_Page)
+        self.verticalLayout_12.setObjectName("verticalLayout_12")
+        self.horizontalFrame_2 = QtWidgets.QFrame(self.TT_DSHH_Page)
+        self.horizontalFrame_2.setMaximumSize(QtCore.QSize(16777215, 110))
+        self.horizontalFrame_2.setStyleSheet("border-radius: 10px;\n"
+"background-color: rgb(255, 202, 166);")
+        self.horizontalFrame_2.setObjectName("horizontalFrame_2")
+        self.frame_div_content_3 = QtWidgets.QFrame(self.horizontalFrame_2)
+        self.frame_div_content_3.setGeometry(QtCore.QRect(0, 0, 681, 110))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_div_content_3.sizePolicy().hasHeightForWidth())
+        self.frame_div_content_3.setSizePolicy(sizePolicy)
+        self.frame_div_content_3.setMinimumSize(QtCore.QSize(0, 110))
+        self.frame_div_content_3.setMaximumSize(QtCore.QSize(16777215, 110))
+        self.frame_div_content_3.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_div_content_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_div_content_3.setObjectName("frame_div_content_3")
+        self.verticalLayout_22 = QtWidgets.QVBoxLayout(self.frame_div_content_3)
+        self.verticalLayout_22.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_22.setSpacing(0)
+        self.verticalLayout_22.setObjectName("verticalLayout_22")
+        self.frame_title_wid_3 = QtWidgets.QFrame(self.frame_div_content_3)
+        self.frame_title_wid_3.setMaximumSize(QtCore.QSize(16777215, 35))
+        self.frame_title_wid_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_title_wid_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_title_wid_3.setObjectName("frame_title_wid_3")
+        self.verticalLayout_23 = QtWidgets.QVBoxLayout(self.frame_title_wid_3)
+        self.verticalLayout_23.setObjectName("verticalLayout_23")
+        self.labelBoxBlenderInstalation_3 = QtWidgets.QLabel(self.frame_title_wid_3)
+        font = QtGui.QFont()
+        font.setFamily("Shopee Display Black")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(10)
+        self.labelBoxBlenderInstalation_3.setFont(font)
+        self.labelBoxBlenderInstalation_3.setStyleSheet("    color: rgb(170, 0, 0);\n"
+"    font: 87 10pt \"Shopee Display Black\";")
+        self.labelBoxBlenderInstalation_3.setObjectName("labelBoxBlenderInstalation_3")
+        self.verticalLayout_23.addWidget(self.labelBoxBlenderInstalation_3)
+        self.verticalLayout_22.addWidget(self.frame_title_wid_3)
+        self.frame_content_wid_3 = QtWidgets.QFrame(self.frame_div_content_3)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_content_wid_3.sizePolicy().hasHeightForWidth())
+        self.frame_content_wid_3.setSizePolicy(sizePolicy)
+        self.frame_content_wid_3.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_content_wid_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_content_wid_3.setObjectName("frame_content_wid_3")
+        self.horizontalLayout_14 = QtWidgets.QHBoxLayout(self.frame_content_wid_3)
+        self.horizontalLayout_14.setObjectName("horizontalLayout_14")
+        self.gridLayout_4 = QtWidgets.QGridLayout()
+        self.gridLayout_4.setContentsMargins(-1, -1, -1, 0)
+        self.gridLayout_4.setObjectName("gridLayout_4")
+        self.LineSearchDSHH = QtWidgets.QLineEdit(self.frame_content_wid_3)
+        self.LineSearchDSHH.setMinimumSize(QtCore.QSize(0, 30))
+        self.LineSearchDSHH.setStyleSheet("\n"
+"background-color: rgb(255, 222, 215);\n"
+"color: rgb(170, 0, 0);\n"
+"border: 1px solid #000000;\n"
+"border-radius: 10px;\n"
+"")
+        self.LineSearchDSHH.setText("")
+        self.LineSearchDSHH.setObjectName("LineSearchDSHH")
+        self.gridLayout_4.addWidget(self.LineSearchDSHH, 0, 0, 1, 1)
+        self.SearchButton_DSHH = QtWidgets.QPushButton(self.frame_content_wid_3)
+        self.SearchButton_DSHH.setMinimumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily("Shopee Display Black")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(10)
+        self.SearchButton_DSHH.setFont(font)
+        self.SearchButton_DSHH.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.SearchButton_DSHH.setStyleSheet("\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.SearchButton_DSHH.setIcon(icon)
+        self.SearchButton_DSHH.setObjectName("SearchButton_DSHH")
+        self.gridLayout_4.addWidget(self.SearchButton_DSHH, 0, 1, 1, 1)
+        self.labelVersion_6 = QtWidgets.QLabel(self.frame_content_wid_3)
+        self.labelVersion_6.setStyleSheet("color: rgb(113, 126, 149);")
+        self.labelVersion_6.setLineWidth(1)
+        self.labelVersion_6.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.labelVersion_6.setObjectName("labelVersion_6")
+        self.gridLayout_4.addWidget(self.labelVersion_6, 1, 0, 1, 2)
+        self.horizontalLayout_14.addLayout(self.gridLayout_4)
+        self.verticalLayout_22.addWidget(self.frame_content_wid_3)
+        self.frame_8 = QtWidgets.QFrame(self.horizontalFrame_2)
+        self.frame_8.setGeometry(QtCore.QRect(175, 4, 341, 41))
+        self.frame_8.setStyleSheet("")
+        self.frame_8.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_8.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_8.setObjectName("frame_8")
+        self.horizontalLayout_22 = QtWidgets.QHBoxLayout(self.frame_8)
+        self.horizontalLayout_22.setObjectName("horizontalLayout_22")
+        self.AddButonDSHH = QtWidgets.QPushButton(self.frame_8)
+        self.AddButonDSHH.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.AddButonDSHH.setObjectName("AddButonDSHH")
+        self.horizontalLayout_22.addWidget(self.AddButonDSHH)
+        self.DeleteButtonDSHH = QtWidgets.QPushButton(self.frame_8)
+        self.DeleteButtonDSHH.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.DeleteButtonDSHH.setObjectName("DeleteButtonDSHH")
+        self.horizontalLayout_22.addWidget(self.DeleteButtonDSHH)
+        self.verticalLayout_12.addWidget(self.horizontalFrame_2)
+        self.horizontalFrame2 = QtWidgets.QFrame(self.TT_DSHH_Page)
+        self.horizontalFrame2.setObjectName("horizontalFrame2")
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.horizontalFrame2)
+        self.horizontalLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_4.setSpacing(0)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.horizontalFrame3 = QtWidgets.QFrame(self.horizontalFrame2)
+        self.horizontalFrame3.setObjectName("horizontalFrame3")
+        self.verticalLayout_32 = QtWidgets.QVBoxLayout(self.horizontalFrame3)
+        self.verticalLayout_32.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_32.setSpacing(0)
+        self.verticalLayout_32.setObjectName("verticalLayout_32")
+        self.tableView_3 = QtWidgets.QTableView(self.horizontalFrame3)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tableView_3.sizePolicy().hasHeightForWidth())
+        self.tableView_3.setSizePolicy(sizePolicy)
+        self.tableView_3.setStyleSheet("background-color: rgb(255, 222, 215);\n"
+"color: rgb(170, 0, 0);\n"
+"font: 57 9pt \"Shopee Display Med\";\n"
+"border-radius: 10px;\n"
+"")
+        self.tableView_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tableView_3.setObjectName("tableView_3")
+        self.verticalLayout_32.addWidget(self.tableView_3)
+        self.horizontalLayout_4.addWidget(self.horizontalFrame3)
+        self.verticalLayout_12.addWidget(self.horizontalFrame2)
+        self.verticalStackedWidget_2.addWidget(self.TT_DSHH_Page)
+        self.TT_BG_Page = QtWidgets.QWidget()
+        self.TT_BG_Page.setObjectName("TT_BG_Page")
+        self.verticalLayout_25 = QtWidgets.QVBoxLayout(self.TT_BG_Page)
+        self.verticalLayout_25.setObjectName("verticalLayout_25")
+        self.horizontalFrame4 = QtWidgets.QFrame(self.TT_BG_Page)
+        self.horizontalFrame4.setMaximumSize(QtCore.QSize(16777215, 110))
+        self.horizontalFrame4.setStyleSheet("border-radius: 10px;\n"
+"background-color: rgb(255, 202, 166);")
+        self.horizontalFrame4.setObjectName("horizontalFrame4")
+        self.frame_div_content_4 = QtWidgets.QFrame(self.horizontalFrame4)
+        self.frame_div_content_4.setGeometry(QtCore.QRect(0, 0, 681, 110))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_div_content_4.sizePolicy().hasHeightForWidth())
+        self.frame_div_content_4.setSizePolicy(sizePolicy)
+        self.frame_div_content_4.setMinimumSize(QtCore.QSize(0, 110))
+        self.frame_div_content_4.setMaximumSize(QtCore.QSize(16777215, 110))
+        self.frame_div_content_4.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_div_content_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_div_content_4.setObjectName("frame_div_content_4")
+        self.verticalLayout_27 = QtWidgets.QVBoxLayout(self.frame_div_content_4)
+        self.verticalLayout_27.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_27.setSpacing(0)
+        self.verticalLayout_27.setObjectName("verticalLayout_27")
+        self.frame_title_wid_4 = QtWidgets.QFrame(self.frame_div_content_4)
+        self.frame_title_wid_4.setMaximumSize(QtCore.QSize(16777215, 35))
+        self.frame_title_wid_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_title_wid_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_title_wid_4.setObjectName("frame_title_wid_4")
+        self.verticalLayout_30 = QtWidgets.QVBoxLayout(self.frame_title_wid_4)
+        self.verticalLayout_30.setObjectName("verticalLayout_30")
+        self.labelBoxBlenderInstalation_4 = QtWidgets.QLabel(self.frame_title_wid_4)
+        font = QtGui.QFont()
+        font.setFamily("Shopee Display Black")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(10)
+        self.labelBoxBlenderInstalation_4.setFont(font)
+        self.labelBoxBlenderInstalation_4.setStyleSheet("    color: rgb(170, 0, 0);\n"
+"    font: 87 10pt \"Shopee Display Black\";")
+        self.labelBoxBlenderInstalation_4.setObjectName("labelBoxBlenderInstalation_4")
+        self.verticalLayout_30.addWidget(self.labelBoxBlenderInstalation_4)
+        self.verticalLayout_27.addWidget(self.frame_title_wid_4)
+        self.frame_content_wid_4 = QtWidgets.QFrame(self.frame_div_content_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_content_wid_4.sizePolicy().hasHeightForWidth())
+        self.frame_content_wid_4.setSizePolicy(sizePolicy)
+        self.frame_content_wid_4.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_content_wid_4.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_content_wid_4.setObjectName("frame_content_wid_4")
+        self.horizontalLayout_15 = QtWidgets.QHBoxLayout(self.frame_content_wid_4)
+        self.horizontalLayout_15.setContentsMargins(9, 9, 9, 9)
+        self.horizontalLayout_15.setSpacing(6)
+        self.horizontalLayout_15.setObjectName("horizontalLayout_15")
+        self.gridLayout_5 = QtWidgets.QGridLayout()
+        self.gridLayout_5.setContentsMargins(-1, -1, -1, 0)
+        self.gridLayout_5.setObjectName("gridLayout_5")
+        self.lineEdit_5 = QtWidgets.QLineEdit(self.frame_content_wid_4)
+        self.lineEdit_5.setMinimumSize(QtCore.QSize(0, 30))
+        self.lineEdit_5.setStyleSheet("\n"
+"background-color: rgb(255, 222, 215);\n"
+"color: rgb(170, 0, 0);\n"
+"border: 1px solid #000000;\n"
+"border-radius: 10px;\n"
+"")
+        self.lineEdit_5.setText("")
+        self.lineEdit_5.setObjectName("lineEdit_5")
+        self.gridLayout_5.addWidget(self.lineEdit_5, 0, 0, 1, 1)
+        self.pushButton_12 = QtWidgets.QPushButton(self.frame_content_wid_4)
+        self.pushButton_12.setMinimumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily("Shopee Display Black")
+        font.setPointSize(8)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(10)
+        self.pushButton_12.setFont(font)
+        self.pushButton_12.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_12.setStyleSheet("\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.pushButton_12.setIcon(icon)
+        self.pushButton_12.setObjectName("pushButton_12")
+        self.gridLayout_5.addWidget(self.pushButton_12, 0, 1, 1, 1)
+        self.labelVersion_7 = QtWidgets.QLabel(self.frame_content_wid_4)
+        self.labelVersion_7.setStyleSheet("color: rgb(113, 126, 149);")
+        self.labelVersion_7.setLineWidth(1)
+        self.labelVersion_7.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.labelVersion_7.setObjectName("labelVersion_7")
+        self.gridLayout_5.addWidget(self.labelVersion_7, 1, 0, 1, 2)
+        self.horizontalLayout_15.addLayout(self.gridLayout_5)
+        self.verticalLayout_27.addWidget(self.frame_content_wid_4)
+        self.widget = QtWidgets.QWidget(self.horizontalFrame4)
+        self.widget.setGeometry(QtCore.QRect(203, 2, 301, 39))
+        self.widget.setMaximumSize(QtCore.QSize(16777215, 39))
+        self.widget.setObjectName("widget")
+        self.horizontalLayout_23 = QtWidgets.QHBoxLayout(self.widget)
+        self.horizontalLayout_23.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_23.setObjectName("horizontalLayout_23")
+        self.pushButton_22 = QtWidgets.QPushButton(self.widget)
+        self.pushButton_22.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.pushButton_22.setObjectName("pushButton_22")
+        self.horizontalLayout_23.addWidget(self.pushButton_22)
+        self.pushButton_23 = QtWidgets.QPushButton(self.widget)
+        self.pushButton_23.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.pushButton_23.setObjectName("pushButton_23")
+        self.horizontalLayout_23.addWidget(self.pushButton_23)
+        self.verticalLayout_25.addWidget(self.horizontalFrame4)
+        self.verticalFrame = QtWidgets.QFrame(self.TT_BG_Page)
+        self.verticalFrame.setObjectName("verticalFrame")
+        self.verticalLayout_26 = QtWidgets.QVBoxLayout(self.verticalFrame)
+        self.verticalLayout_26.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_26.setSpacing(0)
+        self.verticalLayout_26.setObjectName("verticalLayout_26")
+        self.horizontalFrame_3 = QtWidgets.QFrame(self.verticalFrame)
+        self.horizontalFrame_3.setObjectName("horizontalFrame_3")
+        self.verticalLayout_33 = QtWidgets.QVBoxLayout(self.horizontalFrame_3)
+        self.verticalLayout_33.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_33.setSpacing(0)
+        self.verticalLayout_33.setObjectName("verticalLayout_33")
+        self.tableView_4 = QtWidgets.QTableView(self.horizontalFrame_3)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tableView_4.sizePolicy().hasHeightForWidth())
+        self.tableView_4.setSizePolicy(sizePolicy)
+        self.tableView_4.setStyleSheet("background-color: rgb(255, 222, 215);\n"
+"color: rgb(170, 0, 0);\n"
+"font: 57 10pt \"Shopee Display Med\";\n"
+"border-radius: 10px;\n"
+"")
+        self.tableView_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tableView_4.setObjectName("tableView_4")
+        self.verticalLayout_33.addWidget(self.tableView_4)
+        self.verticalLayout_26.addWidget(self.horizontalFrame_3)
+        self.verticalLayout_25.addWidget(self.verticalFrame)
+        self.verticalStackedWidget_2.addWidget(self.TT_BG_Page)
+        self.TT_DG_Page = QtWidgets.QWidget()
+        self.TT_DG_Page.setObjectName("TT_DG_Page")
+        self.verticalLayout_24 = QtWidgets.QVBoxLayout(self.TT_DG_Page)
+        self.verticalLayout_24.setObjectName("verticalLayout_24")
+        self.horizontalFrame5 = QtWidgets.QFrame(self.TT_DG_Page)
+        self.horizontalFrame5.setMaximumSize(QtCore.QSize(16777215, 110))
+        self.horizontalFrame5.setStyleSheet("background-color: rgb( 35, 35, 35);")
+        self.horizontalFrame5.setObjectName("horizontalFrame5")
+        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.horizontalFrame5)
+        self.verticalLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_6.setSpacing(0)
+        self.verticalLayout_6.setObjectName("verticalLayout_6")
+        self.frame_div_content_5 = QtWidgets.QFrame(self.horizontalFrame5)
+        self.frame_div_content_5.setMinimumSize(QtCore.QSize(0, 110))
+        self.frame_div_content_5.setMaximumSize(QtCore.QSize(16777215, 110))
+        self.frame_div_content_5.setStyleSheet("border-radius: 10px;\n"
+"background-color: rgb(255, 202, 166);")
+        self.frame_div_content_5.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_div_content_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_div_content_5.setObjectName("frame_div_content_5")
+        self.frame_title_wid_5 = QtWidgets.QFrame(self.frame_div_content_5)
+        self.frame_title_wid_5.setGeometry(QtCore.QRect(0, 0, 680, 35))
+        self.frame_title_wid_5.setMaximumSize(QtCore.QSize(16777215, 35))
+        self.frame_title_wid_5.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_title_wid_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_title_wid_5.setObjectName("frame_title_wid_5")
+        self.verticalLayout_29 = QtWidgets.QVBoxLayout(self.frame_title_wid_5)
+        self.verticalLayout_29.setObjectName("verticalLayout_29")
+        self.labelBoxBlenderInstalation_5 = QtWidgets.QLabel(self.frame_title_wid_5)
+        font = QtGui.QFont()
+        font.setFamily("Shopee Display Black")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(10)
+        self.labelBoxBlenderInstalation_5.setFont(font)
+        self.labelBoxBlenderInstalation_5.setStyleSheet("    color: rgb(170, 0, 0);\n"
+"    font: 87 10pt \"Shopee Display Black\";")
+        self.labelBoxBlenderInstalation_5.setObjectName("labelBoxBlenderInstalation_5")
+        self.verticalLayout_29.addWidget(self.labelBoxBlenderInstalation_5)
+        self.frame_content_wid_5 = QtWidgets.QFrame(self.frame_div_content_5)
+        self.frame_content_wid_5.setGeometry(QtCore.QRect(0, 40, 411, 71))
+        self.frame_content_wid_5.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_content_wid_5.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_content_wid_5.setObjectName("frame_content_wid_5")
+        self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.frame_content_wid_5)
+        self.verticalLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_10.setSpacing(0)
+        self.verticalLayout_10.setObjectName("verticalLayout_10")
+        self.gridLayout_8 = QtWidgets.QGridLayout()
+        self.gridLayout_8.setContentsMargins(9, 9, 9, 0)
+        self.gridLayout_8.setSpacing(6)
+        self.gridLayout_8.setObjectName("gridLayout_8")
+        self.lineEdit_8 = QtWidgets.QLineEdit(self.frame_content_wid_5)
+        self.lineEdit_8.setMinimumSize(QtCore.QSize(0, 30))
+        self.lineEdit_8.setStyleSheet("\n"
+"background-color: rgb(255, 222, 215);\n"
+"color: rgb(170, 0, 0);\n"
+"border: 1px solid #000000;\n"
+"border-radius: 10px;\n"
+"")
+        self.lineEdit_8.setText("")
+        self.lineEdit_8.setObjectName("lineEdit_8")
+        self.gridLayout_8.addWidget(self.lineEdit_8, 0, 0, 1, 1)
+        self.pushButton_15 = QtWidgets.QPushButton(self.frame_content_wid_5)
+        self.pushButton_15.setMinimumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily("Shopee Display ExtBd")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(10)
+        self.pushButton_15.setFont(font)
+        self.pushButton_15.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_15.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.pushButton_15.setIcon(icon)
+        self.pushButton_15.setObjectName("pushButton_15")
+        self.gridLayout_8.addWidget(self.pushButton_15, 0, 1, 1, 1)
+        self.labelVersion_10 = QtWidgets.QLabel(self.frame_content_wid_5)
+        self.labelVersion_10.setStyleSheet("color: rgb(113, 126, 149);")
+        self.labelVersion_10.setLineWidth(1)
+        self.labelVersion_10.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.labelVersion_10.setObjectName("labelVersion_10")
+        self.gridLayout_8.addWidget(self.labelVersion_10, 1, 0, 1, 2)
+        self.verticalLayout_10.addLayout(self.gridLayout_8)
+        self.frame_2 = QtWidgets.QFrame(self.frame_div_content_5)
+        self.frame_2.setGeometry(QtCore.QRect(141, 0, 251, 41))
+        self.frame_2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_2.setObjectName("frame_2")
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout(self.frame_2)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.radioButton_3 = QtWidgets.QRadioButton(self.frame_2)
+        self.radioButton_3.setStyleSheet("    color: rgb(170, 0, 0);\n"
+"    font: 87 10pt \"Shopee Display Black\";")
+        self.radioButton_3.setObjectName("radioButton_3")
+        # self.radioButton_3.setChecked(True)
+        self.horizontalLayout_3.addWidget(self.radioButton_3)
+        self.radioButton_4 = QtWidgets.QRadioButton(self.frame_2)
+        self.radioButton_4.setStyleSheet("    color: rgb(170, 0, 0);\n"
+"    font: 87 10pt \"Shopee Display Black\";")
+        self.radioButton_4.setObjectName("radioButton_4")
+        self.horizontalLayout_3.addWidget(self.radioButton_4)
+        self.frame_3 = QtWidgets.QFrame(self.frame_div_content_5)
+        self.frame_3.setGeometry(QtCore.QRect(445, 24, 211, 81))
+        self.frame_3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_3.setObjectName("frame_3")
+        self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.frame_3)
+        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
+        self.pushButton_2 = QtWidgets.QPushButton(self.frame_3)
+        self.pushButton_2.setMinimumSize(QtCore.QSize(70, 30))
+        self.pushButton_2.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.horizontalLayout_6.addWidget(self.pushButton_2)
+        self.pushButton = QtWidgets.QPushButton(self.frame_3)
+        self.pushButton.setMinimumSize(QtCore.QSize(70, 30))
+        self.pushButton.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.pushButton.setObjectName("pushButton")
+        self.horizontalLayout_6.addWidget(self.pushButton)
+        self.verticalLayout_6.addWidget(self.frame_div_content_5)
+        self.verticalLayout_24.addWidget(self.horizontalFrame5)
+        self.horizontalFrame_21 = QtWidgets.QFrame(self.TT_DG_Page)
+        self.horizontalFrame_21.setObjectName("horizontalFrame_21")
+        self.verticalLayout_31 = QtWidgets.QVBoxLayout(self.horizontalFrame_21)
+        self.verticalLayout_31.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_31.setSpacing(0)
+        self.verticalLayout_31.setObjectName("verticalLayout_31")
+        self.horizontalFrame_4 = QtWidgets.QFrame(self.horizontalFrame_21)
+        self.horizontalFrame_4.setObjectName("horizontalFrame_4")
+        self.horizontalLayout_20 = QtWidgets.QHBoxLayout(self.horizontalFrame_4)
+        self.horizontalLayout_20.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_20.setSpacing(0)
+        self.horizontalLayout_20.setObjectName("horizontalLayout_20")
+        self.tableView_6 = QtWidgets.QTableView(self.horizontalFrame_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tableView_6.sizePolicy().hasHeightForWidth())
+        self.tableView_6.setSizePolicy(sizePolicy)
+        self.tableView_6.setStyleSheet("background-color: rgb(255, 222, 215);\n"
+"color: rgb(170, 0, 0);\n"
+"font: 57 9pt \"Shopee Display Med\";\n"
+"border-radius: 10px;\n"
+"")
+        self.tableView_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tableView_6.setObjectName("tableView_6")
+        self.horizontalLayout_20.addWidget(self.tableView_6)
+        self.verticalLayout_31.addWidget(self.horizontalFrame_4)
+        self.verticalLayout_24.addWidget(self.horizontalFrame_21)
+        self.verticalStackedWidget_2.addWidget(self.TT_DG_Page)
+        self.TT_QLNV_Page = QtWidgets.QWidget()
+        self.TT_QLNV_Page.setObjectName("TT_QLNV_Page")
+        self.verticalLayout_39 = QtWidgets.QVBoxLayout(self.TT_QLNV_Page)
+        self.verticalLayout_39.setObjectName("verticalLayout_39")
+        self.horizontalFrame6 = QtWidgets.QFrame(self.TT_QLNV_Page)
+        self.horizontalFrame6.setMinimumSize(QtCore.QSize(0, 110))
+        self.horizontalFrame6.setMaximumSize(QtCore.QSize(16777215, 110))
+        self.horizontalFrame6.setStyleSheet("border-radius: 10px;\n"
+"background-color: rgb(255, 202, 166);")
+        self.horizontalFrame6.setObjectName("horizontalFrame6")
+        self.frame_div_content_7 = QtWidgets.QFrame(self.horizontalFrame6)
+        self.frame_div_content_7.setGeometry(QtCore.QRect(0, 0, 681, 110))
+        self.frame_div_content_7.setMinimumSize(QtCore.QSize(0, 110))
+        self.frame_div_content_7.setMaximumSize(QtCore.QSize(16777215, 110))
+        self.frame_div_content_7.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_div_content_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_div_content_7.setObjectName("frame_div_content_7")
+        self.verticalLayout_40 = QtWidgets.QVBoxLayout(self.frame_div_content_7)
+        self.verticalLayout_40.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_40.setSpacing(0)
+        self.verticalLayout_40.setObjectName("verticalLayout_40")
+        self.frame_title_wid_7 = QtWidgets.QFrame(self.frame_div_content_7)
+        self.frame_title_wid_7.setMaximumSize(QtCore.QSize(16777215, 35))
+        self.frame_title_wid_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_title_wid_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_title_wid_7.setObjectName("frame_title_wid_7")
+        self.verticalLayout_41 = QtWidgets.QVBoxLayout(self.frame_title_wid_7)
+        self.verticalLayout_41.setObjectName("verticalLayout_41")
+        self.labelBoxBlenderInstalation_7 = QtWidgets.QLabel(self.frame_title_wid_7)
+        font = QtGui.QFont()
+        font.setFamily("Shopee Display Black")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(10)
+        self.labelBoxBlenderInstalation_7.setFont(font)
+        self.labelBoxBlenderInstalation_7.setStyleSheet("    color: rgb(170, 0, 0);\n"
+"    font: 87 10pt \"Shopee Display Black\";")
+        self.labelBoxBlenderInstalation_7.setObjectName("labelBoxBlenderInstalation_7")
+        self.verticalLayout_41.addWidget(self.labelBoxBlenderInstalation_7)
+        self.verticalLayout_40.addWidget(self.frame_title_wid_7)
+        self.frame_content_wid_7 = QtWidgets.QFrame(self.frame_div_content_7)
+        self.frame_content_wid_7.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_content_wid_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_content_wid_7.setObjectName("frame_content_wid_7")
+        self.horizontalLayout_24 = QtWidgets.QHBoxLayout(self.frame_content_wid_7)
+        self.horizontalLayout_24.setObjectName("horizontalLayout_24")
+        self.gridLayout_10 = QtWidgets.QGridLayout()
+        self.gridLayout_10.setContentsMargins(-1, -1, -1, 0)
+        self.gridLayout_10.setObjectName("gridLayout_10")
+        self.lineEdit_10 = QtWidgets.QLineEdit(self.frame_content_wid_7)
+        self.lineEdit_10.setMinimumSize(QtCore.QSize(0, 30))
+        self.lineEdit_10.setStyleSheet("\n"
+"background-color: rgb(255, 222, 215);\n"
+"color: rgb(170, 0, 0);\n"
+"border: 1px solid #000000;\n"
+"border-radius: 10px;\n"
+"")
+        self.lineEdit_10.setText("")
+        self.lineEdit_10.setObjectName("lineEdit_10")
+        self.gridLayout_10.addWidget(self.lineEdit_10, 0, 0, 1, 1)
+        self.pushButton_17 = QtWidgets.QPushButton(self.frame_content_wid_7)
+        self.pushButton_17.setMinimumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily("Shopee Display ExtBd")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(10)
+        self.pushButton_17.setFont(font)
+        self.pushButton_17.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.pushButton_17.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.pushButton_17.setIcon(icon)
+        self.pushButton_17.setObjectName("pushButton_17")
+        self.gridLayout_10.addWidget(self.pushButton_17, 0, 1, 1, 1)
+        self.labelVersion_12 = QtWidgets.QLabel(self.frame_content_wid_7)
+        self.labelVersion_12.setStyleSheet("color: rgb(113, 126, 149);")
+        self.labelVersion_12.setLineWidth(1)
+        self.labelVersion_12.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.labelVersion_12.setObjectName("labelVersion_12")
+        self.gridLayout_10.addWidget(self.labelVersion_12, 1, 0, 1, 2)
+        self.horizontalLayout_24.addLayout(self.gridLayout_10)
+        self.verticalLayout_40.addWidget(self.frame_content_wid_7)
+        self.frame_6 = QtWidgets.QFrame(self.horizontalFrame6)
+        self.frame_6.setGeometry(QtCore.QRect(145, -6, 311, 51))
+        self.frame_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_6.setObjectName("frame_6")
+        self.horizontalLayout_18 = QtWidgets.QHBoxLayout(self.frame_6)
+        self.horizontalLayout_18.setObjectName("horizontalLayout_18")
+        self.pushButton_13 = QtWidgets.QPushButton(self.frame_6)
+        self.pushButton_13.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.pushButton_13.setObjectName("pushButton_13")
+        self.horizontalLayout_18.addWidget(self.pushButton_13)
+        self.pushButton_14 = QtWidgets.QPushButton(self.frame_6)
+        self.pushButton_14.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.pushButton_14.setObjectName("pushButton_14")
+        self.horizontalLayout_18.addWidget(self.pushButton_14)
+        self.verticalLayout_39.addWidget(self.horizontalFrame6)
+        self.horizontalFrame_22 = QtWidgets.QFrame(self.TT_QLNV_Page)
+        self.horizontalFrame_22.setObjectName("horizontalFrame_22")
+        self.verticalLayout_43 = QtWidgets.QVBoxLayout(self.horizontalFrame_22)
+        self.verticalLayout_43.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_43.setSpacing(0)
+        self.verticalLayout_43.setObjectName("verticalLayout_43")
+        self.horizontalFrame_5 = QtWidgets.QFrame(self.horizontalFrame_22)
+        self.horizontalFrame_5.setObjectName("horizontalFrame_5")
+        self.verticalLayout_42 = QtWidgets.QVBoxLayout(self.horizontalFrame_5)
+        self.verticalLayout_42.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_42.setSpacing(0)
+        self.verticalLayout_42.setObjectName("verticalLayout_42")
+        self.tableView_10 = QtWidgets.QTableView(self.horizontalFrame_5)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tableView_10.sizePolicy().hasHeightForWidth())
+        self.tableView_10.setSizePolicy(sizePolicy)
+        self.tableView_10.setStyleSheet("background-color: rgb(255, 222, 215);\n"
+"color: rgb(170, 0, 0);\n"
+"font: 57 9pt \"Shopee Display Med\";\n"
+"border-radius: 10px;\n"
+"")
+        self.tableView_10.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tableView_10.setObjectName("tableView_10")
+        self.verticalLayout_42.addWidget(self.tableView_10)
+        self.verticalLayout_43.addWidget(self.horizontalFrame_5)
+        self.verticalLayout_39.addWidget(self.horizontalFrame_22)
+        self.verticalStackedWidget_2.addWidget(self.TT_QLNV_Page)
         self.verticalLayout_9.addWidget(self.verticalStackedWidget_2)
         self.verticalLayout_11.addWidget(self.verticalWidget)
         self.horizontalLayout_5.addWidget(self.InforTab_Table1)
@@ -527,157 +1397,120 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_1)
         self.page_2 = QtWidgets.QWidget()
         self.page_2.setObjectName("page_2")
-        self.verticalLayout_6 = QtWidgets.QVBoxLayout(self.page_2)
-        self.verticalLayout_6.setObjectName("verticalLayout_6")
-        self.verticalFrame = QtWidgets.QFrame(self.page_2)
-        self.verticalFrame.setObjectName("verticalFrame")
-        self.horizontalLayout_11 = QtWidgets.QHBoxLayout(self.verticalFrame)
-        self.horizontalLayout_11.setObjectName("horizontalLayout_11")
-        self.horizontalFrame_2 = QtWidgets.QFrame(self.verticalFrame)
-        self.horizontalFrame_2.setMaximumSize(QtCore.QSize(200, 16777215))
-        self.horizontalFrame_2.setStyleSheet("background-color: rgb(85, 170, 255);")
-        self.horizontalFrame_2.setObjectName("horizontalFrame_2")
-        self.verticalLayout_16 = QtWidgets.QVBoxLayout(self.horizontalFrame_2)
-        self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout_16.setSpacing(0)
-        self.verticalLayout_16.setObjectName("verticalLayout_16")
-        self.pushButton_7 = QtWidgets.QPushButton(self.horizontalFrame_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_7.sizePolicy().hasHeightForWidth())
-        self.pushButton_7.setSizePolicy(sizePolicy)
-        self.pushButton_7.setStyleSheet("QPushButton {\n"
-                                        "    color: rgb(255, 255, 255);\n"
-                                        "    background-color: rgb(35, 35, 35);\n"
-                                        "    border: 0px solid;\n"
-                                        "}\n"
-                                        "QPushButton:hover {\n"
-                                        "    background-color: rgb(85, 170, 255);\n"
-                                        "}")
-        self.pushButton_7.setObjectName("pushButton_7")
-        self.verticalLayout_16.addWidget(self.pushButton_7)
-        self.pushButton_6 = QtWidgets.QPushButton(self.horizontalFrame_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_6.sizePolicy().hasHeightForWidth())
-        self.pushButton_6.setSizePolicy(sizePolicy)
-        self.pushButton_6.setStyleSheet("QPushButton {\n"
-                                        "    color: rgb(255, 255, 255);\n"
-                                        "    background-color: rgb(35, 35, 35);\n"
-                                        "    border: 0px solid;\n"
-                                        "}\n"
-                                        "QPushButton:hover {\n"
-                                        "    background-color: rgb(85, 170, 255);\n"
-                                        "}")
-        self.pushButton_6.setObjectName("pushButton_6")
-        self.verticalLayout_16.addWidget(self.pushButton_6)
-        self.pushButton_3 = QtWidgets.QPushButton(self.horizontalFrame_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_3.sizePolicy().hasHeightForWidth())
-        self.pushButton_3.setSizePolicy(sizePolicy)
-        self.pushButton_3.setStyleSheet("QPushButton {\n"
-                                        "    color: rgb(255, 255, 255);\n"
-                                        "    background-color: rgb(35, 35, 35);\n"
-                                        "    border: 0px solid;\n"
-                                        "}\n"
-                                        "QPushButton:hover {\n"
-                                        "    background-color: rgb(85, 170, 255);\n"
-                                        "}")
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.verticalLayout_16.addWidget(self.pushButton_3)
-        self.pushButton_5 = QtWidgets.QPushButton(self.horizontalFrame_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_5.sizePolicy().hasHeightForWidth())
-        self.pushButton_5.setSizePolicy(sizePolicy)
-        self.pushButton_5.setStyleSheet("QPushButton {\n"
-                                        "    color: rgb(255, 255, 255);\n"
-                                        "    background-color: rgb(35, 35, 35);\n"
-                                        "    border: 0px solid;\n"
-                                        "}\n"
-                                        "QPushButton:hover {\n"
-                                        "    background-color: rgb(85, 170, 255);\n"
-                                        "}")
-        self.pushButton_5.setObjectName("pushButton_5")
-        self.verticalLayout_16.addWidget(self.pushButton_5)
-        self.pushButton_4 = QtWidgets.QPushButton(self.horizontalFrame_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_4.sizePolicy().hasHeightForWidth())
-        self.pushButton_4.setSizePolicy(sizePolicy)
-        self.pushButton_4.setStyleSheet("QPushButton {\n"
-                                        "    color: rgb(255, 255, 255);\n"
-                                        "    background-color: rgb(35, 35, 35);\n"
-                                        "    border: 0px solid;\n"
-                                        "}\n"
-                                        "QPushButton:hover {\n"
-                                        "    background-color: rgb(85, 170, 255);\n"
-                                        "}")
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.verticalLayout_16.addWidget(self.pushButton_4)
-        self.pushButton_2 = QtWidgets.QPushButton(self.horizontalFrame_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton_2.sizePolicy().hasHeightForWidth())
-        self.pushButton_2.setSizePolicy(sizePolicy)
-        self.pushButton_2.setStyleSheet("QPushButton {\n"
-                                        "    color: rgb(255, 255, 255);\n"
-                                        "    background-color: rgb(35, 35, 35);\n"
-                                        "    border: 0px solid;\n"
-                                        "}\n"
-                                        "QPushButton:hover {\n"
-                                        "    background-color: rgb(85, 170, 255);\n"
-                                        "}")
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.verticalLayout_16.addWidget(self.pushButton_2)
-        self.pushButton = QtWidgets.QPushButton(self.horizontalFrame_2)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.pushButton.sizePolicy().hasHeightForWidth())
-        self.pushButton.setSizePolicy(sizePolicy)
-        self.pushButton.setStyleSheet("QPushButton {\n"
-                                      "    color: rgb(255, 255, 255);\n"
-                                      "    background-color: rgb(35, 35, 35);\n"
-                                      "    border: 0px solid;\n"
-                                      "}\n"
-                                      "QPushButton:hover {\n"
-                                      "    background-color: rgb(85, 170, 255);\n"
-                                      "}")
-        self.pushButton.setObjectName("pushButton")
-        self.verticalLayout_16.addWidget(self.pushButton)
-        self.horizontalLayout_11.addWidget(self.horizontalFrame_2)
-        self.horizontalFrame = QtWidgets.QFrame(self.verticalFrame)
-        self.horizontalFrame.setObjectName("horizontalFrame")
-        self.horizontalLayout_9 = QtWidgets.QHBoxLayout(self.horizontalFrame)
-        self.horizontalLayout_9.setObjectName("horizontalLayout_9")
-        self.horizontalLayout_11.addWidget(self.horizontalFrame)
-        self.verticalLayout_6.addWidget(self.verticalFrame)
-        self.stackedWidget.addWidget(self.page_2)
-        self.page_3 = QtWidgets.QWidget()
-        self.page_3.setObjectName("page_3")
-        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.page_3)
+        self.verticalLayout_8 = QtWidgets.QVBoxLayout(self.page_2)
         self.verticalLayout_8.setObjectName("verticalLayout_8")
-        self.label = QtWidgets.QLabel(self.page_3)
+        self.verticalWidget3 = QtWidgets.QWidget(self.page_2)
+        self.verticalWidget3.setObjectName("verticalWidget3")
+        self.verticalLayout_36 = QtWidgets.QVBoxLayout(self.verticalWidget3)
+        self.verticalLayout_36.setObjectName("verticalLayout_36")
+        self.verticalWidget4 = QtWidgets.QWidget(self.verticalWidget3)
+        self.verticalWidget4.setMinimumSize(QtCore.QSize(0, 100))
+        self.verticalWidget4.setMaximumSize(QtCore.QSize(16777215, 100))
+        self.verticalWidget4.setStyleSheet("border-radius: 10px;\n"
+"background-color: rgb(255, 202, 166);")
+        self.verticalWidget4.setObjectName("verticalWidget4")
+        self.frame_div_content_6 = QtWidgets.QFrame(self.verticalWidget4)
+        self.frame_div_content_6.setGeometry(QtCore.QRect(0, 0, 681, 110))
+        self.frame_div_content_6.setMinimumSize(QtCore.QSize(0, 110))
+        self.frame_div_content_6.setMaximumSize(QtCore.QSize(16777215, 110))
+        self.frame_div_content_6.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_div_content_6.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_div_content_6.setObjectName("frame_div_content_6")
+        self.verticalLayout_34 = QtWidgets.QVBoxLayout(self.frame_div_content_6)
+        self.verticalLayout_34.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_34.setSpacing(0)
+        self.verticalLayout_34.setObjectName("verticalLayout_34")
+        self.frame_title_wid_6 = QtWidgets.QFrame(self.frame_div_content_6)
+        self.frame_title_wid_6.setMaximumSize(QtCore.QSize(16777215, 35))
+        self.frame_title_wid_6.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_title_wid_6.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_title_wid_6.setObjectName("frame_title_wid_6")
+        self.verticalLayout_37 = QtWidgets.QVBoxLayout(self.frame_title_wid_6)
+        self.verticalLayout_37.setObjectName("verticalLayout_37")
+        self.labelBoxBlenderInstalation_6 = QtWidgets.QLabel(self.frame_title_wid_6)
         font = QtGui.QFont()
         font.setFamily("Shopee Display Black")
-        font.setPointSize(8)
+        font.setPointSize(10)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(10)
-        self.label.setFont(font)
-        self.label.setStyleSheet("color: #FFF;")
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setObjectName("label")
-        self.verticalLayout_8.addWidget(self.label)
-        self.stackedWidget.addWidget(self.page_3)
+        self.labelBoxBlenderInstalation_6.setFont(font)
+        self.labelBoxBlenderInstalation_6.setStyleSheet("    color: rgb(170, 0, 0);\n"
+"    font: 87 10pt \"Shopee Display Black\";")
+        self.labelBoxBlenderInstalation_6.setObjectName("labelBoxBlenderInstalation_6")
+        self.verticalLayout_37.addWidget(self.labelBoxBlenderInstalation_6)
+        self.verticalLayout_34.addWidget(self.frame_title_wid_6)
+        self.frame_content_wid_6 = QtWidgets.QFrame(self.frame_div_content_6)
+        self.frame_content_wid_6.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.frame_content_wid_6.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_content_wid_6.setObjectName("frame_content_wid_6")
+        self.horizontalLayout_16 = QtWidgets.QHBoxLayout(self.frame_content_wid_6)
+        self.horizontalLayout_16.setObjectName("horizontalLayout_16")
+        self.gridLayout_6 = QtWidgets.QGridLayout()
+        self.gridLayout_6.setContentsMargins(-1, -1, -1, 0)
+        self.gridLayout_6.setObjectName("gridLayout_6")
+        self.LineSearchQLTK = QtWidgets.QLineEdit(self.frame_content_wid_6)
+        self.LineSearchQLTK.setMinimumSize(QtCore.QSize(0, 30))
+        self.LineSearchQLTK.setStyleSheet("\n"
+"background-color: rgb(255, 222, 215);\n"
+"color: rgb(170, 0, 0);\n"
+"border: 1px solid #000000;\n"
+"border-radius: 10px;\n"
+"")
+        self.LineSearchQLTK.setText("")
+        self.LineSearchQLTK.setObjectName("LineSearchQLTK")
+        self.gridLayout_6.addWidget(self.LineSearchQLTK, 0, 0, 1, 1)
+        self.SearchButtonQLTK = QtWidgets.QPushButton(self.frame_content_wid_6)
+        self.SearchButtonQLTK.setMinimumSize(QtCore.QSize(150, 30))
+        font = QtGui.QFont()
+        font.setFamily("Shopee Display ExtBd")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(10)
+        self.SearchButtonQLTK.setFont(font)
+        self.SearchButtonQLTK.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.SearchButtonQLTK.setStyleSheet("QPushButton {\n"
+"    font: 81 10pt \"Shopee Display ExtBd\";\n"
+"    border: 1px solid #000000;\n"
+"    border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    background-color:  rgb(170, 0, 0);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85, 170, 255);\n"
+"}")
+        self.SearchButtonQLTK.setIcon(icon)
+        self.SearchButtonQLTK.setObjectName("SearchButtonQLTK")
+        self.gridLayout_6.addWidget(self.SearchButtonQLTK, 0, 1, 1, 1)
+        self.labelVersion_8 = QtWidgets.QLabel(self.frame_content_wid_6)
+        self.labelVersion_8.setStyleSheet("color: rgb(113, 126, 149);")
+        self.labelVersion_8.setLineWidth(1)
+        self.labelVersion_8.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.labelVersion_8.setObjectName("labelVersion_8")
+        self.gridLayout_6.addWidget(self.labelVersion_8, 1, 0, 1, 2)
+        self.horizontalLayout_16.addLayout(self.gridLayout_6)
+        self.verticalLayout_34.addWidget(self.frame_content_wid_6)
+        self.verticalLayout_36.addWidget(self.verticalWidget4)
+        self.verticalWidget_21 = QtWidgets.QWidget(self.verticalWidget3)
+        self.verticalWidget_21.setMinimumSize(QtCore.QSize(0, 100))
+        self.verticalWidget_21.setObjectName("verticalWidget_21")
+        self.verticalLayout_35 = QtWidgets.QVBoxLayout(self.verticalWidget_21)
+        self.verticalLayout_35.setObjectName("verticalLayout_35")
+        self.TableQLTK = QtWidgets.QTableView(self.verticalWidget_21)
+        self.TableQLTK.setStyleSheet("background-color: rgb(255, 222, 215);\n"
+"color: rgb(170, 0, 0);\n"
+"font: 57 10pt \"Shopee Display Med\";\n"
+"border-radius: 10px;\n"
+"")
+        self.TableQLTK.setObjectName("TableQLTK")
+        self.verticalLayout_35.addWidget(self.TableQLTK)
+        self.verticalLayout_36.addWidget(self.verticalWidget_21)
+        self.verticalLayout_8.addWidget(self.verticalWidget3)
+        self.stackedWidget.addWidget(self.page_2)
         self.verticalLayout_5.addWidget(self.stackedWidget)
         self.horizontalLayout_2.addWidget(self.frame_pages)
         self.verticalLayout.addWidget(self.Content)
@@ -691,30 +1524,55 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.Btn_Toggle.setText(_translate("MainWindow", "Home"))
-        self.minimizeAppBtn.setToolTip(_translate("MainWindow", "Minimize"))
-        self.maximizeRestoreAppBtn.setToolTip(_translate("MainWindow", "Maximize"))
-        self.closeAppBtn.setToolTip(_translate("MainWindow", "Close"))
         self.label_3.setText(_translate("MainWindow", "Quản lý cửa hàng tạp hóa"))
         self.btn_page_1.setText(_translate("MainWindow", "Thông tin"))
-        self.btn_page_2.setText(_translate("MainWindow", "Chỉnh sửa"))
-        self.btn_page_3.setText(_translate("MainWindow", "Đăng nhập"))
-        self.Home_9.setText(_translate("MainWindow", "Danh sách đơn vị tính"))
+        self.btn_page_2.setText(_translate("MainWindow", "Tài khoản"))
+        self.Home_9.setText(_translate("MainWindow", "Đơn vị đo lường"))
         self.Home_8.setText(_translate("MainWindow", "Nhà cung cấp"))
-        self.Home_7.setText(_translate("MainWindow", "Danh sách hàng hóa"))
+        self.Home_7.setText(_translate("MainWindow", "Hàng hóa"))
         self.Home_6.setText(_translate("MainWindow", "Bảng giá"))
         self.Home_5.setText(_translate("MainWindow", "Đơn hàng"))
-        self.Home_4.setText(_translate("MainWindow", "Chi tiết đơn hàng"))
         self.Home_2.setText(_translate("MainWindow", "Quản lý nhân viên"))
-        self.labelBoxBlenderInstalation_2.setText(_translate("MainWindow", "Tìm Kiếm Đơn Vị Tính"))
-        self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "Type here"))
-        self.pushButton_9.setText(_translate("MainWindow", "Tìm kiếm"))
+        self.labelBoxBlenderInstalation_2.setText(_translate("MainWindow", "Danh sách Đơn vị tính"))
+        self.LineSearchDSDVT.setPlaceholderText(_translate("MainWindow", "Type here"))
+        self.SearchButtonDSDVT.setText(_translate("MainWindow", "Tìm kiếm"))
         self.labelVersion_4.setText(_translate("MainWindow", "Hãy nhập mã đơn vị tính"))
-        self.pushButton_7.setText(_translate("MainWindow", "Danh sách đơn vị tính"))
-        self.pushButton_6.setText(_translate("MainWindow", "Nhà cung cấp"))
-        self.pushButton_3.setText(_translate("MainWindow", "Danh sách hàng hóa"))
-        self.pushButton_5.setText(_translate("MainWindow", "Bảng giá"))
-        self.pushButton_4.setText(_translate("MainWindow", "Đơn hàng"))
-        self.pushButton_2.setText(_translate("MainWindow", "Chi tiết đơn hàng"))
-        self.pushButton.setText(_translate("MainWindow", "Quản lý nhân viên"))
-        self.label.setText(_translate("MainWindow", "PAGE 3"))
+        self.AddButtonDSDVT.setText(_translate("MainWindow", "Thêm"))
+        self.DeleteButtonDSDVT.setText(_translate("MainWindow", "Xóa"))
+        self.labelBoxBlenderInstalation.setText(_translate("MainWindow", "Danh sách nhà cung cấp"))
+        self.LineSearchDSNCC.setPlaceholderText(_translate("MainWindow", "Type here"))
+        self.SearchButtonDSNCC.setText(_translate("MainWindow", "Tìm kiếm"))
+        self.labelVersion_5.setText(_translate("MainWindow", "Nhập tên nhà cung cấp"))
+        self.AddButtonDSNCC.setText(_translate("MainWindow", "Thêm"))
+        self.DeleteButtonDSNCC.setText(_translate("MainWindow", "Xóa"))
+        self.labelBoxBlenderInstalation_3.setText(_translate("MainWindow", "Danh sách hàng hóa"))
+        self.LineSearchDSHH.setPlaceholderText(_translate("MainWindow", "Type here"))
+        self.SearchButton_DSHH.setText(_translate("MainWindow", "Tìm kiếm"))
+        self.labelVersion_6.setText(_translate("MainWindow", "Label description"))
+        self.AddButonDSHH.setText(_translate("MainWindow", "Thêm"))
+        self.DeleteButtonDSHH.setText(_translate("MainWindow", "Xóa"))
+        self.labelBoxBlenderInstalation_4.setText(_translate("MainWindow", "Bảng giá sản phẩm"))
+        self.lineEdit_5.setPlaceholderText(_translate("MainWindow", "Type here"))
+        self.pushButton_12.setText(_translate("MainWindow", "Tìm kiếm"))
+        self.labelVersion_7.setText(_translate("MainWindow", "Tim tên sản phẩm"))
+        self.pushButton_22.setText(_translate("MainWindow", "Thêm"))
+        self.pushButton_23.setText(_translate("MainWindow", "Xóa"))
+        self.labelBoxBlenderInstalation_5.setText(_translate("MainWindow", "Danh sách Đơn hàng"))
+        self.lineEdit_8.setPlaceholderText(_translate("MainWindow", "Type here"))
+        self.pushButton_15.setText(_translate("MainWindow", "Search"))
+        self.labelVersion_10.setText(_translate("MainWindow", "Nhập mã đơn hàng"))
+        self.radioButton_3.setText(_translate("MainWindow", "Đơn hàng mua"))
+        self.radioButton_4.setText(_translate("MainWindow", "Đơn hàng bán"))
+        self.pushButton_2.setText(_translate("MainWindow", "Thêm"))
+        self.pushButton.setText(_translate("MainWindow", "Xóa"))
+        self.labelBoxBlenderInstalation_7.setText(_translate("MainWindow", "Quản lý nhân viên"))
+        self.lineEdit_10.setPlaceholderText(_translate("MainWindow", "Type here"))
+        self.pushButton_17.setText(_translate("MainWindow", "Tìm kiếm"))
+        self.labelVersion_12.setText(_translate("MainWindow", "Nhập tên nhân viên"))
+        self.pushButton_13.setText(_translate("MainWindow", "Thêm"))
+        self.pushButton_14.setText(_translate("MainWindow", "Xóa"))
+        self.labelBoxBlenderInstalation_6.setText(_translate("MainWindow", "Quản lý tài khoản"))
+        self.LineSearchQLTK.setPlaceholderText(_translate("MainWindow", "Type here"))
+        self.SearchButtonQLTK.setText(_translate("MainWindow", "Tìm kiếm"))
+        self.labelVersion_8.setText(_translate("MainWindow", "Nhập tên tài khoản"))
+

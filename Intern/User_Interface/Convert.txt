@@ -1,0 +1,1 @@
+pyuic5 C:\Users\BanhMiBietBay\Documents\Code\Python\Intern\UI_Ver_2\ui_main.ui -o C:\Users\BanhMiBietBay\Documents\Code\Python\Intern\UI_Ver_2\ui_main.py

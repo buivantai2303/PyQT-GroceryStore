@@ -9,4 +9,6 @@ def connect_db():
 
     # Create the database connection
     conn = pyodbc.connect(f'DRIVER={{SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}')
+
     return conn
+

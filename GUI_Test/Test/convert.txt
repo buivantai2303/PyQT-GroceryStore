@@ -1,3 +1,0 @@
-C:\Users\BanhMiBietBay\Documents\Code\Python\GUI_Test\Test\ui_main.ui -o C:\Users\BanhMiBietBay\Documents\Code\Python\GUI_Test\Test\ui_main.py
-
-pyuic5 C:\Users\BanhMiBietBay\Documents\Code\Python\Intern\Design\ui_main.ui -o C:\Users\BanhMiBietBay\Documents\Code\Python\Intern\Design\ui_main.py

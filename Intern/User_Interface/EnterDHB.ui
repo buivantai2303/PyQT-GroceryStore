@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>679</width>
+    <height>251</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>679</width>
+    <height>251</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">font: 87 8pt &quot;Shopee Display Black&quot;;
+background-color: rgb(98, 188, 157);</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout_4">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QWidget" name="horizontalWidget_4" native="true">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">	color: rgb(170, 0, 0);
+	font: 87 11pt &quot;Shopee Display Black&quot;;
+border-radius: 10px;
+background-color: rgb(255, 202, 166);</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Ngày đơn hàng</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Mã nhân viên</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="text">
+           <string>Mã khách hàng</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Tổng giá trị</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="horizontalWidget_3" native="true">
+       <property name="styleSheet">
+        <string notr="true">	color: rgb(170, 0, 0);
+	font: 87 11pt &quot;Shopee Display Black&quot;;
+border-radius: 10px;
+background-color: rgb(255, 202, 166);</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QDateEdit" name="EnterDHB_NgayDH">
+          <property name="styleSheet">
+           <string notr="true">
+background-color: rgb(255, 222, 215);
+color: rgb(170, 0, 0);
+border: 1px solid #000000;
+border-radius: 10px;
+</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="EnterDHB_MaNV">
+          <property name="styleSheet">
+           <string notr="true">
+background-color: rgb(255, 222, 215);
+color: rgb(170, 0, 0);
+border: 1px solid #000000;
+border-radius: 10px;
+</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="EnterDHB_MaKH">
+          <property name="styleSheet">
+           <string notr="true">
+background-color: rgb(255, 222, 215);
+color: rgb(170, 0, 0);
+border: 1px solid #000000;
+border-radius: 10px;
+</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="EnterDHB_Total">
+          <property name="styleSheet">
+           <string notr="true">
+background-color: rgb(255, 222, 215);
+color: rgb(170, 0, 0);
+border: 1px solid #000000;
+border-radius: 10px;
+</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QWidget" name="horizontalWidget_2" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>100</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	color: rgb(170, 0, 0);
+	font: 87 11pt &quot;Shopee Display Black&quot;;
+border-radius: 10px;
+background-color: rgb(255, 202, 166);</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QPushButton" name="EnterButtonDHB">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	font: 81 10pt &quot;Shopee Display ExtBd&quot;;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+QPushButton {
+	background-color:  rgb(170, 0, 0);
+	color: rgb(255, 255, 255);
+}
+QPushButton:hover {
+	background-color: rgb(85, 170, 255);
+}</string>
+        </property>
+        <property name="text">
+         <string>Hoàn tất</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="ExitButtonDHB">
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+	font: 81 10pt &quot;Shopee Display ExtBd&quot;;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+QPushButton {
+	background-color:  rgb(170, 0, 0);
+	color: rgb(255, 255, 255);
+}
+QPushButton:hover {
+	background-color: rgb(85, 170, 255);
+}</string>
+        </property>
+        <property name="text">
+         <string>Hủy</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,8 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>cil-smile.png</file>
+  </qresource>
+  <qresource prefix="newPrefix">
+    <file>0_NCBwYFewFf602uvF.png</file>
+  </qresource>
+</RCC>
