@@ -200,7 +200,6 @@ class EnterNCCClas(object):
         self.ExitButtonNCC.setText(_translate("Dialog", "Hủy"))
 
     def add_data_to_db(self):
-        print("Hello")
         server = 'BANHMIBIETBAY\\SQLEXPRESS'
         database = 'Sales_Manager'
         username = 'sa'

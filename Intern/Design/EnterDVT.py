@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
+
 import pyodbc
 # Form implementation generated from reading ui file 'C:\Users\BanhMiBietBay\Documents\Code\Python\Intern\User_Interface\EnterDVT.ui'
 #
@@ -205,17 +207,21 @@ class EnterDVTClass(object):
         ma_dvt = self.EnterDVT_MaDVT.text()
         ten_dvt = self.EnterDVT_TenDVT.text()
         ghi_chu = self.EnterDVT_GhiChu.text()
-        trang_thai = self.EnterDVT_TrangThai.currentText()
+        # trang_thai = self.EnterDVT_TrangThai.currentText()
+        XoaMem = 1
+        ThoiGianXoa = datetime.today()
 
         cursor = conn.cursor()
 
         try:
-            cursor.execute("INSERT INTO Don_Vi_Tinh (MaDVT, TenDVT, GhiChu, DaXoa) VALUES (?, ?, ?, ?)",
-                           (ma_dvt, ten_dvt, ghi_chu, trang_thai))
+            cursor.execute(
+                "INSERT INTO Don_Vi_Tinh (MaDVT, TenDVT, GhiChu, XoaMem, ThoiGianXoa) VALUES (?, ?, ?, ?, ?)",
+                (ma_dvt, ten_dvt, ghi_chu, XoaMem, ThoiGianXoa))
             conn.commit()
+            QMessageBox.information(self, "Thông báo", "Thêm dữ liệu thành công!")
+            self.Dialog.close()
         except Exception as e:
             conn.rollback()
-            # Handle the exception as needed
         finally:
             conn.close()
             self.Dialog.close()

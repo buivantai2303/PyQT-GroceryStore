@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
+
 import pyodbc
 # Form implementation generated from reading ui file 'C:\Users\BanhMiBietBay\Documents\Code\Python\Intern\User_Interface\EnterDSHH.ui'
 #
@@ -306,14 +308,16 @@ class EnterDSHHClass(object):
         NgayCapNhat = self.EnterDSHH_NgayCapNhat.currentText()
         GhiChu = self.EnterDSHH_GhiChu.text()
         TrangThai = self.EnterDSHH_TrangThai.text()
+        XoaMem = 1
+        ThoiGianXoa = datetime.today()
 
         cursor = connect_db().cursor()
 
         try:
             cursor.execute(
-                "INSERT INTO Nha_Cung_Cap (MaHang, TenHang, MaDVT, GiaMua, GiaBan, GiaBinhQuan, MaNCC, SoLuongTon, NgayCapNhat, GhiChu, DaXoa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ?)",
+                "INSERT INTO Nha_Cung_Cap (MaHang, TenHang, MaDVT, GiaMua, GiaBan, GiaBinhQuan, MaNCC, SoLuongTon, NgayCapNhat, GhiChu, DaXoa, XoaMem, ThoiGianXoa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (Ma_Hang, Ten_Hang, MaDVT, GiaMua, GiaBan, GiaBinhQuan, MaNCC, SoLuong_Ton, NgayCapNhat, GhiChu,
-                 TrangThai))
+                 TrangThai, XoaMem, ThoiGianXoa))
             connect_db().commit()
         except Exception as e:
             connect_db().rollback()
