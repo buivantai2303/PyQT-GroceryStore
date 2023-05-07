@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import pyodbc
 # Form implementation generated from reading ui file 'C:\Users\BanhMiBietBay\Documents\Code\Python\Intern\User_Interface\EnterBG.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
@@ -12,18 +12,22 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class EnterBGCLass(object):
+    def __init__(self):
+        self.Dialog = None
+
     def setupUi(self, Dialog):
+        self.Dialog = Dialog
         Dialog.setObjectName("Dialog")
         Dialog.resize(822, 412)
         Dialog.setMinimumSize(QtCore.QSize(822, 412))
         Dialog.setMaximumSize(QtCore.QSize(822, 412))
         Dialog.setStyleSheet("\n"
-"\n"
-"background-color: rgb(98, 188, 157);\n"
-"font: 87 10pt \"Shopee Display Black\";\n"
-"\n"
-"\n"
-"background-color: rgb(98, 188, 157);")
+                             "\n"
+                             "background-color: rgb(98, 188, 157);\n"
+                             "font: 87 10pt \"Shopee Display Black\";\n"
+                             "\n"
+                             "\n"
+                             "background-color: rgb(98, 188, 157);")
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(Dialog)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.horizontalLayout = QtWidgets.QHBoxLayout()
@@ -33,10 +37,10 @@ class EnterBGCLass(object):
         self.horizontalWidget_2.setMinimumSize(QtCore.QSize(150, 0))
         self.horizontalWidget_2.setMaximumSize(QtCore.QSize(100, 16777215))
         self.horizontalWidget_2.setStyleSheet("    color: rgb(170, 0, 0);\n"
-"    font: 87 11pt \"Shopee Display Black\";\n"
-"    background-color: rgb(255, 175, 135);\n"
-"border-radius: 10px;\n"
-"background-color: rgb(255, 202, 166);")
+                                              "    font: 87 11pt \"Shopee Display Black\";\n"
+                                              "    background-color: rgb(255, 175, 135);\n"
+                                              "border-radius: 10px;\n"
+                                              "background-color: rgb(255, 202, 166);")
         self.horizontalWidget_2.setObjectName("horizontalWidget_2")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.horizontalWidget_2)
         self.verticalLayout.setContentsMargins(10, -1, -1, -1)
@@ -65,9 +69,9 @@ class EnterBGCLass(object):
         self.horizontalLayout.addWidget(self.horizontalWidget_2)
         self.horizontalWidget_3 = QtWidgets.QWidget(Dialog)
         self.horizontalWidget_3.setStyleSheet("    color: rgb(170, 0, 0);\n"
-"    font: 87 11pt \"Shopee Display Black\";\n"
-"border-radius: 10px;\n"
-"background-color: rgb(255, 202, 166);")
+                                              "    font: 87 11pt \"Shopee Display Black\";\n"
+                                              "border-radius: 10px;\n"
+                                              "background-color: rgb(255, 202, 166);")
         self.horizontalWidget_3.setObjectName("horizontalWidget_3")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.horizontalWidget_3)
         self.verticalLayout_2.setSpacing(10)
@@ -75,76 +79,72 @@ class EnterBGCLass(object):
         self.EnterBG_MBG = QtWidgets.QLineEdit(self.horizontalWidget_3)
         self.EnterBG_MBG.setMinimumSize(QtCore.QSize(0, 30))
         self.EnterBG_MBG.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
+                                       "background-color: rgb(255, 222, 215);\n"
+                                       "color: rgb(170, 0, 0);\n"
+                                       "border: 1px solid #000000;\n"
+                                       "border-radius: 10px;\n"
+                                       "")
         self.EnterBG_MBG.setText("")
         self.EnterBG_MBG.setObjectName("EnterBG_MBG")
         self.verticalLayout_2.addWidget(self.EnterBG_MBG)
-        self.EnterBG_MaHang = QtWidgets.QLineEdit(self.horizontalWidget_3)
-        self.EnterBG_MaHang.setMinimumSize(QtCore.QSize(0, 30))
-        self.EnterBG_MaHang.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
-        self.EnterBG_MaHang.setText("")
-        self.EnterBG_MaHang.setObjectName("EnterBG_MaHang")
-        self.verticalLayout_2.addWidget(self.EnterBG_MaHang)
-        self.EnterBG_MaDVT = QtWidgets.QLineEdit(self.horizontalWidget_3)
-        self.EnterBG_MaDVT.setMinimumSize(QtCore.QSize(0, 30))
-        self.EnterBG_MaDVT.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
-        self.EnterBG_MaDVT.setText("")
-        self.EnterBG_MaDVT.setObjectName("EnterBG_MaDVT")
-        self.verticalLayout_2.addWidget(self.EnterBG_MaDVT)
+        self.comboBox_2 = QtWidgets.QComboBox(self.horizontalWidget_3)
+        self.comboBox_2.setStyleSheet("\n"
+                                      "background-color: rgb(255, 222, 215);\n"
+                                      "color: rgb(170, 0, 0);\n"
+                                      "border: 1px solid #000000;\n"
+                                      "border-radius: 10px;\n"
+                                      "")
+        self.comboBox_2.setObjectName("comboBox_2")
+        self.verticalLayout_2.addWidget(self.comboBox_2)
+        self.comboBox = QtWidgets.QComboBox(self.horizontalWidget_3)
+        self.comboBox.setStyleSheet("\n"
+                                    "background-color: rgb(255, 222, 215);\n"
+                                    "color: rgb(170, 0, 0);\n"
+                                    "border: 1px solid #000000;\n"
+                                    "border-radius: 10px;\n"
+                                    "")
+        self.comboBox.setObjectName("comboBox")
+        self.verticalLayout_2.addWidget(self.comboBox)
         self.EnterBG_SoLuong = QtWidgets.QLineEdit(self.horizontalWidget_3)
         self.EnterBG_SoLuong.setMinimumSize(QtCore.QSize(0, 30))
         self.EnterBG_SoLuong.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
+                                           "background-color: rgb(255, 222, 215);\n"
+                                           "color: rgb(170, 0, 0);\n"
+                                           "border: 1px solid #000000;\n"
+                                           "border-radius: 10px;\n"
+                                           "")
         self.EnterBG_SoLuong.setText("")
         self.EnterBG_SoLuong.setObjectName("EnterBG_SoLuong")
         self.verticalLayout_2.addWidget(self.EnterBG_SoLuong)
         self.EnterBG_GiaMua = QtWidgets.QLineEdit(self.horizontalWidget_3)
         self.EnterBG_GiaMua.setMinimumSize(QtCore.QSize(0, 30))
         self.EnterBG_GiaMua.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
+                                          "background-color: rgb(255, 222, 215);\n"
+                                          "color: rgb(170, 0, 0);\n"
+                                          "border: 1px solid #000000;\n"
+                                          "border-radius: 10px;\n"
+                                          "")
         self.EnterBG_GiaMua.setText("")
         self.EnterBG_GiaMua.setObjectName("EnterBG_GiaMua")
         self.verticalLayout_2.addWidget(self.EnterBG_GiaMua)
         self.EnterBG_GiaBan = QtWidgets.QLineEdit(self.horizontalWidget_3)
         self.EnterBG_GiaBan.setMinimumSize(QtCore.QSize(0, 30))
         self.EnterBG_GiaBan.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
+                                          "background-color: rgb(255, 222, 215);\n"
+                                          "color: rgb(170, 0, 0);\n"
+                                          "border: 1px solid #000000;\n"
+                                          "border-radius: 10px;\n"
+                                          "")
         self.EnterBG_GiaBan.setText("")
         self.EnterBG_GiaBan.setObjectName("EnterBG_GiaBan")
         self.verticalLayout_2.addWidget(self.EnterBG_GiaBan)
         self.EnterBG_TrangThai = QtWidgets.QComboBox(self.horizontalWidget_3)
         self.EnterBG_TrangThai.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
+                                             "background-color: rgb(255, 222, 215);\n"
+                                             "color: rgb(170, 0, 0);\n"
+                                             "border: 1px solid #000000;\n"
+                                             "border-radius: 10px;\n"
+                                             "")
         self.EnterBG_TrangThai.setObjectName("EnterBG_TrangThai")
         self.EnterBG_TrangThai.addItem("")
         self.EnterBG_TrangThai.addItem("")
@@ -154,49 +154,70 @@ class EnterBGCLass(object):
         self.horizontalWidget_21 = QtWidgets.QWidget(Dialog)
         self.horizontalWidget_21.setMinimumSize(QtCore.QSize(100, 0))
         self.horizontalWidget_21.setStyleSheet("    color: rgb(170, 0, 0);\n"
-"    font: 87 11pt \"Shopee Display Black\";\n"
-"    background-color: rgb(255, 175, 135);\n"
-"border-radius: 10px;\n"
-"background-color: rgb(255, 202, 166);")
+                                               "    font: 87 11pt \"Shopee Display Black\";\n"
+                                               "    background-color: rgb(255, 175, 135);\n"
+                                               "border-radius: 10px;\n"
+                                               "background-color: rgb(255, 202, 166);")
         self.horizontalWidget_21.setObjectName("horizontalWidget_21")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.horizontalWidget_21)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.EnterButtonBG = QtWidgets.QPushButton(self.horizontalWidget_21)
         self.EnterButtonBG.setStyleSheet("QPushButton {\n"
-"    font: 81 10pt \"Shopee Display ExtBd\";\n"
-"    border: 1px solid #000000;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"    background-color:  rgb(170, 0, 0);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
-"}")
+                                         "    font: 81 10pt \"Shopee Display ExtBd\";\n"
+                                         "    border: 1px solid #000000;\n"
+                                         "    border-radius: 10px;\n"
+                                         "}\n"
+                                         "\n"
+                                         "QPushButton {\n"
+                                         "    background-color:  rgb(170, 0, 0);\n"
+                                         "    color: rgb(255, 255, 255);\n"
+                                         "}\n"
+                                         "QPushButton:hover {\n"
+                                         "    background-color: rgb(85, 170, 255);\n"
+                                         "}")
         self.EnterButtonBG.setObjectName("EnterButtonBG")
         self.verticalLayout_3.addWidget(self.EnterButtonBG)
         self.ExitButtonBG = QtWidgets.QPushButton(self.horizontalWidget_21)
         self.ExitButtonBG.setStyleSheet("QPushButton {\n"
-"    font: 81 10pt \"Shopee Display ExtBd\";\n"
-"    border: 1px solid #000000;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"    background-color:  rgb(170, 0, 0);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
-"}")
+                                        "    font: 81 10pt \"Shopee Display ExtBd\";\n"
+                                        "    border: 1px solid #000000;\n"
+                                        "    border-radius: 10px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton {\n"
+                                        "    background-color:  rgb(170, 0, 0);\n"
+                                        "    color: rgb(255, 255, 255);\n"
+                                        "}\n"
+                                        "QPushButton:hover {\n"
+                                        "    background-color: rgb(85, 170, 255);\n"
+                                        "}")
         self.ExitButtonBG.setObjectName("ExitButtonBG")
         self.verticalLayout_3.addWidget(self.ExitButtonBG)
         self.horizontalLayout_2.addWidget(self.horizontalWidget_21)
+        self.EnterButtonBG.clicked.connect(self.add_data_to_db)
+        self.ExitButtonBG.clicked.connect(self.CloseTab)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+        server = 'BANHMIBIETBAY\\SQLEXPRESS'
+        database = 'Sales_Manager'
+        username = 'sa'
+        password = '180403'
+
+        # Create the database connection
+        conn = pyodbc.connect(
+            f'DRIVER={{SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}')
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT MaDVT FROM Don_Vi_Tinh WHERE XoaMem = 1")
+        data_2 = cursor.fetchall()
+        for item_2 in data_2:
+            self.comboBox.addItem(item_2[0])
+
+        cursor.execute("SELECT MaHang FROM Hang_Hoa WHERE XoaMem = 1")
+        data_3 = cursor.fetchall()
+        for item_3 in data_3:
+            self.comboBox_2.addItem(item_3[0])
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
@@ -209,8 +230,6 @@ class EnterBGCLass(object):
         self.label_7.setText(_translate("Dialog", "Giá bán"))
         self.label_2.setText(_translate("Dialog", "Trạng thái"))
         self.EnterBG_MBG.setPlaceholderText(_translate("Dialog", "Type here"))
-        self.EnterBG_MaHang.setPlaceholderText(_translate("Dialog", "Type here"))
-        self.EnterBG_MaDVT.setPlaceholderText(_translate("Dialog", "Type here"))
         self.EnterBG_SoLuong.setPlaceholderText(_translate("Dialog", "Type here"))
         self.EnterBG_GiaMua.setPlaceholderText(_translate("Dialog", "Type here"))
         self.EnterBG_GiaBan.setPlaceholderText(_translate("Dialog", "Type here"))
@@ -218,3 +237,41 @@ class EnterBGCLass(object):
         self.EnterBG_TrangThai.setItemText(1, _translate("Dialog", "Không hoạt động"))
         self.EnterButtonBG.setText(_translate("Dialog", "Hoàn tất"))
         self.ExitButtonBG.setText(_translate("Dialog", "Hủy"))
+
+    def show(self):
+        pass
+
+    def add_data_to_db(self):
+        print("Hello")
+        server = 'BANHMIBIETBAY\\SQLEXPRESS'
+        database = 'Sales_Manager'
+        username = 'sa'
+        password = '180403'
+
+        # Create the database connection
+        conn = pyodbc.connect(
+            f'DRIVER={{SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}')
+        MaBG = self.EnterBG_MBG.text()
+        MaHang = self.comboBox_2.currentText()
+        MaDVT = self.comboBox.currentText()
+        SoLuong = self.EnterBG_SoLuong.text()
+        GiaNhap = self.EnterBG_GiaMua.text()
+        GiaBan = self.EnterBG_GiaBan.text()
+        trangthai = self.EnterBG_TrangThai.currentText()
+        XoaMem = 1
+        cursor = conn.cursor()
+
+        try:
+            cursor.execute(
+                "INSERT INTO Bang_Gia (MaBangGia, MaHang, MaDVT, SoLuongDVT, GiaMua, GiaBan, DaXoa, XoaMem) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                (MaBG, MaHang, MaDVT, SoLuong, GiaNhap, GiaBan, trangthai, XoaMem))
+            conn.commit()
+        except Exception as e:
+            conn.rollback()
+            # Handle the exception as needed
+        finally:
+            conn.close()
+            self.Dialog.close()
+
+    def CloseTab(self):
+        self.Dialog.close()

@@ -209,7 +209,7 @@ class EnterDVTClass(object):
         ghi_chu = self.EnterDVT_GhiChu.text()
         # trang_thai = self.EnterDVT_TrangThai.currentText()
         XoaMem = 1
-        ThoiGianXoa = datetime.today()
+        ThoiGianXoa = None
 
         cursor = conn.cursor()
 
@@ -218,7 +218,6 @@ class EnterDVTClass(object):
                 "INSERT INTO Don_Vi_Tinh (MaDVT, TenDVT, GhiChu, XoaMem, ThoiGianXoa) VALUES (?, ?, ?, ?, ?)",
                 (ma_dvt, ten_dvt, ghi_chu, XoaMem, ThoiGianXoa))
             conn.commit()
-            QMessageBox.information(self, "Thông báo", "Thêm dữ liệu thành công!")
             self.Dialog.close()
         except Exception as e:
             conn.rollback()

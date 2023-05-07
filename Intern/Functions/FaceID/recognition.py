@@ -1,13 +1,16 @@
-import face_recognition
-import os, sys, cv2, np
-
+import cv2
 import math
+import numpy as np
+import os
+import sys
+
+import face_recognition
 
 
 # Helper
 def face_confidence(face_distance, face_match_threshold=0.6):
-    range = (1.0 - face_match_threshold)
-    linear_val = (1.0 - face_distance) / (range * 2.0)
+    Dynamic_Range = (1.0 - face_match_threshold)
+    linear_val = (1.0 - face_distance) / (Dynamic_Range * 2.0)
 
     if face_distance > face_match_threshold:
         return str(round(linear_val * 100, 2)) + '%'

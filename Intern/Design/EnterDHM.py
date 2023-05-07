@@ -1,14 +1,12 @@
-from datetime import datetime
-
 import pyodbc
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-
 class EnterDHMClass(object):
     def __init__(self):
-            self.Dialog = None
+        self.Dialog = None
 
     def setupUi(self, Dialog):
+        self.Dialog = Dialog
         Dialog.setObjectName("Dialog")
         Dialog.resize(652, 245)
         Dialog.setMinimumSize(QtCore.QSize(652, 240))
@@ -132,6 +130,7 @@ class EnterDHMClass(object):
         self.verticalLayout_2.addWidget(self.ExitButtonDHM)
         self.horizontalLayout_3.addWidget(self.horizontalWidget_21)
         self.EnterButtonDHM.clicked.connect(self.add_data_to_db)
+        self.ExitButtonDHM.clicked.connect(self.CloseTab)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -146,12 +145,12 @@ class EnterDHMClass(object):
             f'DRIVER={{SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}')
         cursor = conn.cursor()
 
-        cursor.execute("SELECT TenNCC FROM Nha_Cung_Cap WHERE XoaMem = 1")
+        cursor.execute("SELECT MaNCC FROM Nha_Cung_Cap WHERE XoaMem = 1")
         data = cursor.fetchall()
         for item in data:
             self.EnterDHM_NCC.addItem(item[0])
 
-        cursor.execute("SELECT TenNV FROM Nhan_Vien WHERE XoaMem = 1")
+        cursor.execute("SELECT MaNV FROM Nhan_Vien WHERE XoaMem = 1")
         data_2 = cursor.fetchall()
         for item_2 in data_2:
             self.EnterDHM_MNV.addItem(item_2[0])
@@ -167,6 +166,7 @@ class EnterDHMClass(object):
         self.ExitButtonDHM.setText(_translate("Dialog", "Hủy"))
 
     def add_data_to_db(self):
+        print("Hello")
         server = 'BANHMIBIETBAY\\SQLEXPRESS'
         database = 'Sales_Manager'
         username = 'sa'
@@ -180,20 +180,21 @@ class EnterDHMClass(object):
         NCC = self.EnterDHM_NCC.currentText()
         Total = self.EnterDHM_Total.text()
         XoaMem = 1
-        ThoiGianXoa = datetime.today()
         cursor = conn.cursor()
 
         try:
-            cursor.execute("INSERT INTO Don_Hang_Mua (NgayDH, MaNV, MaNCC, TongGiaTri, XoaMem, ThoiGianXoa) VALUES (?, ?, ?, ?, ?, ?)",
-                           (Date, MaNV, NCC, Total, XoaMem, ThoiGianXoa))
+            cursor.execute("INSERT INTO Don_Hang_Mua (NgayDH, MaNV, MaNCC, TongGiaTri, XoaMem) VALUES (?, ?, ?, ?, ?)",
+                           (Date, MaNV, NCC, Total, XoaMem))
             conn.commit()
         except Exception as e:
             conn.rollback()
             # Handle the exception as needed
         finally:
             conn.close()
-            # self.Dialog.close()
+            self.Dialog.close()
 
     def close(self):
-        # self.close()
         pass
+
+    def CloseTab(self):
+        self.Dialog.close()

@@ -83,13 +83,6 @@ background-color: rgb(255, 202, 166);</string>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_9">
-        <property name="text">
-         <string>Mật khẩu</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QLabel" name="label_3">
         <property name="text">
          <string>Quyền</string>
@@ -172,18 +165,6 @@ border-radius: 10px;
       </item>
       <item>
        <widget class="QLineEdit" name="lineEdit">
-        <property name="styleSheet">
-         <string notr="true">
-background-color: rgb(255, 222, 215);
-color: rgb(170, 0, 0);
-border: 1px solid #000000;
-border-radius: 10px;
-</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="lineEdit_7">
         <property name="styleSheet">
          <string notr="true">
 background-color: rgb(255, 222, 215);

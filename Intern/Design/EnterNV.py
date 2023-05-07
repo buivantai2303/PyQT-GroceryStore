@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import pyodbc
 # Form implementation generated from reading ui file 'C:\Users\BanhMiBietBay\Documents\Code\Python\Intern\User_Interface\EnterNV.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.9
@@ -12,25 +12,30 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class EnterNVClass(object):
+    def __init__(self):
+        self.close = None
+        self.Dialog = None
+
     def setupUi(self, Dialog):
+        self.Dialog = Dialog
         Dialog.setObjectName("Dialog")
         Dialog.resize(696, 455)
         Dialog.setStyleSheet("\n"
-"\n"
-"background-color: rgb(98, 188, 157);\n"
-"font: 87 10pt \"Shopee Display Black\";\n"
-"\n"
-"\n"
-"background-color: rgb(98, 188, 157);")
+                             "\n"
+                             "background-color: rgb(98, 188, 157);\n"
+                             "font: 87 10pt \"Shopee Display Black\";\n"
+                             "\n"
+                             "\n"
+                             "background-color: rgb(98, 188, 157);")
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout(Dialog)
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.horizontalWidget_2 = QtWidgets.QWidget(Dialog)
         self.horizontalWidget_2.setMinimumSize(QtCore.QSize(150, 0))
         self.horizontalWidget_2.setMaximumSize(QtCore.QSize(300, 16777215))
         self.horizontalWidget_2.setStyleSheet("    color: rgb(170, 0, 0);\n"
-"    font: 87 11pt \"Shopee Display Black\";\n"
-"border-radius: 10px;\n"
-"background-color: rgb(255, 202, 166);")
+                                              "    font: 87 11pt \"Shopee Display Black\";\n"
+                                              "border-radius: 10px;\n"
+                                              "background-color: rgb(255, 202, 166);")
         self.horizontalWidget_2.setObjectName("horizontalWidget_2")
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.horizontalWidget_2)
         self.verticalLayout_2.setContentsMargins(13, -1, -1, -1)
@@ -50,9 +55,6 @@ class EnterNVClass(object):
         self.label_7 = QtWidgets.QLabel(self.horizontalWidget_2)
         self.label_7.setObjectName("label_7")
         self.verticalLayout_2.addWidget(self.label_7)
-        self.label_9 = QtWidgets.QLabel(self.horizontalWidget_2)
-        self.label_9.setObjectName("label_9")
-        self.verticalLayout_2.addWidget(self.label_9)
         self.label_3 = QtWidgets.QLabel(self.horizontalWidget_2)
         self.label_3.setObjectName("label_3")
         self.verticalLayout_2.addWidget(self.label_3)
@@ -65,73 +67,64 @@ class EnterNVClass(object):
         self.horizontalLayout_3.addWidget(self.horizontalWidget_2)
         self.horizontalWidget = QtWidgets.QWidget(Dialog)
         self.horizontalWidget.setStyleSheet("    color: rgb(170, 0, 0);\n"
-"    font: 87 11pt \"Shopee Display Black\";\n"
-"border-radius: 10px;\n"
-"background-color: rgb(255, 202, 166);")
+                                            "    font: 87 11pt \"Shopee Display Black\";\n"
+                                            "border-radius: 10px;\n"
+                                            "background-color: rgb(255, 202, 166);")
         self.horizontalWidget.setObjectName("horizontalWidget")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.horizontalWidget)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.lineEdit_6 = QtWidgets.QLineEdit(self.horizontalWidget)
         self.lineEdit_6.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
+                                      "background-color: rgb(255, 222, 215);\n"
+                                      "color: rgb(170, 0, 0);\n"
+                                      "border: 1px solid #000000;\n"
+                                      "border-radius: 10px;\n"
+                                      "")
         self.lineEdit_6.setObjectName("lineEdit_6")
         self.verticalLayout_3.addWidget(self.lineEdit_6)
         self.lineEdit_5 = QtWidgets.QLineEdit(self.horizontalWidget)
         self.lineEdit_5.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
+                                      "background-color: rgb(255, 222, 215);\n"
+                                      "color: rgb(170, 0, 0);\n"
+                                      "border: 1px solid #000000;\n"
+                                      "border-radius: 10px;\n"
+                                      "")
         self.lineEdit_5.setObjectName("lineEdit_5")
         self.verticalLayout_3.addWidget(self.lineEdit_5)
         self.lineEdit_4 = QtWidgets.QLineEdit(self.horizontalWidget)
         self.lineEdit_4.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
+                                      "background-color: rgb(255, 222, 215);\n"
+                                      "color: rgb(170, 0, 0);\n"
+                                      "border: 1px solid #000000;\n"
+                                      "border-radius: 10px;\n"
+                                      "")
         self.lineEdit_4.setObjectName("lineEdit_4")
         self.verticalLayout_3.addWidget(self.lineEdit_4)
         self.lineEdit_3 = QtWidgets.QLineEdit(self.horizontalWidget)
         self.lineEdit_3.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
+                                      "background-color: rgb(255, 222, 215);\n"
+                                      "color: rgb(170, 0, 0);\n"
+                                      "border: 1px solid #000000;\n"
+                                      "border-radius: 10px;\n"
+                                      "")
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.verticalLayout_3.addWidget(self.lineEdit_3)
         self.lineEdit = QtWidgets.QLineEdit(self.horizontalWidget)
         self.lineEdit.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
+                                    "background-color: rgb(255, 222, 215);\n"
+                                    "color: rgb(170, 0, 0);\n"
+                                    "border: 1px solid #000000;\n"
+                                    "border-radius: 10px;\n"
+                                    "")
         self.lineEdit.setObjectName("lineEdit")
         self.verticalLayout_3.addWidget(self.lineEdit)
-        self.lineEdit_7 = QtWidgets.QLineEdit(self.horizontalWidget)
-        self.lineEdit_7.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
-        self.lineEdit_7.setObjectName("lineEdit_7")
-        self.verticalLayout_3.addWidget(self.lineEdit_7)
         self.comboBox = QtWidgets.QComboBox(self.horizontalWidget)
         self.comboBox.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
+                                    "background-color: rgb(255, 222, 215);\n"
+                                    "color: rgb(170, 0, 0);\n"
+                                    "border: 1px solid #000000;\n"
+                                    "border-radius: 10px;\n"
+                                    "")
         self.comboBox.setObjectName("comboBox")
         self.comboBox.addItem("")
         self.comboBox.addItem("")
@@ -140,20 +133,20 @@ class EnterNVClass(object):
         self.verticalLayout_3.addWidget(self.comboBox)
         self.lineEdit_2 = QtWidgets.QLineEdit(self.horizontalWidget)
         self.lineEdit_2.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
+                                      "background-color: rgb(255, 222, 215);\n"
+                                      "color: rgb(170, 0, 0);\n"
+                                      "border: 1px solid #000000;\n"
+                                      "border-radius: 10px;\n"
+                                      "")
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.verticalLayout_3.addWidget(self.lineEdit_2)
         self.comboBox_2 = QtWidgets.QComboBox(self.horizontalWidget)
         self.comboBox_2.setStyleSheet("\n"
-"background-color: rgb(255, 222, 215);\n"
-"color: rgb(170, 0, 0);\n"
-"border: 1px solid #000000;\n"
-"border-radius: 10px;\n"
-"")
+                                      "background-color: rgb(255, 222, 215);\n"
+                                      "color: rgb(170, 0, 0);\n"
+                                      "border: 1px solid #000000;\n"
+                                      "border-radius: 10px;\n"
+                                      "")
         self.comboBox_2.setObjectName("comboBox_2")
         self.comboBox_2.addItem("")
         self.comboBox_2.addItem("")
@@ -163,49 +156,51 @@ class EnterNVClass(object):
         self.verticalWidget.setMinimumSize(QtCore.QSize(100, 0))
         self.verticalWidget.setMaximumSize(QtCore.QSize(150, 16777215))
         self.verticalWidget.setStyleSheet("    color: rgb(170, 0, 0);\n"
-"    font: 87 11pt \"Shopee Display Black\";\n"
-"border-radius: 10px;\n"
-"background-color: rgb(255, 202, 166);")
+                                          "    font: 87 11pt \"Shopee Display Black\";\n"
+                                          "border-radius: 10px;\n"
+                                          "background-color: rgb(255, 202, 166);")
         self.verticalWidget.setObjectName("verticalWidget")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalWidget)
         self.verticalLayout.setContentsMargins(10, -1, 10, -1)
         self.verticalLayout.setObjectName("verticalLayout")
         self.pushButton_2 = QtWidgets.QPushButton(self.verticalWidget)
         self.pushButton_2.setStyleSheet("QPushButton {\n"
-"    font: 81 10pt \"Shopee Display ExtBd\";\n"
-"    border: 1px solid #000000;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"    background-color:  rgb(170, 0, 0);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
-"}")
+                                        "    font: 81 10pt \"Shopee Display ExtBd\";\n"
+                                        "    border: 1px solid #000000;\n"
+                                        "    border-radius: 10px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton {\n"
+                                        "    background-color:  rgb(170, 0, 0);\n"
+                                        "    color: rgb(255, 255, 255);\n"
+                                        "}\n"
+                                        "QPushButton:hover {\n"
+                                        "    background-color: rgb(85, 170, 255);\n"
+                                        "}")
         self.pushButton_2.setObjectName("pushButton_2")
         self.verticalLayout.addWidget(self.pushButton_2)
         self.pushButton = QtWidgets.QPushButton(self.verticalWidget)
         self.pushButton.setStyleSheet("QPushButton {\n"
-"    font: 81 10pt \"Shopee Display ExtBd\";\n"
-"    border: 1px solid #000000;\n"
-"    border-radius: 10px;\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"    background-color:  rgb(170, 0, 0);\n"
-"    color: rgb(255, 255, 255);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    background-color: rgb(85, 170, 255);\n"
-"}")
+                                      "    font: 81 10pt \"Shopee Display ExtBd\";\n"
+                                      "    border: 1px solid #000000;\n"
+                                      "    border-radius: 10px;\n"
+                                      "}\n"
+                                      "\n"
+                                      "QPushButton {\n"
+                                      "    background-color:  rgb(170, 0, 0);\n"
+                                      "    color: rgb(255, 255, 255);\n"
+                                      "}\n"
+                                      "QPushButton:hover {\n"
+                                      "    background-color: rgb(85, 170, 255);\n"
+                                      "}")
         self.pushButton.setObjectName("pushButton")
         self.verticalLayout.addWidget(self.pushButton)
         self.horizontalLayout_3.addWidget(self.verticalWidget)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.pushButton_2.clicked.connect(self.add_data_to_db)
+        self.pushButton.clicked.connect(self.CloseTab)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
@@ -215,7 +210,6 @@ class EnterNVClass(object):
         self.label_5.setText(_translate("Dialog", "Điện thoại"))
         self.label_6.setText(_translate("Dialog", "Địa chỉ"))
         self.label_7.setText(_translate("Dialog", "Tài khản Mail"))
-        self.label_9.setText(_translate("Dialog", "Mật khẩu"))
         self.label_3.setText(_translate("Dialog", "Quyền"))
         self.label_8.setText(_translate("Dialog", "Ghi chú"))
         self.label_2.setText(_translate("Dialog", "Trạng thái"))
@@ -229,5 +223,39 @@ class EnterNVClass(object):
         self.pushButton.setText(_translate("Dialog", "Hủy"))
 
     def show(self):
-            pass
+        pass
 
+    def add_data_to_db(self):
+        print("Hello")
+        server = 'BANHMIBIETBAY\\SQLEXPRESS'
+        database = 'Sales_Manager'
+        username = 'sa'
+        password = '180403'
+
+        # Create the database connection
+        conn = pyodbc.connect(
+            f'DRIVER={{SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}')
+        MaNV = self.lineEdit_6.text()
+        TenNV = self.lineEdit_5.text()
+        DienThoai = self.lineEdit_4.text()
+        DiaChi = self.lineEdit_3.text()
+        Mail = self.lineEdit.text()
+        GhiChu = self.lineEdit_2.text()
+        trangthai = self.comboBox_2.currentText()
+        XoaMem = 1
+        cursor = conn.cursor()
+
+        try:
+            cursor.execute(
+                "INSERT INTO Nhan_Vien (MaNV, TenNV, DienThoai, DiaChi, TaiKhoan, Quyen, GhiChu, XoaMem) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                (MaNV, TenNV, DienThoai, DiaChi, Mail, trangthai, GhiChu, XoaMem))
+            conn.commit()
+        except Exception as e:
+            conn.rollback()
+            # Handle the exception as needed
+        finally:
+            conn.close()
+            self.Dialog.close()
+
+    def CloseTab(self):
+        self.Dialog.close()

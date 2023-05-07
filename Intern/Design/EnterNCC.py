@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from datetime import datetime
+
 import pyodbc
 # Form implementation generated from reading ui file 'C:\Users\BanhMiBietBay\Documents\Code\Python\Intern\User_Interface\EnterNCC.ui'
 #
@@ -181,7 +183,7 @@ class EnterNCCClas(object):
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
         self.EnterButtonNCC.clicked.connect(self.add_data_to_db)
-        self.ExitButtonNCC.clicked.connect(self.close)  # Khi nhấn nút Hủy (CancelButtonDSDVT)
+        self.ExitButtonNCC.clicked.connect(self.CloseTab)  # Khi nhấn nút Hủy (CancelButtonDSDVT)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
@@ -213,12 +215,14 @@ class EnterNCCClas(object):
         dien_thoai = self.EnterNCC_SDT.text()
         diachi = self.EnterNCC_DiaChi.text()
         ghichu = self.EnterNCC_GhiChu.text()
+        XoaMem = 1
+        ThoiGianXoa = None
 
         cursor = conn.cursor()
 
         try:
-            cursor.execute("INSERT INTO Nha_Cung_Cap (MaNCC, TenNCC, DienThoai, DiaChi, GhiChu) VALUES (?, ?, ?, ?, ?)",
-                           (ma_ncc, ten_ncc, dien_thoai, diachi, ghichu))
+            cursor.execute("INSERT INTO Nha_Cung_Cap (MaNCC, TenNCC, DienThoai, DiaChi, GhiChu, XoaMem, ThoiGianXoa) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                           (ma_ncc, ten_ncc, dien_thoai, diachi, ghichu, XoaMem, ThoiGianXoa))
             conn.commit()
         except Exception as e:
             conn.rollback()
@@ -229,3 +233,6 @@ class EnterNCCClas(object):
 
     def close(self):
         pass
+
+    def CloseTab(self):
+        self.Dialog.close()

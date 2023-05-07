@@ -11,6 +11,7 @@ import pyodbc
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 from Intern.Database.Connect_Database import connect_db
 
@@ -249,9 +250,22 @@ class EnterDSHHClass(object):
         self.verticalLayout.addWidget(self.ExitButtomDSHH)
         self.horizontalLayout_4.addWidget(self.horizontalWidget_3)
         self.horizontalLayout.addWidget(self.widget)
+        self.ExitButtomDSHH.clicked.connect(self.CloseTab)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+        self.EnterButtonDSHH.clicked.connect(self.add_data_to_db)
+
+        cursor = connect_db().cursor()
+        cursor.execute("SELECT TenNCC, MaNCC FROM Nha_Cung_Cap WHERE XoaMem = 1")
+        data_2 = cursor.fetchall()
+        for item_2 in data_2:
+            self.EnterDSHH_MaNCC.addItem(item_2[1])
+
+        cursor.execute("SELECT TenDVT, MaDVT FROM Don_Vi_Tinh WHERE XoaMem = 1")
+        data_3 = cursor.fetchall()
+        for item_3 in data_3:
+            self.EnterDSHH_MaDVT.addItem(item_3[1])
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
@@ -280,51 +294,41 @@ class EnterDSHHClass(object):
         self.ExitButtomDSHH.setText(_translate("Dialog", "Hủy"))
 
     def add_data_to_db(self):
-
-        # Truy vấn dữ liệu từ SQL Server
-        cursor = connect_db().cursor()
-        cursor.execute("SELECT TenDVT FROM Don_Vi_Tinh")
-        data = cursor.fetchall()
-
-        # Thêm dữ liệu vào QComboBox
-        for item in data:
-            self.EnterDSHH_MaDVT.addItem(item[0])
-
-        cursor_2 = connect_db().cursor()
-        cursor_2.execute("SELECT TenNCC FROM Nha_Cung_Cap")
-        data_2 = cursor_2.fetchall()
-
-        for item in data_2:
-            self.EnterDSHH_MaNCC.addItem(item[0])
-
         Ma_Hang = self.EnterDSHH_MH.text()
         Ten_Hang = self.EnterDSHH_TenHang.text()
-        MaDVT = self.EnterDSHH_MaDVT.text()
+        MaDVT = self.EnterDSHH_MaDVT.currentText()
         GiaMua = self.EnterDSHH_GiaMua.text()
         GiaBan = self.EnterDSHH_GiaBan.text()
         GiaBinhQuan = self.EnterDSHH_GiaBinhQuan.text()
         MaNCC = self.EnterDSHH_MaNCC.currentText()
         SoLuong_Ton = self.EnterDSHH_SoLuonTon.text()
-        NgayCapNhat = self.EnterDSHH_NgayCapNhat.currentText()
+        NgayCapNhat = self.EnterDSHH_NgayCapNhat.date().toString("yyyy/dd/MM")
         GhiChu = self.EnterDSHH_GhiChu.text()
-        TrangThai = self.EnterDSHH_TrangThai.text()
-        XoaMem = 1
-        ThoiGianXoa = datetime.today()
+        TrangThai = self.EnterDSHH_TrangThai.currentText()
 
-        cursor = connect_db().cursor()
+        server = 'BANHMIBIETBAY\\SQLEXPRESS'
+        database = 'Sales_Manager'
+        username = 'sa'
+        password = '180403'
 
+        # Create the database connection
+        conn = pyodbc.connect(
+            f'DRIVER={{SQL Server}};SERVER={server};DATABASE={database};UID={username};PWD={password}')
+
+        cursor = conn.cursor()
         try:
             cursor.execute(
-                "INSERT INTO Nha_Cung_Cap (MaHang, TenHang, MaDVT, GiaMua, GiaBan, GiaBinhQuan, MaNCC, SoLuongTon, NgayCapNhat, GhiChu, DaXoa, XoaMem, ThoiGianXoa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-                (Ma_Hang, Ten_Hang, MaDVT, GiaMua, GiaBan, GiaBinhQuan, MaNCC, SoLuong_Ton, NgayCapNhat, GhiChu,
-                 TrangThai, XoaMem, ThoiGianXoa))
-            connect_db().commit()
+                "INSERT INTO Hang_Hoa (MaHang, TenHang, MaDVT, GiaMua, GiaBan, GiaBinhQuan, MaNCC, SoLuongTon, NgayCapNhat, GhiChu, DaXoa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                (Ma_Hang, Ten_Hang, MaDVT, GiaMua, GiaBan, GiaBinhQuan, MaNCC, SoLuong_Ton, NgayCapNhat, GhiChu, TrangThai))
+            conn.commit()
         except Exception as e:
-            connect_db().rollback()
-            # Handle the exception as needed
+            conn.rollback()
         finally:
-            connect_db().close()
+            conn.close()
             self.Dialog.close()
 
     def close(self):
         pass
+
+    def CloseTab(self):
+        self.Dialog.close()

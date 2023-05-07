@@ -227,7 +227,7 @@ class MainWindow(QMainWindow):
         self.cursor.execute("SELECT STT, MaDVT, TenDVT, GhiChu FROM Don_Vi_Tinh WHERE MaDVT LIKE ?",
                             ('%' + search_term + '%',))
         self.table_model_DVT.clear()
-        self.table_model_DVT.setHorizontalHeaderLabels(['STT', 'MaDVT', 'TenDVT', 'GhiChu'])
+        self.table_model_DVT.setHorizontalHeaderLabels(['STT', 'Mã Đơn vị tính', 'Tên Đơn vị tính', 'Ghi chú'])
 
         for row_number, row_data in enumerate(self.cursor):
             self.table_model_DVT.insertRow(row_number)
@@ -252,7 +252,7 @@ class MainWindow(QMainWindow):
                 self.table_model_DVT.setItem(row_number, column_number, item)
 
         self.ui.tableView.setModel(self.table_model_DVT)
-        self.table_model_DVT.setHorizontalHeaderLabels(['STT', 'MaDVT', 'TenDVT', 'GhiChu'])
+        self.table_model_DVT.setHorizontalHeaderLabels(['STT', 'Mã Đơn vị tính', 'Tên Đơn vị tính', 'Ghi chú'])
         self.ui.tableView.resizeColumnsToContents()
         header = self.ui.tableView.horizontalHeader()
         for i in range(header.count()):
@@ -264,7 +264,7 @@ class MainWindow(QMainWindow):
             "SELECT STT, MaNCC, TenNCC, DienThoai, DiaChi, GhiChu FROM Nha_Cung_Cap WHERE XoaMem = 1 AND TenNCC LIKE ?",
             ('%' + search_term_2 + '%',))
         self.table_model_NCC.clear()
-        self.table_model_NCC.setHorizontalHeaderLabels(['STT', 'MaNCC', 'TenNCC', 'DienThoai', 'DiaChi', 'GhiChu'])
+        self.table_model_NCC.setHorizontalHeaderLabels(['STT', 'Mã Nhà cung cấp', 'Tên Nhà cung cấp', 'Điện thoại', 'Địa chỉ', 'Ghi chú'])
         for row_number, row_data in enumerate(self.cursor):
             self.table_model_NCC.insertRow(row_number)
             for column_number, data in enumerate(row_data):
@@ -288,7 +288,7 @@ class MainWindow(QMainWindow):
                 self.table_model_NCC.setItem(row_number, column_number, item)
 
         self.ui.tableView_2.setModel(self.table_model_NCC)
-        self.table_model_NCC.setHorizontalHeaderLabels(['STT', 'MaNCC', 'TenNCC', 'DienThoai', 'DiaChi', 'GhiChu'])
+        self.table_model_NCC.setHorizontalHeaderLabels(['STT', 'Mã Nhà cung cấp', 'Tên Nhà cung cấp', 'Điện thoại', 'Địa chỉ', 'Ghi chú'])
         self.ui.tableView_2.resizeColumnsToContents()
         header = self.ui.tableView_2.horizontalHeader()
         for i in range(header.count()):
@@ -302,9 +302,8 @@ class MainWindow(QMainWindow):
             ('%' + search_term + '%',))
         self.table_model_HH.clear()
         self.table_model_HH.setHorizontalHeaderLabels(
-            ['STT', 'MaHang', 'TenHang', 'MaDVT', 'GiaMua', 'GiaBan', 'GiaBinhQuan', 'MaNCC', 'SoLuongTon',
-             'NgayCapNhat',
-             'GhiChu'])
+            ['STT', 'Mã Hàng', 'Tên Hàng', 'Mã Đơn vị tính', 'Giá mua', 'Giá bán', 'Giá bình quân', 'Mã nhà cung cấp', 'Tồn kho',
+             'Ngày cập nhật', 'Ghi chú'])
 
         for row_number, row_data in enumerate(self.cursor):
             self.table_model_HH.insertRow(row_number)
@@ -332,8 +331,8 @@ class MainWindow(QMainWindow):
 
         self.ui.tableView_3.setModel(self.table_model_HH)
         self.table_model_HH.setHorizontalHeaderLabels(
-            ['STT', 'MaHang', 'TenHang', 'MaDVT', 'GiaMua', 'GiaBan', 'GiaBinhQuan', 'MaNCC', 'SoLuongTon',
-             'NgayCapNhat', 'GhiChu'])
+            ['STT', 'Mã Hàng', 'Tên Hàng', 'Mã Đơn vị tính', 'Giá mua', 'Giá bán', 'Giá bình quân', 'Mã nhà cung cấp',
+             'Tồn kho', 'Ngày cập nhật', 'Ghi chú'])
         self.ui.tableView_3.resizeColumnsToContents()
         header = self.ui.tableView_3.horizontalHeader()
         for i in range(header.count()):
@@ -347,7 +346,7 @@ class MainWindow(QMainWindow):
             ('%' + search_term + '%',))
         self.table_model_BG.clear()
         self.table_model_BG.setHorizontalHeaderLabels(
-            ['STT', 'MaBangGia', 'MaHang', 'MaDVT', 'SoLuongDVT', 'GiaMua', 'GiaBan'])
+            ['STT', 'Mã giá sản phẩm', 'Mã hàng', 'Mã Đơn vị tính', 'Số lượng', 'Giá mua', 'Giá bán'])
 
         for row_number, row_data in enumerate(self.cursor):
             self.table_model_BG.insertRow(row_number)
@@ -374,7 +373,7 @@ class MainWindow(QMainWindow):
 
         self.ui.tableView_4.setModel(self.table_model_BG)
         self.table_model_BG.setHorizontalHeaderLabels(
-            ['STT', 'MaBangGia', 'MaHang', 'MaDVT', 'SoLuongDVT', 'GiaMua', 'GiaBan'])
+            ['STT', 'Mã giá sản phẩm', 'Mã hàng', 'Mã Đơn vị tính', 'Số lượng', 'Giá mua', 'Giá bán'])
         self.ui.tableView_4.resizeColumnsToContents()
         header = self.ui.tableView_4.horizontalHeader()
         for i in range(header.count()):
@@ -387,7 +386,7 @@ class MainWindow(QMainWindow):
             ('%' + search_term + '%',))
         self.table_model_DHM.clear()
         self.table_model_DHM.setHorizontalHeaderLabels(
-            ['STT', 'MaDH', 'NgayDH', 'MaNV', 'MaNCC', 'TongGiaTri'])
+            ['STT', 'Mã Đơn hàng mua', 'Thời gian', 'Mã nhân viên', 'Mã nhà cung cấp', 'Tổng giá trị'])
 
         for row_number, row_data in enumerate(self.cursor):
             self.table_model_DHM.insertRow(row_number)
@@ -414,7 +413,7 @@ class MainWindow(QMainWindow):
 
         self.ui.tableView_6.setModel(self.table_model_DHM)
         self.table_model_DHM.setHorizontalHeaderLabels(
-            ['STT', 'MaDH', 'NgayDH', 'MaNV', 'MaNCC', 'TongGiaTri'])
+            ['STT', 'Mã Đơn hàng mua', 'Thời gian', 'Mã nhân viên', 'Mã nhà cung cấp', 'Tổng giá trị'])
         self.ui.tableView_6.resizeColumnsToContents()
         header = self.ui.tableView_6.horizontalHeader()
         for i in range(header.count()):
@@ -427,7 +426,7 @@ class MainWindow(QMainWindow):
             ('%' + search_term + '%',))
         self.table_model_DHB.clear()
         self.table_model_DHB.setHorizontalHeaderLabels(
-            ['STT', 'MaDH', 'NgayDH', 'MaNV', 'MaKH', 'TongGiaTri'])
+            ['STT', 'Mã Đơn hàng bán', 'Thời gian', 'Mã nhân viên', 'Mã khách hàng (Nếu có)', 'Tổng giá trị'])
 
         for row_number, row_data in enumerate(self.cursor):
             self.table_model_DHB.insertRow(row_number)
@@ -454,7 +453,7 @@ class MainWindow(QMainWindow):
 
         self.ui.tableView_6.setModel(self.table_model_DHB)
         self.table_model_DHB.setHorizontalHeaderLabels(
-            ['STT', 'MaDH', 'NgayDH', 'MaNV', 'MaKH', 'TongGiaTri'])
+            ['STT', 'Mã Đơn hàng bán', 'Thời gian', 'Mã nhân viên', 'Mã khách hàng (Nếu có)', 'Tổng giá trị'])
         self.ui.tableView_6.resizeColumnsToContents()
         header = self.ui.tableView_6.horizontalHeader()
         for i in range(header.count()):
@@ -467,7 +466,7 @@ class MainWindow(QMainWindow):
             ('%' + search_term + '%',))
         self.table_model_QLTK.clear()
         self.table_model_QLTK.setHorizontalHeaderLabels(
-            ['TenNguoiDung', 'MatKhau', 'SoDienThoai', 'Email'])
+            ['Tên người dùng', 'Mật khẩu', 'Số điện thoại', 'Email'])
 
         for row_number, row_data in enumerate(self.cursor):
             self.table_model_QLTK.insertRow(row_number)
@@ -493,7 +492,7 @@ class MainWindow(QMainWindow):
 
         self.ui.TableQLTK.setModel(self.table_model_QLTK)
         self.table_model_QLTK.setHorizontalHeaderLabels(
-            ['TenNguoiDung', 'MatKhau', 'SoDienThoai', 'Email'])
+            ['Tên người dùng', 'Mật khẩu', 'Số điện thoại', 'Email'])
         self.ui.TableQLTK.resizeColumnsToContents()
         header = self.ui.TableQLTK.horizontalHeader()
         for i in range(header.count()):
@@ -502,12 +501,12 @@ class MainWindow(QMainWindow):
     def searchBar_Nhan_Vien(self):  # Tìm kiếm dữ liệu
         search_term = self.ui.lineEdit_10.text().strip()
         self.cursor.execute(
-            "SELECT STT, MaNV, TenNV, DienThoai, DiaChi, TaiKhoan, MatKhau, Quyen, GhiChu, DaXoa FROM Nhan_Vien WHERE "
+            "SELECT STT, MaNV, TenNV, DienThoai, DiaChi, TaiKhoan, Quyen, GhiChu, DaXoa FROM Nhan_Vien WHERE "
             "XoaMem = 1 AND TenNV LIKE ?",
             ('%' + search_term + '%',))
         self.table_model_QLNV.clear()
         self.table_model_QLNV.setHorizontalHeaderLabels(
-            ['STT', 'Mã nhân viên', 'Tên nhân viên', 'Số điện thoại', 'Địa chỉ', 'Tài khoản mail', 'Mật khẩu', 'Quyền',
+            ['STT', 'Mã nhân viên', 'Tên nhân viên', 'Số điện thoại', 'Địa chỉ', 'Tài khoản mail', 'Quyền',
              'Ghi chú',
              'Trạng thái'])
 
@@ -527,7 +526,7 @@ class MainWindow(QMainWindow):
         self.table_model_QLNV = QtGui.QStandardItemModel()
         self.cursor = connect_db().cursor()
         self.cursor.execute(
-            'SELECT STT, MaNV, TenNV, DienThoai, DiaChi, TaiKhoan, MatKhau, Quyen, GhiChu, DaXoa FROM Nhan_Vien WHERE '
+            'SELECT STT, MaNV, TenNV, DienThoai, DiaChi, TaiKhoan, Quyen, GhiChu, DaXoa FROM Nhan_Vien WHERE '
             'XoaMem = 1 ORDER BY STT')
         for row_number, row_data in enumerate(self.cursor):
             self.table_model_QLNV.insertRow(row_number)
@@ -537,7 +536,7 @@ class MainWindow(QMainWindow):
 
         self.ui.tableView_10.setModel(self.table_model_QLNV)
         self.table_model_QLNV.setHorizontalHeaderLabels(
-            ['STT', 'Mã nhân viên', 'Tên nhân viên', 'Số điện thoại', 'Địa chỉ', 'Tài khoản mail', 'Mật khẩu', 'Quyền',
+            ['STT', 'Mã nhân viên', 'Tên nhân viên', 'Số điện thoại', 'Địa chỉ', 'Tài khoản mail', 'Quyền',
              'Ghi chú', 'Trạng thái'])
         self.ui.tableView_10.resizeColumnsToContents()
         header = self.ui.tableView_10.horizontalHeader()
@@ -565,7 +564,8 @@ class MainWindow(QMainWindow):
                     # Xóa hàng trong tableView
                     self.table_model_DVT.removeRow(row_number)
                     # Xóa mềm dữ liệu trong SQL Server
-                    cursor.execute(f"UPDATE Don_Vi_Tinh SET XoaMem = 0 WHERE MaDVT = '{MaDVT}'")
+                    ThoiGianXoa = datetime.datetime.now()
+                    cursor.execute(f"UPDATE Don_Vi_Tinh SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaDVT = '{MaDVT}'")
                     conn.commit()
                 cursor.close()
                 conn.close()
@@ -589,7 +589,8 @@ class MainWindow(QMainWindow):
                     # Xóa hàng trong tableView
                     self.table_model_HH.removeRow(row_number)
                     # Xóa mềm dữ liệu trong SQL Server
-                    cursor.execute(f"UPDATE Hang_Hoa SET XoaMem = 0 WHERE MaHang = '{HangHoa}'")
+                    ThoiGianXoa = datetime.datetime.now()
+                    cursor.execute(f"UPDATE Hang_Hoa SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaHang = '{HangHoa}'")
                     conn.commit()
                 cursor.close()
                 conn.close()
@@ -613,7 +614,8 @@ class MainWindow(QMainWindow):
                     # Xóa hàng trong tableView
                     self.table_model_NCC.removeRow(row_number)
                     # Xóa mềm dữ liệu trong SQL Server
-                    cursor.execute(f"UPDATE Nha_Cung_Cap SET XoaMem = 0 WHERE MaNCC  = '{NCC}'")
+                    ThoiGianXoa = datetime.datetime.now()
+                    cursor.execute(f"UPDATE Nha_Cung_Cap SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaNCC  = '{NCC}'")
                     conn.commit()
                 cursor.close()
                 conn.close()
@@ -637,7 +639,8 @@ class MainWindow(QMainWindow):
                     # Xóa hàng trong tableView
                     self.table_model_BG.removeRow(row_number)
                     # Xóa mềm dữ liệu trong SQL Server
-                    cursor.execute(f"UPDATE Bang_Gia SET XoaMem = 0 WHERE MaBangGia  = '{MaBangGia}'")
+                    ThoiGianXoa = datetime.datetime.now()
+                    cursor.execute(f"UPDATE Bang_Gia SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaBangGia  = '{MaBangGia}'")
                     conn.commit()
                 cursor.close()
                 conn.close()
@@ -662,7 +665,8 @@ class MainWindow(QMainWindow):
                         # Xóa hàng trong tableView
                         self.table_model_DHM.removeRow(row_number)
                         # Xóa mềm dữ liệu trong SQL Server
-                        cursor.execute(f"UPDATE Don_Hang_Mua SET XoaMem = 0 WHERE MaDH  = '{MaDH}'")
+                        ThoiGianXoa = datetime.datetime.now()
+                        cursor.execute(f"UPDATE Don_Hang_Mua SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaDH  = '{MaDH}'")
                         conn.commit()
                     cursor.close()
                     conn.close()
@@ -689,7 +693,8 @@ class MainWindow(QMainWindow):
                         # Xóa hàng trong tableView
                         self.table_model_DHB.removeRow(row_number)
                         # Xóa mềm dữ liệu trong SQL Server
-                        cursor.execute(f"UPDATE Don_Hang_Ban SET XoaMem = 0 WHERE MaDH  = '{MaDH}'")
+                        ThoiGianXoa = datetime.datetime.now()
+                        cursor.execute(f"UPDATE Don_Hang_Ban SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaDH  = '{MaDH}'")
                         conn.commit()
                     cursor.close()
                     conn.close()
@@ -715,7 +720,8 @@ class MainWindow(QMainWindow):
                     # Xóa hàng trong tableView
                     self.table_model_QLNV.removeRow(row_number)
                     # Xóa mềm dữ liệu trong SQL Server
-                    cursor.execute(f"UPDATE Nhan_Vien SET XoaMem = 0 WHERE MaNV  = '{MaNV}'")
+                    ThoiGianXoa = datetime.datetime.now()
+                    cursor.execute(f"UPDATE Nhan_Vien SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaNV  = '{MaNV}'")
                     conn.commit()
                 cursor.close()
                 conn.close()

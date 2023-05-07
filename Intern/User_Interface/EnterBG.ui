@@ -154,13 +154,7 @@ border-radius: 10px;
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="EnterBG_MaHang">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
+         <widget class="QComboBox" name="comboBox_2">
           <property name="styleSheet">
            <string notr="true">
 background-color: rgb(255, 222, 215);
@@ -168,23 +162,11 @@ color: rgb(170, 0, 0);
 border: 1px solid #000000;
 border-radius: 10px;
 </string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="placeholderText">
-           <string>Type here</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="EnterBG_MaDVT">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>30</height>
-           </size>
-          </property>
+         <widget class="QComboBox" name="comboBox">
           <property name="styleSheet">
            <string notr="true">
 background-color: rgb(255, 222, 215);
@@ -192,12 +174,6 @@ color: rgb(170, 0, 0);
 border: 1px solid #000000;
 border-radius: 10px;
 </string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-          <property name="placeholderText">
-           <string>Type here</string>
           </property>
          </widget>
         </item>

@@ -20,10 +20,12 @@ class enterDHB(QDialog):
 class SelectDHClass(object):
 
     def __init__(self):
+        self.Form = None
         self.enter_DHB = enterDHB()
         self.enter_DHM = enterDHM()
 
     def setupUi(self, Form):
+        self.Form = Form
         Form.setObjectName("Form")
         Form.resize(399, 204)
         Form.setMinimumSize(QtCore.QSize(0, 0))
@@ -114,7 +116,7 @@ class SelectDHClass(object):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
         self.pushButton.clicked.connect(self.show_EnterDHM)
-        self.pushButton_2.clicked.connect(self.show_EnterDHM)
+        self.pushButton_2.clicked.connect(self.show_EnterDHB)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
@@ -126,13 +128,17 @@ class SelectDHClass(object):
     def show_EnterDHM(self):
         self.enter_DHM = enterDHM()
         self.enter_DHM.show()
+        self.Form.close()
 
     def show_EnterDHB(self):
         self.enter_DHB = enterDHB()
         self.enter_DHB.show()
+        self.Form.close()
 
     def show(self):
         pass
+
+
 
 
 
