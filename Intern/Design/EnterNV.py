@@ -9,6 +9,7 @@ import pyodbc
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 
 class EnterNVClass(object):
@@ -250,6 +251,13 @@ class EnterNVClass(object):
                 "INSERT INTO Nhan_Vien (MaNV, TenNV, DienThoai, DiaChi, TaiKhoan, Quyen, GhiChu, XoaMem) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                 (MaNV, TenNV, DienThoai, DiaChi, Mail, trangthai, GhiChu, XoaMem))
             conn.commit()
+
+            info_box = QMessageBox()
+            info_box.setIcon(QMessageBox.Information)
+            info_box.setWindowTitle("Thông báo")
+            info_box.setText("Thêm dữ liệu thành công!")
+            info_box.setStandardButtons(QMessageBox.Ok)
+            info_box.exec_()
 
             self.lineEdit.setText("")
             self.lineEdit_2.setText("")

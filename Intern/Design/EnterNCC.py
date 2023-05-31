@@ -11,6 +11,7 @@ import pyodbc
 
 
 from PyQt5 import QtCore, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
 
 
 class EnterNCCClas(object):
@@ -224,6 +225,13 @@ class EnterNCCClas(object):
             cursor.execute("INSERT INTO Nha_Cung_Cap (MaNCC, TenNCC, DienThoai, DiaChi, GhiChu, XoaMem, ThoiGianXoa) VALUES (?, ?, ?, ?, ?, ?, ?)",
                            (ma_ncc, ten_ncc, dien_thoai, diachi, ghichu, XoaMem, ThoiGianXoa))
             conn.commit()
+
+            info_box = QMessageBox()
+            info_box.setIcon(QMessageBox.Information)
+            info_box.setWindowTitle("Thông báo")
+            info_box.setText("Thêm dữ liệu thành công!")
+            info_box.setStandardButtons(QMessageBox.Ok)
+            info_box.exec_()
 
             self.EnterNCC_TenNCC.setText("")
             self.EnterNCC_MNCC.setText("")

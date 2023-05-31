@@ -219,6 +219,13 @@ class EnterDVTClass(object):
                 (ma_dvt, ten_dvt, ghi_chu, XoaMem, ThoiGianXoa))
             conn.commit()
 
+            info_box = QMessageBox()
+            info_box.setIcon(QMessageBox.Information)
+            info_box.setWindowTitle("Thông báo")
+            info_box.setText("Thêm dữ liệu thành công!")
+            info_box.setStandardButtons(QMessageBox.Ok)
+            info_box.exec_()
+
             self.EnterDVT_MaDVT.setText("")
             self.EnterDVT_TenDVT.setText("")
             self.EnterDVT_GhiChu.setText("")

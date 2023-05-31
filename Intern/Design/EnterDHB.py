@@ -1,5 +1,7 @@
 import pyodbc
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox
+
 
 class EnterDHBClass(object):
     def __init__(self):
@@ -180,6 +182,13 @@ class EnterDHBClass(object):
         try:
             cursor.execute("INSERT INTO Don_Hang_Ban (NgayDH, MaNV, MaKH, TongGiaTri, XoaMem, ThoiGianXoa) VALUES (?, ?, ?, ?, ?, ?)", (Date, MaNV, MaKH, Total, XoaMem, ThoiGianXoa))
             conn.commit()
+
+            info_box = QMessageBox()
+            info_box.setIcon(QMessageBox.Information)
+            info_box.setWindowTitle("Thông báo")
+            info_box.setText("Thêm dữ liệu thành công!")
+            info_box.setStandardButtons(QMessageBox.Ok)
+            info_box.exec_()
 
             self.EnterDHB_MaNV.setText("")
             self.EnterDHB_MaKH.setText("")

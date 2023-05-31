@@ -83,6 +83,7 @@ class enterRegister(QDialog):
         cursor.execute("INSERT INTO users (TenNguoiDung, MatKhau, SoDienThoai, Email) VALUES (?, ?, ?, ?)",
                        ten_nguoi_dung, mat_khau, so_dien_thoai, R_email)
         conn.commit()
+
         # Thực hiện insert dữ liệu vào bảng login
         cursor = conn.cursor()
         cursor.execute("INSERT INTO login (UserName, Pass) VALUES (?, ?)", ten_nguoi_dung, mat_khau)
@@ -90,8 +91,6 @@ class enterRegister(QDialog):
 
         # Đóng kết nối
         conn.close()
-
-        from PyQt5.QtWidgets import QMessageBox
 
         # Đóng UI
         QMessageBox.information(self, "Thông báo", "Đăng ký thành công!")
@@ -850,6 +849,7 @@ class Login(QWidget):
         Called = FaceRecognition()
         Face_Checking = Called.run_recognition()
         if Face_Checking:
+            QMessageBox.information(self, "Thông báo", "Đăng nhập thành công")
             self.close()
             main_win = MainWindow()
             main_win.show()
@@ -888,11 +888,29 @@ class Login(QWidget):
         self.cur.execute(sql)
         data = self.cur.fetchall()
         if len(data) > 0:
+
+            # Message Box information login completed!
+            info_box = QMessageBox()
+            info_box.setIcon(QMessageBox.Information)
+            info_box.setWindowTitle("Thông báo")
+            info_box.setText("Đăng nhập thành công!")
+            info_box.setStandardButtons(QMessageBox.Ok)
+            info_box.exec_()
+
+            # Close Login GUI and connect to Main Window
             self.close()
             main_win = MainWindow()
             main_win.show()
         else:
-            self.ui.label.setText('Make Sure You Entered Correctly')
+            error_box = QMessageBox()
+            error_box.setIcon(QMessageBox.Warning)
+            error_box.setWindowTitle("Thông báo")
+            error_box.setText("Đăng nhập thất bại. Vui lòng nhập lại tài khoản và mật khẩu.")
+            error_box.setStandardButtons(QMessageBox.Ok)
+            error_box.exec_()
+
+    def clear_label(self):
+        self.ui.label.setText('Chưa có tài khoản?')
 
 
 # Run file -------------------------------------------------------------------------------------------------------------|

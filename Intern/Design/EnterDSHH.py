@@ -322,6 +322,13 @@ class EnterDSHHClass(object):
                 (Ma_Hang, Ten_Hang, MaDVT, GiaMua, GiaBan, GiaBinhQuan, MaNCC, SoLuong_Ton, NgayCapNhat, GhiChu, TrangThai))
             conn.commit()
 
+            info_box = QMessageBox()
+            info_box.setIcon(QMessageBox.Information)
+            info_box.setWindowTitle("Thông báo")
+            info_box.setText("Thêm dữ liệu thành công!")
+            info_box.setStandardButtons(QMessageBox.Ok)
+            info_box.exec_()
+
             self.EnterDSHH_MH.setText("")
             self.EnterDSHH_TenHang.setText("")
             self.EnterDSHH_MaDVT.setText("")
