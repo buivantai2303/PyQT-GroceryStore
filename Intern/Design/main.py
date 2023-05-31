@@ -13,10 +13,10 @@ from Intern.Design.EnterXacNhan import Xac_Nhan
 from Intern.Design.Login import EnterLoginClass
 from Intern.Design.RegisterForm import EnterRegisterFromClass
 from Intern.Design.SelectDH import SelectDHClass
-from Intern.Functions.Animation.ui_functions import *
 from Intern.Functions.FaceID.recognition import FaceRecognition
 from ui_main import *
 import datetime
+
 
 # Call other class -----------------------------------------------------------------------------------------------------|
 class enterDVT(QDialog):
@@ -129,7 +129,7 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.cursor = None
 
-        # Create Table Model
+        # CREATE TABLE MODEL -------------------------------------------------------------------------------------------|
         self.table_model_DVT = None
         self.table_model_NCC = None
         self.table_model_HH = None
@@ -140,7 +140,7 @@ class MainWindow(QMainWindow):
         self.table_model_QLTK = None
         self.table = None
 
-        # Show data from SQL Server to Table
+        # SHOW DATA FROM SQL SERVER TO TABLE----------------------------------------------------------------------------|
         self.Display_DVT()
         self.Display_NCC()
         self.Display_Hang_Hoa()
@@ -148,7 +148,6 @@ class MainWindow(QMainWindow):
         self.Display_QuanLyTaiKhoan()
         self.Display_NhanVien()
 
-        # Connect to other UI:
         self.enter_dvt = enterDVT()
         self.enter_ncc = enterNCC()
         self.enter_dshh = enterDSHH()
@@ -162,7 +161,6 @@ class MainWindow(QMainWindow):
         self.enter_xacnhan = xacnhan()
 
         # TOGGLE/ MENU: Include Account and main -----------------------------------------------------------------------|
-        self.ui.Btn_Toggle.clicked.connect(lambda: UIFunctions.toggleMenu(self, 250, True))
         self.ui.btn_page_1.clicked.connect(lambda: (self.ui.stackedWidget.setCurrentWidget(self.ui.page_1)))
         self.ui.btn_page_1.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_1))
         self.ui.btn_page_2.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.page_2))
@@ -194,7 +192,7 @@ class MainWindow(QMainWindow):
         # Select DH Page -----------------------------------------------------------------------------------------------|
         self.ui.pushButton_2.clicked.connect(self.enter_selectDH.exec_)
 
-        # Delete Function called ---------------------------------------------------------------------------------------|
+        # Delete buttons Function called -------------------------------------------------------------------------------|
         self.ui.DeleteButtonDSDVT.clicked.connect(self.removeSelectedRow_DVT)
         self.ui.DeleteButtonDSHH.clicked.connect(self.removeSelectedRow_HangHoa)
         self.ui.DeleteButtonDSNCC.clicked.connect(self.removeSelectedRow_NhaCungCap)
@@ -203,7 +201,7 @@ class MainWindow(QMainWindow):
         self.ui.pushButton.clicked.connect(self.removeSelectedRow_DonHangBan)
         self.ui.pushButton_14.clicked.connect(self.removeSelectedRowNhanVien)
 
-    # Radio button used for display DHB/DHM ----------------------------------------------------------------------------|
+        # Radio button used for display DHB/DHM ------------------------------------------------------------------------|
         self.ui.radioButton_3.clicked.connect(self.radio_button_3_clicked)
         self.ui.radioButton_4.clicked.connect(self.radio_button_4_clicked)
 
@@ -221,8 +219,8 @@ class MainWindow(QMainWindow):
             self.ui.radioButton_3.clicked.connect(self.radio_button_3_clicked)
             self.Display_Don_Hang_Ban()
 
-    # Display and Search functions -------------------------------------------------------------------------------------|
-    def searchBar_DVT(self):  # Tìm kiếm dữ liệu
+    # DISPLAY AND SEARCH FUNCTIONS -------------------------------------------------------------------------------------|
+    def searchBar_DVT(self):  # Search data functions
         search_term = self.ui.LineSearchDSDVT.text().strip()
         self.cursor.execute("SELECT STT, MaDVT, TenDVT, GhiChu FROM Don_Vi_Tinh WHERE MaDVT LIKE ?",
                             ('%' + search_term + '%',))
@@ -240,7 +238,7 @@ class MainWindow(QMainWindow):
         for i in range(header.count()):
             header.setSectionResizeMode(i, QtWidgets.QHeaderView.Stretch)
 
-    def Display_DVT(self):  # Xuất dữ liệu ra bảng
+    def Display_DVT(self):  # Display data from SQL to GUI Table
         self.ui.LineSearchDSDVT.textChanged.connect(self.searchBar_DVT)
         self.table_model_DVT = QtGui.QStandardItemModel()
         self.cursor = connect_db().cursor()
@@ -258,13 +256,22 @@ class MainWindow(QMainWindow):
         for i in range(header.count()):
             header.setSectionResizeMode(i, QtWidgets.QHeaderView.Stretch)
 
-    def searchBar_NCC(self):  # Tìm kiếm dữ liệu
+        # Add double-click event
+        self.ui.tableView.doubleClicked.connect(self.editData_DVT)
+
+        # Add clicked event to "Save" button
+        self.ui.Btn_Toggle.clicked.connect(self.saveData_DVT)
+
+    # ------------------------------------------------------------------------------------------------------------------|
+
+    def searchBar_NCC(self):  # Search data functions
         search_term_2 = self.ui.LineSearchDSNCC.text().strip()
         self.cursor.execute(
             "SELECT STT, MaNCC, TenNCC, DienThoai, DiaChi, GhiChu FROM Nha_Cung_Cap WHERE XoaMem = 1 AND TenNCC LIKE ?",
             ('%' + search_term_2 + '%',))
         self.table_model_NCC.clear()
-        self.table_model_NCC.setHorizontalHeaderLabels(['STT', 'Mã Nhà cung cấp', 'Tên Nhà cung cấp', 'Điện thoại', 'Địa chỉ', 'Ghi chú'])
+        self.table_model_NCC.setHorizontalHeaderLabels(
+            ['STT', 'Mã Nhà cung cấp', 'Tên Nhà cung cấp', 'Điện thoại', 'Địa chỉ', 'Ghi chú'])
         for row_number, row_data in enumerate(self.cursor):
             self.table_model_NCC.insertRow(row_number)
             for column_number, data in enumerate(row_data):
@@ -275,7 +282,7 @@ class MainWindow(QMainWindow):
         for i in range(header.count()):
             header.setSectionResizeMode(i, QtWidgets.QHeaderView.Stretch)
 
-    def Display_NCC(self):  # Xuất dữ liệu ra bảng
+    def Display_NCC(self):  # Display data from SQL to GUI Table
         self.ui.LineSearchDSNCC.textChanged.connect(self.searchBar_NCC)
         self.table_model_NCC = QtGui.QStandardItemModel()
         self.cursor = connect_db().cursor()
@@ -288,13 +295,16 @@ class MainWindow(QMainWindow):
                 self.table_model_NCC.setItem(row_number, column_number, item)
 
         self.ui.tableView_2.setModel(self.table_model_NCC)
-        self.table_model_NCC.setHorizontalHeaderLabels(['STT', 'Mã Nhà cung cấp', 'Tên Nhà cung cấp', 'Điện thoại', 'Địa chỉ', 'Ghi chú'])
+        self.table_model_NCC.setHorizontalHeaderLabels(
+            ['STT', 'Mã Nhà cung cấp', 'Tên Nhà cung cấp', 'Điện thoại', 'Địa chỉ', 'Ghi chú'])
         self.ui.tableView_2.resizeColumnsToContents()
         header = self.ui.tableView_2.horizontalHeader()
         for i in range(header.count()):
             header.setSectionResizeMode(i, QtWidgets.QHeaderView.Stretch)
 
-    def searchBar_Hang_Hoa(self):  # Tìm kiếm dữ liệu
+    # ------------------------------------------------------------------------------------------------------------------|
+
+    def searchBar_Hang_Hoa(self):  # Search data functions
         search_term = self.ui.LineSearchDSHH.text().strip()
         self.cursor.execute(
             "SELECT STT, MaHang, TenHang, MaDVT, GiaMua, GiaBan, GiaBinhQUan, MaNCC, SoLuongTon, NgayCapNhat, GhiChu "
@@ -302,7 +312,8 @@ class MainWindow(QMainWindow):
             ('%' + search_term + '%',))
         self.table_model_HH.clear()
         self.table_model_HH.setHorizontalHeaderLabels(
-            ['STT', 'Mã Hàng', 'Tên Hàng', 'Mã Đơn vị tính', 'Giá mua', 'Giá bán', 'Giá bình quân', 'Mã nhà cung cấp', 'Tồn kho',
+            ['STT', 'Mã Hàng', 'Tên Hàng', 'Mã Đơn vị tính', 'Giá mua', 'Giá bán', 'Giá bình quân', 'Mã nhà cung cấp',
+             'Tồn kho',
              'Ngày cập nhật', 'Ghi chú'])
 
         for row_number, row_data in enumerate(self.cursor):
@@ -316,7 +327,7 @@ class MainWindow(QMainWindow):
         for i in range(header.count()):
             header.setSectionResizeMode(i, QtWidgets.QHeaderView.Stretch)
 
-    def Display_Hang_Hoa(self):  # Xuất dữ liệu ra bảng
+    def Display_Hang_Hoa(self):  # Display data from SQL to GUI Table
         self.ui.LineSearchDSHH.textChanged.connect(self.searchBar_Hang_Hoa)
         self.table_model_HH = QtGui.QStandardItemModel()
         self.cursor = connect_db().cursor()
@@ -338,7 +349,9 @@ class MainWindow(QMainWindow):
         for i in range(header.count()):
             header.setSectionResizeMode(i, QtWidgets.QHeaderView.Stretch)
 
-    def searchBar_Bang_Gia(self):  # Tìm kiếm dữ liệu
+    # ------------------------------------------------------------------------------------------------------------------|
+
+    def searchBar_Bang_Gia(self):  ## Search data functions
         search_term = self.ui.lineEdit_5.text().strip()
         self.cursor.execute(
             "SELECT STT, MaBangGia, MaHang, MaDVT, SoLuongDVT, GiaMua, GiaBan FROM Bang_Gia WHERE XoaMem = 1 AND MaHang "
@@ -379,7 +392,9 @@ class MainWindow(QMainWindow):
         for i in range(header.count()):
             header.setSectionResizeMode(i, QtWidgets.QHeaderView.Stretch)
 
-    def searchBar_Don_Hang_Mua(self):  # Tìm kiếm dữ liệu
+    # ------------------------------------------------------------------------------------------------------------------|
+
+    def searchBar_Don_Hang_Mua(self):  # Search data functions
         search_term = self.ui.lineEdit_8.text().strip()
         self.cursor.execute(
             "SELECT STT, MaDH, NgayDH, MaNV, MaNCC, TongGiaTri FROM Don_Hang_Mua WHERE XoaMem = 1 AND MaDH LIKE ?",
@@ -419,7 +434,9 @@ class MainWindow(QMainWindow):
         for i in range(header.count()):
             header.setSectionResizeMode(i, QtWidgets.QHeaderView.Stretch)
 
-    def searchBar_Don_Hang_Ban(self):  # Tìm kiếm dữ liệu
+    # ------------------------------------------------------------------------------------------------------------------|
+
+    def searchBar_Don_Hang_Ban(self):  # Search data functions
         search_term = self.ui.lineEdit_8.text().strip()
         self.cursor.execute(
             "SELECT STT, MaDH, NgayDH, MaNV, MaKH, TongGiaTri FROM Don_Hang_Ban WHERE XoaMem = 1 AND MaDH LIKE ?",
@@ -459,7 +476,9 @@ class MainWindow(QMainWindow):
         for i in range(header.count()):
             header.setSectionResizeMode(i, QtWidgets.QHeaderView.Stretch)
 
-    def SearchBar_QuanLyTaiKhoan(self):  # Tìm kiếm dữ liệu
+    # ------------------------------------------------------------------------------------------------------------------|
+
+    def SearchBar_QuanLyTaiKhoan(self):  # Search data functions
         search_term = self.ui.LineSearchQLTK.text().strip()
         self.cursor.execute(
             "SELECT TenNguoiDung, MatKhau, SoDienThoai, Email FROM users WHERE XoaMem = 1 AND TenNguoiDung LIKE ?",
@@ -498,7 +517,9 @@ class MainWindow(QMainWindow):
         for i in range(header.count()):
             header.setSectionResizeMode(i, QtWidgets.QHeaderView.Stretch)
 
-    def searchBar_Nhan_Vien(self):  # Tìm kiếm dữ liệu
+    # ------------------------------------------------------------------------------------------------------------------|
+
+    def searchBar_Nhan_Vien(self):  # Search data functions
         search_term = self.ui.lineEdit_10.text().strip()
         self.cursor.execute(
             "SELECT STT, MaNV, TenNV, DienThoai, DiaChi, TaiKhoan, Quyen, GhiChu, DaXoa FROM Nhan_Vien WHERE "
@@ -543,7 +564,7 @@ class MainWindow(QMainWindow):
         for i in range(header.count()):
             header.setSectionResizeMode(i, QtWidgets.QHeaderView.Stretch)
 
-    # Remove element in table ------------------------------------------------------------------------------------------|
+    # Remove element in table ----------------------------------------------------------------------------------------------|
 
     def removeSelectedRow_DVT(self):
         selection_model = self.ui.tableView.selectionModel()
@@ -558,17 +579,20 @@ class MainWindow(QMainWindow):
                 for row_number in reversed(row_numbers):
                     if row_number < 0:
                         continue
-                    # Lấy giá trị của cột MaDVT tại hàng được chọn
+                    # Select column
                     selected_index = self.table_model_DVT.index(row_number, 1)
                     MaDVT = selected_index.data()
-                    # Xóa hàng trong tableView
+                    # Delete column tableView
                     self.table_model_DVT.removeRow(row_number)
-                    # Xóa mềm dữ liệu trong SQL Server
+                    # Soft Delete from SQL Server
                     ThoiGianXoa = datetime.datetime.now()
-                    cursor.execute(f"UPDATE Don_Vi_Tinh SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaDVT = '{MaDVT}'")
+                    cursor.execute(
+                        f"UPDATE Don_Vi_Tinh SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaDVT = '{MaDVT}'")
                     conn.commit()
                 cursor.close()
                 conn.close()
+
+    # ------------------------------------------------------------------------------------------------------------------|
 
     def removeSelectedRow_HangHoa(self):
         selection_model = self.ui.tableView_3.selectionModel()
@@ -583,17 +607,20 @@ class MainWindow(QMainWindow):
                 for row_number in reversed(row_numbers):
                     if row_number < 0:
                         continue
-                    # Lấy giá trị của cột MaDVT tại hàng được chọn
+                    # Select column
                     selected_index = self.table_model_HH.index(row_number, 1)
                     HangHoa = selected_index.data()
-                    # Xóa hàng trong tableView
+                    # Delete column tableView
                     self.table_model_HH.removeRow(row_number)
-                    # Xóa mềm dữ liệu trong SQL Server
+                    # Soft Delete from SQL Server
                     ThoiGianXoa = datetime.datetime.now()
-                    cursor.execute(f"UPDATE Hang_Hoa SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaHang = '{HangHoa}'")
+                    cursor.execute(
+                        f"UPDATE Hang_Hoa SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaHang = '{HangHoa}'")
                     conn.commit()
                 cursor.close()
                 conn.close()
+
+    # ------------------------------------------------------------------------------------------------------------------|
 
     def removeSelectedRow_NhaCungCap(self):
         selection_model = self.ui.tableView_2.selectionModel()
@@ -608,17 +635,20 @@ class MainWindow(QMainWindow):
                 for row_number in reversed(row_numbers):
                     if row_number < 0:
                         continue
-                    # Lấy giá trị của cột MaDVT tại hàng được chọn
+                    # Select column
                     selected_index = self.table_model_NCC.index(row_number, 1)
                     NCC = selected_index.data()
-                    # Xóa hàng trong tableView
+                    # Delete column tableView
                     self.table_model_NCC.removeRow(row_number)
-                    # Xóa mềm dữ liệu trong SQL Server
+                    # Soft Delete from SQL Server
                     ThoiGianXoa = datetime.datetime.now()
-                    cursor.execute(f"UPDATE Nha_Cung_Cap SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaNCC  = '{NCC}'")
+                    cursor.execute(
+                        f"UPDATE Nha_Cung_Cap SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaNCC  = '{NCC}'")
                     conn.commit()
                 cursor.close()
                 conn.close()
+
+    # ------------------------------------------------------------------------------------------------------------------|
 
     def removeSelectedRow_BangGia(self):
         selection_model = self.ui.tableView_4.selectionModel()
@@ -633,17 +663,20 @@ class MainWindow(QMainWindow):
                 for row_number in reversed(row_numbers):
                     if row_number < 0:
                         continue
-                    # Lấy giá trị của cột MaDVT tại hàng được chọn
+                    # Select column
                     selected_index = self.table_model_BG.index(row_number, 1)
                     MaBangGia = selected_index.data()
-                    # Xóa hàng trong tableView
+                    # Delete column tableView
                     self.table_model_BG.removeRow(row_number)
-                    # Xóa mềm dữ liệu trong SQL Server
+                    # Soft Delete from SQL Server
                     ThoiGianXoa = datetime.datetime.now()
-                    cursor.execute(f"UPDATE Bang_Gia SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaBangGia  = '{MaBangGia}'")
+                    cursor.execute(
+                        f"UPDATE Bang_Gia SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaBangGia  = '{MaBangGia}'")
                     conn.commit()
                 cursor.close()
                 conn.close()
+
+    # ------------------------------------------------------------------------------------------------------------------|
 
     def removeSelectedRow_DonHangMUa(self):
         if self.ui.radioButton_3.isChecked():
@@ -657,21 +690,24 @@ class MainWindow(QMainWindow):
                     conn = connect_db()
                     cursor = conn.cursor()
                     for row_number in reversed(row_numbers):
-                        # Lấy giá trị của cột MaDVT tại hàng được chọn
+                        # Select column
                         if row_number < 0:
                             continue
                         selected_index = self.table_model_DHM.index(row_number, 1)
                         MaDH = selected_index.data()
-                        # Xóa hàng trong tableView
+                        # Delete column tableView
                         self.table_model_DHM.removeRow(row_number)
-                        # Xóa mềm dữ liệu trong SQL Server
+                        # Soft Delete from SQL Server
                         ThoiGianXoa = datetime.datetime.now()
-                        cursor.execute(f"UPDATE Don_Hang_Mua SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaDH  = '{MaDH}'")
+                        cursor.execute(
+                            f"UPDATE Don_Hang_Mua SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaDH  = '{MaDH}'")
                         conn.commit()
                     cursor.close()
                     conn.close()
             else:
                 QMessageBox.warning(self, 'Thông báo', 'Chưa chọn hàng để xóa.')
+
+    # ------------------------------------------------------------------------------------------------------------------|
 
     def removeSelectedRow_DonHangBan(self):
         if self.ui.radioButton_4.isChecked():
@@ -685,16 +721,17 @@ class MainWindow(QMainWindow):
                     conn = connect_db()
                     cursor = conn.cursor()
                     for row_number in reversed(row_numbers):
-                        # Lấy giá trị của cột MaDVT tại hàng được chọn
+                        # Select column
                         if row_number < 0:
                             continue
                         selected_index = self.table_model_DHB.index(row_number, 1)
                         MaDH = selected_index.data()
-                        # Xóa hàng trong tableView
+                        # Delete column tableView
                         self.table_model_DHB.removeRow(row_number)
-                        # Xóa mềm dữ liệu trong SQL Server
+                        # Soft Delete from SQL Server
                         ThoiGianXoa = datetime.datetime.now()
-                        cursor.execute(f"UPDATE Don_Hang_Ban SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaDH  = '{MaDH}'")
+                        cursor.execute(
+                            f"UPDATE Don_Hang_Ban SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaDH  = '{MaDH}'")
                         conn.commit()
                     cursor.close()
                     conn.close()
@@ -714,17 +751,69 @@ class MainWindow(QMainWindow):
                 for row_number in reversed(row_numbers):
                     if row_number < 0:
                         continue
-                    # Lấy giá trị của cột MaDVT tại hàng được chọn
+                    # Select column
                     selected_index = self.table_model_QLNV.index(row_number, 1)
                     MaNV = selected_index.data()
                     # Xóa hàng trong tableView
                     self.table_model_QLNV.removeRow(row_number)
-                    # Xóa mềm dữ liệu trong SQL Server
+                    # Soft Delete from SQL Server
                     ThoiGianXoa = datetime.datetime.now()
-                    cursor.execute(f"UPDATE Nhan_Vien SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaNV  = '{MaNV}'")
+                    cursor.execute(
+                        f"UPDATE Nhan_Vien SET XoaMem = 0, ThoiGianXoa = '{ThoiGianXoa}' WHERE MaNV  = '{MaNV}'")
                     conn.commit()
                 cursor.close()
                 conn.close()
+
+    # Update functions -------------------------------------------------------------------------------------------------|
+
+    def editData_DVT(self, index):
+        # Lấy dữ liệu từ index
+        row_DVT = index.row()
+        column_DVT = index.column()
+        item_DVT = self.table_model_DVT.item(row_DVT, column_DVT)
+
+        # Set the current field to a QLineEdit to edit
+        line_edit_DVT = QtWidgets.QLineEdit(item_DVT.text())
+        self.ui.tableView.setIndexWidget(index, line_edit_DVT)
+
+        # Catch the Enter event to save data
+        line_edit_DVT.returnPressed.connect(lambda: self.updateData_DVT(line_edit_DVT, item_DVT))
+
+        # Catch the out-of-focus event from the cell to update the data and remove the edit cursor
+        line_edit_DVT.editingFinished.connect(lambda: self.updateData_DVT(line_edit_DVT, item_DVT))
+        line_edit_DVT.focusOutEvent = lambda event: self.updateData_DVT(line_edit_DVT, item_DVT) or super(
+            QtWidgets.QLineEdit,
+            line_edit_DVT).focusOutEvent(
+            event)
+
+    def updateData_DVT(self, line_edit, item_DVT):
+        # Get data from QLineEdit and update to item and table_model_DVT
+        new_data = line_edit.text()
+        item_DVT.setText(new_data)
+        self.table_model_DVT.setItem(item_DVT.row(), item_DVT.column(), item_DVT)
+
+        # Remove edit cursor
+        line_edit.clearFocus()
+
+    def saveData_DVT(self):
+        # Save data from table_model_DVT into database
+        for row in range(self.table_model_DVT.rowCount()):
+            stt_item = self.table_model_DVT.item(row, 0)
+            madvt_item = self.table_model_DVT.item(row, 1)
+            tendvt_item = self.table_model_DVT.item(row, 2)
+            ghichu_item = self.table_model_DVT.item(row, 3)
+
+            stt = stt_item.text()
+            madvt = madvt_item.text()
+            tendvt = tendvt_item.text()
+            ghichu = ghichu_item.text()
+
+            # Do save data to the database (use the MaDVT to identify the record to update)
+            self.cursor.execute("UPDATE Don_Vi_Tinh SET MaDVT = ?, TenDVT = ?, GhiChu = ? WHERE STT = ?",
+                                (madvt, tendvt, ghichu, stt))
+            connect_db().commit()
+
+        QtWidgets.QMessageBox.information(self, "Thông báo", "Dữ liệu đã được lưu thành công.")
 
     # Show Connect Button ----------------------------------------------------------------------------------------------|
 
@@ -756,18 +845,20 @@ class MainWindow(QMainWindow):
 # Login ----------------------------------------------------------------------------------------------------------------|
 
 class Login(QWidget):
-
+    # Face Recognition Function
     def Face_reg(self):
-        dd = FaceRecognition()
-        Chek = dd.run_recognition()
-        if Chek:
+        Called = FaceRecognition()
+        Face_Checking = Called.run_recognition()
+        if Face_Checking:
             self.close()
             main_win = MainWindow()
             main_win.show()
 
+    # Regis Function
     def show_enter_register(self):
         self.enter_register.show()
 
+    # Call
     def __init__(self):
         super(Login, self).__init__()
         self.cur = None
@@ -775,17 +866,24 @@ class Login(QWidget):
         self.ui = EnterLoginClass()
         self.ui.setupUi(self)
         self.enter_register = enterRegister()
+
+        # If LoginButton clicked, The system will verify the information
         self.ui.LoginButton.clicked.connect(self.Handel_Login)
+
+        # If FaceIDButton clicked, FaceID GUI will appear
         self.ui.FaceIDButton.clicked.connect(self.Face_reg)
+
+        # If RegisterButton clicked, Regis GUI will appear
         self.ui.RegisterButton.clicked.connect(self.show_enter_register)
 
     def Handel_Login(self):
+        # Connect Database
         self.conn = connect_db()
         self.cur = self.conn.cursor()
 
+        # SQL Query Select data from SQL Server to verify
         admin_name = self.ui.LineUserName.text()
         admin_password = self.ui.LinePassword.text()
-
         sql = f"SELECT TenNguoiDung, MatKhau FROM users WHERE TenNguoiDung='{admin_name}' AND MatKhau='{admin_password}'"
         self.cur.execute(sql)
         data = self.cur.fetchall()
@@ -801,6 +899,6 @@ class Login(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    login_win = Login()
-    login_win.show()
+    RUN = Login()
+    RUN.show()
     sys.exit(app.exec())

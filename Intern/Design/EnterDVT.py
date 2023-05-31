@@ -177,7 +177,7 @@ class EnterDVTClass(object):
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
         self.EnterButtonDSDVT.clicked.connect(self.add_data_to_db)  # Khi nhấn nút Thêm (EnterButtonDSDVT)
-        self.ExitButtonDSDVT.clicked.connect(self.close)  # Khi nhấn nút Hủy (CancelButtonDSDVT)
+        self.ExitButtonDSDVT.clicked.connect(self.CloseTab)  # Khi nhấn nút Hủy (CancelButtonDSDVT)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
@@ -218,6 +218,11 @@ class EnterDVTClass(object):
                 "INSERT INTO Don_Vi_Tinh (MaDVT, TenDVT, GhiChu, XoaMem, ThoiGianXoa) VALUES (?, ?, ?, ?, ?)",
                 (ma_dvt, ten_dvt, ghi_chu, XoaMem, ThoiGianXoa))
             conn.commit()
+
+            self.EnterDVT_MaDVT.setText("")
+            self.EnterDVT_TenDVT.setText("")
+            self.EnterDVT_GhiChu.setText("")
+
             self.Dialog.close()
         except Exception as e:
             conn.rollback()
@@ -227,3 +232,6 @@ class EnterDVTClass(object):
 
     def close(self):
         pass
+
+    def CloseTab(self):
+        self.Dialog.close()

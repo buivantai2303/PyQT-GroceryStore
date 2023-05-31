@@ -180,6 +180,12 @@ class EnterDHBClass(object):
         try:
             cursor.execute("INSERT INTO Don_Hang_Ban (NgayDH, MaNV, MaKH, TongGiaTri, XoaMem, ThoiGianXoa) VALUES (?, ?, ?, ?, ?, ?)", (Date, MaNV, MaKH, Total, XoaMem, ThoiGianXoa))
             conn.commit()
+
+            self.EnterDHB_MaNV.setText("")
+            self.EnterDHB_MaKH.setText("")
+            self.EnterDHB_Total.setText("")
+            self.EnterDHB_NgayDH.setText("")
+
         except Exception as e:
             conn.rollback()
             # Handle the exception as needed

@@ -68,7 +68,7 @@ class FaceRegister:
                                 tolerance = 20  # Tolerance in pixels
 
                                 if abs(eye_center - screen_center) <= tolerance:
-                                    name = input('Enter your name: ')
+                                    name = input('Enter your name:  ')
                                     save_face_image(frame[top:bottom, left:right], name)
                                     known_faces.append(face_encoding[0])
                                     known_names.append(name)

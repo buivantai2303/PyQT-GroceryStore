@@ -321,6 +321,19 @@ class EnterDSHHClass(object):
                 "INSERT INTO Hang_Hoa (MaHang, TenHang, MaDVT, GiaMua, GiaBan, GiaBinhQuan, MaNCC, SoLuongTon, NgayCapNhat, GhiChu, DaXoa) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
                 (Ma_Hang, Ten_Hang, MaDVT, GiaMua, GiaBan, GiaBinhQuan, MaNCC, SoLuong_Ton, NgayCapNhat, GhiChu, TrangThai))
             conn.commit()
+
+            self.EnterDSHH_MH.setText("")
+            self.EnterDSHH_TenHang.setText("")
+            self.EnterDSHH_MaDVT.setText("")
+            self.EnterDSHH_GiaMua.setText("")
+            self.EnterDSHH_GiaBan.setText("")
+            self.EnterDSHH_GiaBinhQuan.setText("")
+            self.EnterDSHH_MaNCC.setText("")
+            self.EnterDSHH_SoLuonTon.setText("")
+            self.EnterDSHH_NgayCapNhat.setText("")
+            self.EnterDSHH_GhiChu.setText("")
+            self.EnterDSHH_TrangThai.setText("")
+
         except Exception as e:
             conn.rollback()
         finally:

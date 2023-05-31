@@ -224,6 +224,12 @@ class EnterNCCClas(object):
             cursor.execute("INSERT INTO Nha_Cung_Cap (MaNCC, TenNCC, DienThoai, DiaChi, GhiChu, XoaMem, ThoiGianXoa) VALUES (?, ?, ?, ?, ?, ?, ?)",
                            (ma_ncc, ten_ncc, dien_thoai, diachi, ghichu, XoaMem, ThoiGianXoa))
             conn.commit()
+
+            self.EnterNCC_TenNCC.setText("")
+            self.EnterNCC_MNCC.setText("")
+            self.EnterNCC_SDT.setText("")
+            self.EnterNCC_DiaChi.setText("")
+
         except Exception as e:
             conn.rollback()
             # Handle the exception as needed

@@ -250,6 +250,16 @@ class EnterNVClass(object):
                 "INSERT INTO Nhan_Vien (MaNV, TenNV, DienThoai, DiaChi, TaiKhoan, Quyen, GhiChu, XoaMem) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                 (MaNV, TenNV, DienThoai, DiaChi, Mail, trangthai, GhiChu, XoaMem))
             conn.commit()
+
+            self.lineEdit.setText("")
+            self.lineEdit_2.setText("")
+            self.lineEdit_3.setText("")
+            self.lineEdit_4.setText("")
+            self.lineEdit_5.setText("")
+            self.lineEdit_6.setText("")
+            self.comboBox_2.setText("")
+            self.comboBox.setText("")
+
         except Exception as e:
             conn.rollback()
             # Handle the exception as needed

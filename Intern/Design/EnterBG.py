@@ -266,6 +266,15 @@ class EnterBGCLass(object):
                 "INSERT INTO Bang_Gia (MaBangGia, MaHang, MaDVT, SoLuongDVT, GiaMua, GiaBan, DaXoa, XoaMem) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                 (MaBG, MaHang, MaDVT, SoLuong, GiaNhap, GiaBan, trangthai, XoaMem))
             conn.commit()
+
+            self.EnterBG_MBG.setText("")
+            self.EnterBG_TrangThai.setText("")
+            self.EnterBG_SoLuong.setText("")
+            self.EnterBG_GiaMua.setText("")
+            self.EnterBG_GiaBan.setText("")
+            self.comboBox.setText("")
+            self.comboBox_2.setText("")
+
         except Exception as e:
             conn.rollback()
             # Handle the exception as needed

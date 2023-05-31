@@ -1,5 +1,5 @@
 import pyodbc
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore, QtWidgets
 
 class EnterDHMClass(object):
     def __init__(self):
@@ -186,6 +186,12 @@ class EnterDHMClass(object):
             cursor.execute("INSERT INTO Don_Hang_Mua (NgayDH, MaNV, MaNCC, TongGiaTri, XoaMem) VALUES (?, ?, ?, ?, ?)",
                            (Date, MaNV, NCC, Total, XoaMem))
             conn.commit()
+
+            self.EnterDHM_NCC.setText("")
+            self.EnterDHM_Total.setText("")
+            self.EnterDHM_NDH.setText("")
+            self.EnterDHM_MNV.setText("")
+
         except Exception as e:
             conn.rollback()
             # Handle the exception as needed

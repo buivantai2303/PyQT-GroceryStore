@@ -214,6 +214,6 @@ class EnterRegisterFromClass(object):
         self.Password_Register.setPlaceholderText(_translate("RegisterFrom", "Type here"))
         self.PhoneNumber.setPlaceholderText(_translate("RegisterFrom", "Type here"))
         self.EmailRegister.setPlaceholderText(_translate("RegisterFrom", "Type here"))
-        self.label_6.setText(_translate("RegisterFrom", "Chọn \"Đăng ký\" để thực hiện đăng ký"))
+        self.label_6.setText(_translate("RegisterFrom", "    Chọn \"Đăng ký\" để thực hiện đăng ký"))
         self.SaveRegister.setText(_translate("RegisterFrom", "Đăng ký"))
 

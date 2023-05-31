@@ -10,6 +10,7 @@ class UIFunctions(MainWindow):
         self.animation = None
 
     def toggleMenu(self, maxWidth, enable):
+
         if enable:
 
             # GET WIDTH
@@ -30,8 +31,3 @@ class UIFunctions(MainWindow):
             self.animation.setEndValue(widthExtended)
             self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
             self.animation.start()
-
-
-
-
-
