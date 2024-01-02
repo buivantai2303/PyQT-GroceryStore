@@ -46,7 +46,7 @@ Sales management application for a temporary store, featuring comprehensive func
   - Navigate through the intuitive GUI to manage employees, goods, suppliers, and orders.
   - Utilize the search functionality for quick and efficient data retrieval.
   - Soft delete features enhance data management capabilities.
-  - 
+
 ## Technologies Used
   - Frontend: PyQt
   - Backend: Python
