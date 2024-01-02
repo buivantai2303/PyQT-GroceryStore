@@ -40,7 +40,7 @@ Sales management application for a temporary store, featuring comprehensive func
    ```bash
    python main.py
 
-   
+
 ## Usage
   - Upon launching the application, use the Face-based login system for secure access.
   - Navigate through the intuitive GUI to manage employees, goods, suppliers, and orders.
