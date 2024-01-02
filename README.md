@@ -11,7 +11,6 @@ Sales management application for a temporary store, featuring comprehensive func
 - [Usage](#usage)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Features
 
