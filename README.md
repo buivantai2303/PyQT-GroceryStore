@@ -34,6 +34,7 @@ Sales management application for a temporary store, featuring comprehensive func
 
 2. Navigate to the project directory:
   ```bash
+
   cd grocery-store-management-pyUI
 3. Run the application:
    ```bash
