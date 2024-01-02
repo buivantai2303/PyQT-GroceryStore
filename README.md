@@ -33,10 +33,10 @@ Sales management application for a temporary store, featuring comprehensive func
    git clone https://github.com/buivantai2303/grocery-store-management-pyUI.git
 
 2. Navigate to the project directory:
-  '''bash
+  ```bash
   cd grocery-store-management-pyUI
 3. Run the application:
-   ''' bash
+   ```bash
    python main.py
 
 ## Usage
