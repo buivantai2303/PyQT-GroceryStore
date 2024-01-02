@@ -36,13 +36,13 @@ Sales management application for a temporary store, featuring comprehensive func
 2. Navigate to the project directory:
   ```bash
 
-
+   
   cd grocery-store-management-pyUI
 3. Run the application:
    ```bash
    python main.py
 
-
+   
 ## Usage
   - Upon launching the application, use the Face-based login system for secure access.
   - Navigate through the intuitive GUI to manage employees, goods, suppliers, and orders.
