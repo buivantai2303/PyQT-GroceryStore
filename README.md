@@ -1,5 +1,3 @@
-# https://github.com/buivantai2303/grocery-store-pyUI
-
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 This is an individual course, containing sample exercises and the process of building a Back-end platform from basic to advanced.
